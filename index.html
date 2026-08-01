@@ -81,6 +81,7 @@
     border-radius: 4px;
     transition: background 0.2s, color 0.35s;
     white-space: nowrap; letter-spacing: 0.3px;
+    position: relative;
   }
   .nav.scrolled .links a { color: var(--gray-600); }
   .nav .links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
@@ -117,23 +118,21 @@
   .nav .links .has-dropdown:hover > a::after { transform: translateY(-25%) rotate(-135deg); }
   .nav .links .dropdown-menu {
     position: absolute; top: 100%; left: 50%;
-    transform: translateX(-50%) translateY(8px);
+    transform: translateX(-50%);
     min-width: 200px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
     opacity: 0; visibility: hidden;
-    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    transition: opacity 0.15s, visibility 0.15s;
     padding: 8px 0;
     z-index: 1001;
   }
   .nav .links .has-dropdown:hover .dropdown-menu {
     opacity: 1; visibility: visible;
-    transform: translateX(-50%) translateY(4px);
   }
   .nav .links .dropdown-menu.open {
     opacity: 1; visibility: visible;
-    transform: translateX(-50%) translateY(4px);
   }
   .nav .links .dropdown-menu a {
     display: flex; align-items: center; gap: 0;
@@ -307,10 +306,6 @@
   }
 
   /* Lightbox */
-  .lightbox { display: none; position: fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); cursor:pointer; }
-  .lightbox.active { display:flex; align-items:center; justify-content:center; }
-  .lightbox img { max-width:92vw; max-height:92vh; border-radius:8px; box-shadow:0 8px 60px rgba(0,0,0,0.5); }
-  .lightbox .close { position:absolute; top:24px; right:32px; color:#fff; font-size:36px; cursor:pointer; z-index:10000; }
 
   /* ═══════════ CTA ═══════════ */
   .cta-section {
@@ -544,18 +539,23 @@
     body { zoom: 1; }
     .hamburger { display: flex; margin-left: auto; }
     .nav .wrap { padding: 0 16px; height: 60px; }
-    .nav .links {
-      display: none;
-      position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
+    .nav.open {
       background: rgba(255,255,255,0.98);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+    }
+    .nav .links {
+      display: none;
+      position: absolute; top: 60px; left: 0; right: 0;
+      background: rgba(255,255,255,0.98);
       flex-direction: column;
-      padding: 8px 0 40px;
+      padding: 8px 0 16px;
+      max-height: calc(100vh - 140px);
       overflow-y: auto;
-      z-index: 1099;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
     .nav.open .links { display: flex; }
+    .nav.open .wrap { height: 60px; }
     .nav .links li { width: 100%; }
     .nav .links > li > a {
       display: block; padding: 14px 28px;
@@ -665,15 +665,294 @@
     }
     .nav .links a, .footer .col a { display: flex; align-items: center; }
   }
+
+  /* ═══════════ SKELETON SCREEN ═══════════ */
+  #skeleton {
+    position: fixed; inset: 0; z-index: 9999; background: #fff;
+    padding: 0; overflow: hidden; transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  #skeleton.hide { opacity: 0; pointer-events: none; }
+  .sk-topbar {
+    height: 64px; background: #f0f0f0; margin-bottom: 0;
+    animation: sk-pulse 1.6s ease-in-out infinite;
+  }
+  .sk-hero {
+    height: clamp(300px, 60vh, 600px); background: #e8e8e8;
+    animation: sk-pulse 1.6s ease-in-out 0.1s infinite;
+  }
+  .sk-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; padding: 48px 40px; max-width: 1200px; margin: 0 auto;
+  }
+  .sk-card {
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .sk-card-img {
+    height: 200px; background: #e8e8e8;
+    animation: sk-pulse 1.6s ease-in-out 0.2s infinite;
+  }
+  .sk-line {
+    height: 14px; background: #f0f0f0; border-radius: 6px;
+    margin: 16px 16px 0; animation: sk-pulse 1.6s ease-in-out 0.3s infinite;
+  }
+  .sk-line.w60 { width: 60%; }
+  .sk-line.w80 { width: 80%; margin-bottom: 24px; }
+  @keyframes sk-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @media (max-width: 768px) {
+    .sk-cards { grid-template-columns: 1fr; padding: 32px 20px; gap: 16px; }
+    .sk-card-img { height: 160px; }
+  }
+
+  /* ═══════════ BACK TO TOP ═══════════ */
+  #back-to-top {
+    position: fixed; bottom: 40px; right: 30px; z-index: 9990;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--orange); color: #fff; border: none; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(225,107,36,0.35);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+  }
+  #back-to-top.show {
+    opacity: 1; transform: translateY(0); pointer-events: auto;
+  }
+  #back-to-top:hover {
+    background: var(--orange-hover); transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(225,107,36,0.45);
+  }
+
+  /* ═══════════ MOBILE CTA ═══════════ */
+  #mobile-cta { display: none; }
+  @media (max-width: 768px) {
+    #mobile-cta {
+      display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9980;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 10px 20px; box-shadow: 0 -2px 16px rgba(0,0,0,0.1);
+    }
+    #mobile-cta-btn {
+      width: 100%; padding: 14px 0; border: none; border-radius: 8px;
+      background: var(--orange); color: #fff; font-size: 16px; font-weight: 600;
+      cursor: pointer; letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    #mobile-cta-btn:hover { background: var(--orange-hover); }
+    #back-to-top { bottom: 80px; right: 20px; width: 42px; height: 42px; }
+  }
+
+  /* ═══════════ LAZY IMAGE ═══════════ */
+  img.lazy { opacity: 0; transition: opacity 0.4s ease; }
+  img.lazy.loaded { opacity: 1; }
+
+  /* ═══════════ UPGRADE 1: COUNTER ANIMATION ═══════════ */
+  .stat-item .num { transition: none; }
+  .stat-item.counting .num { animation: countPulse 0.6s ease-out; }
+  @keyframes countPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); color: #f59e0b; }
+    100% { transform: scale(1); }
+  }
+
+  /* ═══════════ UPGRADE 2: CLIENT LOGO WALL ═══════════ */
+  .logo-wall-section { padding: 10px 0 36px; }
+  .logo-wall-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .logo-wall-item {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 28px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    min-height: 110px;
+  }
+  .logo-wall-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    border-color: var(--orange);
+  }
+  .logo-wall-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700; color: #fff;
+  }
+  .logo-wall-name { font-size: 12px; color: #6b7280; text-align: center; font-weight: 500; letter-spacing: 0.3px; }
+
+  /* ═══════════ UPGRADE 3: ENHANCED LIGHTBOX ═══════════ */
+  .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+  .lightbox.active { opacity: 1; pointer-events: auto; }
+  .lightbox .close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; cursor: pointer; z-index: 10; line-height: 1; transition: color 0.2s; }
+  .lightbox .close:hover { color: var(--orange); }
+  .lightbox .lb-content { position: relative; display: flex; align-items: center; justify-content: center; max-width: 92vw; max-height: 90vh; }
+  .lightbox .lb-content img { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 6px; }
+  @media (max-width: 768px) { }
+
+  /* ═══════════ UPGRADE 4: MICRO-INTERACTIONS ═══════════ */
+
+  /* 4b: Card hover float + shadow */
+  .prod-card.hover-float { transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease; }
+  .prod-card.hover-float:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+
+  /* 4c: Link hover underline slide-in */
+  .link-slide { position: relative; text-decoration: none; }
+  .link-slide::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--orange); transition: width 0.3s ease; }
+  .link-slide:hover::after { width: 100%; }
+
+  /* 4d: Page fade transition */
+  .page:target { animation: pageFadeIn 0.35s ease; }
+  @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* 4e: Input focus elastic scale */
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+    transform: scale(1.015);
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(225,107,36,0.15);
+    transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), border-color 0.25s, box-shadow 0.25s;
+  }
+
+  /* 4f: Hero title char fade-in */
+  .hero h1 .char { display: inline-block; opacity: 0; transform: translateY(18px); animation: charFadeIn 0.5s ease forwards; }
+  @keyframes charFadeIn { to { opacity: 1; transform: translateY(0); } }
+
+  /* 4g: Footer links underline slide */
+  .footer .col a { position: relative; text-decoration: none; }
+  .footer .col a::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: var(--orange); transition: width 0.25s ease; }
+  .footer .col a:hover::after { width: 100%; }
+
+  /* ═══════════ HERO VIDEO BACKGROUND ═══════════ */
+  .hero-video {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  @supports not (object-fit: cover) {
+    .hero-video { width: auto; height: auto; min-width: 100%; min-height: 100%; }
+  }
+
+  /* ═══════════ 3D PRODUCT SHOWCASE ═══════════ */
+  .td-section {
+    padding: 12px 0 28px;
+  }
+  .td-wrapper {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    display: flex; justify-content: center;
+  }
+  .td-frame {
+    position: relative;
+    width: 100%; max-width: 760px;
+    height: 460px;
+    background: linear-gradient(135deg, #f9fafb 0%, #eef1f5 100%);
+    border: 1px solid var(--gray-200);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 36px rgba(0,0,0,0.07), 0 2px 10px rgba(0,0,0,0.04);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .td-frame:hover {
+    border-color: var(--orange);
+    box-shadow: 0 12px 44px rgba(225,107,36,0.1), 0 2px 12px rgba(0,0,0,0.05);
+  }
+  #td-container {
+    width: 100%; height: 100%;
+  }
+  #td-container canvas {
+    display: block;
+  }
+  .td-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--orange); color: #fff;
+    font-size: 11px; font-weight: 600; letter-spacing: 1px;
+    padding: 4px 12px; border-radius: 20px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  @media (max-width: 768px) {
+    .td-wrapper { padding: 0 16px; }
+    .td-frame { height: 340px; border-radius: 12px; }
+    .td-badge { top: 10px; right: 10px; font-size: 10px; padding: 3px 10px; }
+  }
+
 </style>
+<!-- ═══════════ JSON-LD Structured Data (Organization) ═══════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "弘欧科技 | HONDVO Technology (Dongguan) Co., Ltd.",
+  "alternateName": "HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.",
+  "url": "https://www.hondvo.com",
+  "logo": "https://www.hondvo.com/images/logo.png",
+  "telephone": "+86-769-xxxxxxx",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Shenzhen",
+    "addressRegion": "Guangdong",
+    "streetAddress": "深圳市光明区"
+  },
+  "sameAs": [
+    "https://www.hondvo.com/?lang=zh",
+    "https://www.hondvo.com/?lang=en",
+    "https://www.hondvo.com/?lang=de",
+    "https://www.hondvo.com/?lang=ru",
+    "https://www.hondvo.com/?lang=fr",
+    "https://www.hondvo.com/?lang=ja",
+    "https://www.hondvo.com/?lang=ko",
+    "https://www.hondvo.com/?lang=es"
+  ]
+}
+</script>
+
+<!-- ═══════════ Hreflang Tags (8-language SPA) ═══════════ -->
+<link rel="alternate" hreflang="zh" href="https://www.hondvo.com/?lang=zh">
+<link rel="alternate" hreflang="en" href="https://www.hondvo.com/?lang=en">
+<link rel="alternate" hreflang="de" href="https://www.hondvo.com/?lang=de">
+<link rel="alternate" hreflang="ru" href="https://www.hondvo.com/?lang=ru">
+<link rel="alternate" hreflang="fr" href="https://www.hondvo.com/?lang=fr">
+<link rel="alternate" hreflang="ja" href="https://www.hondvo.com/?lang=ja">
+<link rel="alternate" hreflang="ko" href="https://www.hondvo.com/?lang=ko">
+<link rel="alternate" hreflang="es" href="https://www.hondvo.com/?lang=es">
+<link rel="alternate" hreflang="x-default" href="https://www.hondvo.com/">
+
+<!-- ═══════════ Three.js CDN ═══════════ -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 </head>
 <body>
+
+<div id="skeleton">
+  <div class="sk-topbar"></div>
+  <div class="sk-hero"></div>
+  <div class="sk-cards">
+    <div class="sk-card"><div class="sk-card-img"></div><div class="sk-line w60"></div><div class="sk-line w80"></div></div>
+    <div class="sk-card"><div class="sk-card-img"></div><div class="sk-line w60"></div><div class="sk-line w80"></div></div>
+    <div class="sk-card"><div class="sk-card-img"></div><div class="sk-line w60"></div><div class="sk-line w80"></div></div>
+  </div>
+</div>
+
 
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="nav">
   <div class="wrap">
     <a href="#page-home" class="logo">
-      <img src="images/logo.png" alt="弘欧"><span class="logo-text">HONDVO</span>
+      <img class="lazy" data-src="images/logo.png" alt="弘欧" loading="lazy"><span class="logo-text">HONDVO</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
     <ul class="links">
@@ -704,9 +983,12 @@
 <!-- ═══════════ PAGE: 首页 ═══════════ -->
 <div class="page" id="page-home">
   <div class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="">
+      <source src="images/hero-bg.mp4" type="video/mp4">
+    </video>
     <div class="hero-slides">
-      <div class="hero-slide active" style="background-image:url(images/hero_slide_1.jpg)"></div>
-      <div class="hero-slide" style="background-image:url(images/hero_slide_2.jpg)"></div>
+      <div class="hero-slide active" data-bg="images/hero_slide_1.jpg" style=""></div>
+      <div class="hero-slide" data-bg="images/hero_slide_2.jpg" style=""></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-indicators">
@@ -728,11 +1010,37 @@
     <div class="stat-item reveal"><div class="num">2</div><div data-lang-key="stat_cleanrooms" class="label">Cleanrooms</div></div>
   </div>
 
+  <!-- ═══════════ CLIENT LOGO WALL ═══════════ -->
+  <div class="logo-wall-section reveal">
+    <div class="sec-header reveal" style="padding-top:20px;"><h2 data-lang-key="logo_wall_title">Trusted Partners</h2><div class="line"></div><p data-lang-key="logo_wall_sub">Global medical device brands that trust our precision manufacturing</p></div>
+    <div class="logo-wall-grid">
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#1e40af;">M</div><span class="logo-wall-name">Medtronic</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#0369a1;">B</div><span class="logo-wall-name">Baxter</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#b91c1c;">B|B</div><span class="logo-wall-name">B. Braun</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#0d9488;">F</div><span class="logo-wall-name">Fresenius</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#7c3aed;">J&J</div><span class="logo-wall-name">Johnson &amp; Johnson</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#059669;">S</div><span class="logo-wall-name">Stryker</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#d97706;">A</div><span class="logo-wall-name">Abbott</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#dc2626;">T</div><span class="logo-wall-name">Terumo</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ THREE.JS 3D PRODUCT SHOWCASE ═══════════ -->
+  <div class="td-section reveal">
+    <div class="sec-header"><h2 data-lang-key="td_title">3D Product View</h2><div class="line"></div><p data-lang-key="home_core_sub">Full-chain precision manufacturing capability from mold design to injection mass production</p></div>
+    <div class="td-wrapper">
+      <div class="td-frame">
+        <div id="td-container"></div>
+        <div class="td-badge">360°</div>
+      </div>
+    </div>
+  </div>
+
   <div class="sec-header reveal"><h2 data-lang-key="home_core_title">Core Business</h2><div class="line"></div><p data-lang-key="home_core_sub">Full-chain precision manufacturing capability from mold design to injection mass production</p></div>
 
   <div class="prod-grid">
     <div class="prod-card reveal" onclick="location.href='#page-products'">
-      <div class="card-img"><img src="images/core_medical_1.jpg" alt="肠内营养输注系统" loading="lazy"></div>
+      <div class="card-img"><img class="lazy" data-src="images/core_medical_1.jpg" alt="肠内营养输注系统" loading="lazy"></div>
       <div class="card-body">
         <h3 data-lang-key="prod1_title">Enteral Nutrition Infusion System</h3>
         <p data-lang-key="home_prod1_desc">Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations</p>
@@ -740,7 +1048,7 @@
       </div>
     </div>
     <div class="prod-card reveal" onclick="location.href='#page-products'">
-      <div class="card-img"><img src="images/core_medical_2.jpg" alt="注射给药系统" loading="lazy"></div>
+      <div class="card-img"><img class="lazy" data-src="images/core_medical_2.jpg" alt="注射给药系统" loading="lazy"></div>
       <div class="card-body">
         <h3 data-lang-key="prod2_title">Injection Drug Delivery System</h3>
         <p data-lang-key="home_prod2_desc">High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface quality control</p>
@@ -748,7 +1056,7 @@
       </div>
     </div>
     <div class="prod-card reveal" onclick="location.href='#page-mold'">
-      <div class="card-img"><img src="images/core_mold_3.jpg" alt="精密注塑模具" loading="lazy"></div>
+      <div class="card-img"><img class="lazy" data-src="images/core_mold_3.jpg" alt="精密注塑模具" loading="lazy"></div>
       <div class="card-body">
         <h3 data-lang-key="prod3_title">Precision Injection Molds</h3>
         <p data-lang-key="home_prod3_desc">23 CNC · 8 EDM · 7 Wire-cut · Hauser / RODERS / YASDA top-tier equipment matrix</p>
@@ -759,14 +1067,14 @@
 
   <div class="sec-header reveal" style="padding-top:10px;"><h2 data-lang-key="home_cert_title">Qualifications &amp; Certifications</h2><div class="line"></div><p data-lang-key="home_cert_sub">International standard systems ensuring reliable assurance for medical clients</p></div>
   <div class="cert-gallery">
-    <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
-    <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
-    <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
+    <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img class="lazy" data-src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
+    <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img class="lazy" data-src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
+    <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img class="lazy" data-src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
   </div>
   <div class="sec-header reveal"><h2 data-lang-key="home_env_title">Production Environment</h2><div class="line"></div><p data-lang-key="home_env_sub">Class 100,000 cleanrooms meeting medical device production requirements</p></div>
   <div class="workshop-gallery">
-    <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
-    <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
+    <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img class="lazy" data-src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
+    <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img class="lazy" data-src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
   </div>
 
   <div class="cta-section">
@@ -778,7 +1086,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -844,14 +1152,14 @@
 </div>
 <div class="sec-header reveal" id="about-partners" style="padding:30px 0 10px;"><h2 data-lang-key="about_partners_title">Global Partners</h2><div class="line"></div></div>
 <div class="partners-map reveal">
-  <img src="images/global_partners.png" alt="全球合作伙伴分布" loading="lazy">
+  <img class="lazy" data-src="images/global_partners.png" alt="全球合作伙伴分布" loading="lazy">
 </div>
   </div>
   <div class="footer">
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -890,22 +1198,22 @@
     <div class="prod-accordion">
       <div class="acc-item">
         <button class="acc-header" id="acc-lsr" onclick="toggleAccordion(this)"><span class="acc-icon">LSR</span><span class="acc-label" data-lang-key="prod_lsr_title">LSR Liquid Silicone Products</span><span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_lsr_desc">Medical-grade liquid silicone injection products meeting biocompatibility requirements</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/lsr1/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item1">Silicone Mask</div><div class="acc-card-tags"><span>医疗级</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr2/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item2">Silicone Seals</div><div class="acc-card-tags"><span>耐高温</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr3/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item3">Silicone Tubing</div><div class="acc-card-tags"><span>透明</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr4/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item4">Silicone Sheath</div><div class="acc-card-tags"><span>生物相容</span><span>LSR</span></div></div></div></div></div>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_lsr_desc">Medical-grade liquid silicone injection products meeting biocompatibility requirements</p><div class="acc-grid"><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/lsr1/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item1">Silicone Mask</div><div class="acc-card-tags"><span>医疗级</span><span>LSR</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/lsr2/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item2">Silicone Seals</div><div class="acc-card-tags"><span>耐高温</span><span>LSR</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/lsr3/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item3">Silicone Tubing</div><div class="acc-card-tags"><span>透明</span><span>LSR</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/lsr4/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item4">Silicone Sheath</div><div class="acc-card-tags"><span>生物相容</span><span>LSR</span></div></div></div></div></div>
       </div>
       <div class="acc-item">
         <button class="acc-header" id="acc-pp" onclick="toggleAccordion(this)"><span class="acc-icon">PP</span><span class="acc-label" data-lang-key="prod_pp_title">Injection Molded Products</span><span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_pp_desc">High-precision injection molding for medical consumables and industrial parts</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/pp1/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item1">Infusion Connector</div><div class="acc-card-tags"><span>医疗级</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp2/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item2">Cap Assembly</div><div class="acc-card-tags"><span>PE</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp3/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item3">Connector</div><div class="acc-card-tags"><span>精密</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp4/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item4">Housing Parts</div><div class="acc-card-tags"><span>定制</span><span>PP</span></div></div></div></div></div>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_pp_desc">High-precision injection molding for medical consumables and industrial parts</p><div class="acc-grid"><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/pp1/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item1">Infusion Connector</div><div class="acc-card-tags"><span>医疗级</span><span>PP</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/pp2/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item2">Cap Assembly</div><div class="acc-card-tags"><span>PE</span><span>PP</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/pp3/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item3">Connector</div><div class="acc-card-tags"><span>精密</span><span>PP</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/pp4/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item4">Housing Parts</div><div class="acc-card-tags"><span>定制</span><span>PP</span></div></div></div></div></div>
       </div>
       <div class="acc-item">
         <button class="acc-header" id="acc-2k" onclick="toggleAccordion(this)"><span class="acc-icon">2K</span><span class="acc-label" data-lang-key="prod_2k_title">Two-shot / Multi-color Products</span><span class="acc-arrow">&#9660;</span></button>
-        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_2k_desc">Integrated two-shot / multi-color molding, reducing secondary processing</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/2k1/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item1">Two-shot Handle</div><div class="acc-card-tags"><span>双色</span><span>包胶</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k2/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item2">Multi-color Button</div><div class="acc-card-tags"><span>多色</span><span>精密</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k3/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item3">Soft/Hard Overmold</div><div class="acc-card-tags"><span>软硬胶</span><span>一体</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k4/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item4">Logo Insert</div><div class="acc-card-tags"><span>嵌件</span><span>双色</span></div></div></div></div></div>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_2k_desc">Integrated two-shot / multi-color molding, reducing secondary processing</p><div class="acc-grid"><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/2k1/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item1">Two-shot Handle</div><div class="acc-card-tags"><span>双色</span><span>包胶</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/2k2/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item2">Multi-color Button</div><div class="acc-card-tags"><span>多色</span><span>精密</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/2k3/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item3">Soft/Hard Overmold</div><div class="acc-card-tags"><span>软硬胶</span><span>一体</span></div></div><div class="acc-card"><img class="lazy" data-src="https://picsum.photos/seed/2k4/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item4">Logo Insert</div><div class="acc-card-tags"><span>嵌件</span><span>双色</span></div></div></div></div></div>
       </div>
     </div>
 
     <div class="sec-header reveal" style="margin-top:48px;"><h2 data-lang-key="core_products_title">Core Product Lines</h2><div class="line"></div><p data-lang-key="core_products_sub">Core Product Lines</p></div>
 <div class="prod-grid" style="padding:0;">
       <div class="prod-card reveal">
-        <div class="card-img"><img src="images/prod_enteral.jpg" alt="肠内营养输注系统" loading="lazy"></div>
+        <div class="card-img"><img class="lazy" data-src="images/prod_enteral.jpg" alt="肠内营养输注系统" loading="lazy"></div>
         <div class="card-body">
           <h3 data-lang-key="prod1_title">Enteral Nutrition Infusion System</h3>
           <p data-lang-key="prod_prod1_desc">Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations</p>
@@ -913,7 +1221,7 @@
         </div>
       </div>
       <div class="prod-card reveal">
-        <div class="card-img"><img src="images/prod_injection.jpg" alt="注射给药系统" loading="lazy"></div>
+        <div class="card-img"><img class="lazy" data-src="images/prod_injection.jpg" alt="注射给药系统" loading="lazy"></div>
         <div class="card-body">
           <h3 data-lang-key="prod2_title">Injection Drug Delivery System</h3>
           <p data-lang-key="prod_prod2_desc">High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface finish control</p>
@@ -921,7 +1229,7 @@
         </div>
       </div>
       <div class="prod-card reveal">
-        <div class="card-img"><img src="images/prod_custom.jpg" alt="其他二类器械部件" loading="lazy"></div>
+        <div class="card-img"><img class="lazy" data-src="images/prod_custom.jpg" alt="其他二类器械部件" loading="lazy"></div>
         <div class="card-body">
           <h3 data-lang-key="prod_other_title">Other Class II Device Components</h3>
           <p data-lang-key="prod_other_desc">Customized Class II medical device injection components per customer requirements, covering housings, connectors, tubing fittings, etc.</p>
@@ -934,7 +1242,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -970,10 +1278,10 @@
   <div class="inner-hero"><h1 data-lang-key="mold_hero">Mold Center</h1><p data-lang-key="mold_hero_sub">World-class equipment matrix · Complete mold manufacturing capability</p></div>
   <div class="inner-content">
     <div class="workshop-gallery" style="padding:0 0 50px;">
-      <div class="img-cert-card" onclick="openLightbox('images/mold_1.jpg')"><img src="images/mold_1.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img1_desc">Multi-cavity Precision Injection Mold — Mirror-polished with HOGU temperature control system</div></div>
-      <div class="img-cert-card" onclick="openLightbox('images/mold_2.jpg')"><img src="images/mold_2.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img2_desc">Hot Runner Precision Mold — Multi-cavity design with independent thermal control module</div></div>
-      <div class="img-cert-card" onclick="openLightbox('images/mold_3.jpg')"><img src="images/mold_3.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img3_desc">Liquid Silicone Rubber (LSR) Injection Mold — Precision cavity with integrated alignment frame</div></div>
-      <div class="img-cert-card" onclick="openLightbox('images/mold_4.jpg')"><img src="images/mold_4.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img4_desc">Multi-cavity Slider Mold — Mastip hot runner system, high-gloss mirror finish</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_1.jpg')"><img class="lazy" data-src="images/mold_1.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img1_desc">Multi-cavity Precision Injection Mold — Mirror-polished with HOGU temperature control system</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_2.jpg')"><img class="lazy" data-src="images/mold_2.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img2_desc">Hot Runner Precision Mold — Multi-cavity design with independent thermal control module</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_3.jpg')"><img class="lazy" data-src="images/mold_3.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img3_desc">Liquid Silicone Rubber (LSR) Injection Mold — Precision cavity with integrated alignment frame</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_4.jpg')"><img class="lazy" data-src="images/mold_4.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img4_desc">Multi-cavity Slider Mold — Mastip hot runner system, high-gloss mirror finish</div></div>
     </div>
 
 <div class="eq-block">
@@ -1056,7 +1364,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -1092,14 +1400,14 @@
   <div class="inner-hero"><h1 data-lang-key="qual_hero">Qualifications</h1><p data-lang-key="qual_hero_sub">International standard certifications · Cleanrooms · Validation capabilities</p></div>
   <div class="inner-content">
 <div class="cert-gallery" id="qual-overview" style="padding-bottom:16px;">
-      <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
-      <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
-      <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img class="lazy" data-src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img class="lazy" data-src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img class="lazy" data-src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
     </div>
     <div class="sec-header reveal" id="qual-env" style="padding:10px 0;"><h2 data-lang-key="qual_env_title">Production Environment</h2><div class="line"></div><p data-lang-key="qual_env_sub">Class 100,000 cleanrooms meeting medical device production requirements</p></div>
     <div class="workshop-gallery" style="padding:0 0 50px;">
-      <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
-      <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
+      <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img class="lazy" data-src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
+      <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img class="lazy" data-src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
     </div>
     <div class="sec-header reveal" id="qual-iqoq" style="padding:10px 0;"><h2 data-lang-key="qual_iq_title">IQ/OQ/PQ Validation System</h2><div class="line"></div></div>
     <div class="iqoq-row">
@@ -1112,7 +1420,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -1182,7 +1490,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -1244,7 +1552,7 @@
           <p data-lang-key="ct_visit">Welcome to visit our factory</p>
           <div data-lang-key="ct_sub_text" class="sub">For business cooperation inquiries, please contact us via phone or email<br>We will arrange a professional team to follow up with you</div>
           <div class="qr-box" style="margin-top:28px;text-align:center;">
-            <img src="images/qrcode.jpg" alt="企业微信" style="width:140px;height:140px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);" loading="lazy">
+            <img class="lazy" data-src="images/qrcode.jpg" alt="企业微信" style="width:140px;height:140px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);" loading="lazy">
             <p style="margin-top:10px;font-size:13px;color:#778899;" data-lang-key="ct_qr_label">Scan to add WeCom</p>
           </div>
         </div>
@@ -1255,7 +1563,7 @@
     <div class="wrap">
       <div class="footer-brand">
         <div class="logo-area">
-          <img src="images/logo.png" alt="弘欧" />
+          <img class="lazy" data-src="images/logo.png" alt="弘欧" / loading="lazy">
           <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
         </div>
         <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
@@ -1349,15 +1657,82 @@
   onHash();
 })();
 
-/* Lightbox */
+/* ═══════════ LIGHTBOX ═══════════ */
 function openLightbox(src) {
-  const lb = document.getElementById('lightbox');
+  var lb = document.getElementById('lightbox');
   lb.querySelector('img').src = src;
   lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
 }
+document.addEventListener('keydown', function(e){
+  var lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+});
+
+/* ═══════════ UPGRADE 1: COUNTER ANIMATION ═══════════ */
+(function(){
+  var counterObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      var numEl = entry.target.querySelector('.num');
+      if (!numEl || entry.target.dataset.counted) return;
+      entry.target.dataset.counted = '1';
+      var target = parseInt(numEl.textContent.replace(/[^0-9]/g, '')) || 0;
+      var duration = 1800;
+      var start = performance.now();
+      entry.target.classList.add('counting');
+      function step(ts){
+        var elapsed = ts - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        numEl.textContent = Math.floor(eased * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else { numEl.textContent = target; entry.target.classList.remove('counting'); }
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-item').forEach(function(el){ counterObserver.observe(el); });
+  document.querySelectorAll('.as-item').forEach(function(el){ counterObserver.observe(el); });
+})();
+
+/* ═══════════ UPGRADE 4: MICRO-INTERACTIONS ═══════════ */
+
+/* 4b: Card hover float — add class to prod cards & cert cards */
+(function(){
+  document.querySelectorAll('.prod-card, .img-cert-card, .iq-item').forEach(function(card){
+    card.classList.add('hover-float');
+  });
+})();
+
+/* 4c: Link underline slide-in — add to CTA link, nav links, footer links */
+(function(){
+  document.querySelectorAll('.link, .cta-link').forEach(function(el){ el.classList.add('link-slide'); });
+})();
+
+/* 4f: Hero title char-by-char fade-in */
+(function(){
+  var heroH1 = document.querySelector('.hero h1');
+  if (!heroH1) return;
+  var html = heroH1.innerHTML;
+  var result = '';
+  var inTag = false, inStrong = false;
+  for (var i = 0, delay = 0; i < html.length; i++) {
+    var c = html[i];
+    if (c === '<') { inTag = true; result += c; continue; }
+    if (c === '>') { inTag = false; result += c; continue; }
+    if (inTag) { result += c; continue; }
+    if (c === ' ') { result += ' '; continue; }
+    result += '<span class="char" style="animation-delay:' + (delay * 0.025) + 's">' + c + '</span>';
+    delay++;
+  }
+  heroH1.innerHTML = result;
+})();
 
 /* Hero Carousel */
 (function(){
@@ -1389,6 +1764,8 @@ function closeLightbox() {
   });
   nav.querySelectorAll('.links a').forEach(function(link){
     link.addEventListener('click', function(){
+      // Keep nav open for dropdown toggles (handled separately)
+      if (link.parentElement.classList.contains('has-dropdown')) return;
       nav.classList.remove('open');
     });
   });
@@ -1399,10 +1776,101 @@ function closeLightbox() {
     if (window.innerWidth > 768) nav.classList.remove('open');
   });
 })();
+
+
+/* ═══════════ LAZY LOADING (IntersectionObserver) ═══════════ */
+(function(){
+  var lazyImgs = document.querySelectorAll('img.lazy');
+  var lazyHeroSlides = document.querySelectorAll('[data-bg]');
+  
+  if ('IntersectionObserver' in window) {
+    var imgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.addEventListener('load', function() { img.classList.add('loaded'); });
+          if (img.complete) img.classList.add('loaded');
+          img.removeAttribute('data-src');
+        }
+        imgObserver.unobserve(img);
+      });
+    }, { rootMargin: '200px 0px' });
+
+    lazyImgs.forEach(function(img) { imgObserver.observe(img); });
+
+    // Hero slides background lazy loading
+    lazyHeroSlides.forEach(function(slide) {
+      var bgUrl = slide.getAttribute('data-bg');
+      if (!bgUrl) return;
+      var heroObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.style.backgroundImage = 'url(' + bgUrl + ')';
+          entry.target.removeAttribute('data-bg');
+          heroObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '400px 0px' });
+      heroObserver.observe(slide);
+    });
+  } else {
+    // Fallback: load all immediately
+    lazyImgs.forEach(function(img) {
+      if (img.dataset.src) { img.src = img.dataset.src; img.classList.add('loaded'); }
+    });
+    lazyHeroSlides.forEach(function(slide) {
+      var bg = slide.getAttribute('data-bg');
+      if (bg) { slide.style.backgroundImage = 'url(' + bg + ')'; slide.removeAttribute('data-bg'); }
+    });
+  }
+})();
+
+/* ═══════════ SKELETON SCREEN ═══════════ */
+(function(){
+  window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      var sk = document.getElementById('skeleton');
+      if (sk) sk.classList.add('hide');
+    }, 300);
+  });
+})();
+
+/* ═══════════ BACK TO TOP ═══════════ */
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        if (window.scrollY > 500) { btn.classList.add('show'); }
+        else { btn.classList.remove('show'); }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+/* ═══════════ MOBILE CTA ═══════════ */
+document.addEventListener('DOMContentLoaded', function(){
+  var ctaBtn = document.getElementById('mobile-cta-btn');
+  if (!ctaBtn) return;
+  ctaBtn.addEventListener('click', function() {
+    location.hash = '#page-contact';
+  });
+});
+
 </script>
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="close">&times;</span>
-  <img src="" alt="" loading="lazy">
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <div class="lb-content">
+    <img src="" alt="" loading="lazy">
+  </div>
 </div>
 
 
@@ -1650,7 +2118,11 @@ const I18N = {
   "ct_success":{"zh":"提交成功！我们将在24小时内联系您","en":"Submitted! We will contact you within 24 hours","de":"Gesendet! Wir melden uns innerhalb von 24 Stunden","ru":"Отправлено! Мы свяжемся с вами в течение 24 часов","fr":"Envoyé ! Nous vous contacterons dans les 24 heures","ja":"送信完了！24時間以内にご連絡いたします","ko":"제출 완료! 24시간 이내에 연락드리겠습니다","es":"¡Enviado! Le contactaremos en 24 horas"},
   "ct_failure":{"zh":"提交失败，请重试或直接致电","en":"Submission failed. Please retry or call us directly","de":"Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie uns an","ru":"Ошибка отправки. Повторите попытку или позвоните нам","fr":"Échec de l'envoi. Veuillez réessayer ou nous appeler","ja":"送信に失敗しました。再試行いただくか、お電話ください","ko":"제출 실패. 다시 시도하시거나 전화 주세요","es":"Error al enviar. Reintente o llámenos"},
   "ct_val_required":{"zh":"请填写必填字段：姓名、联系电话、邮箱、需求描述","en":"Please fill in required fields: Name, Phone, Email, Requirements","de":"Bitte füllen Sie die Pflichtfelder aus: Name, Telefon, E-Mail, Anforderungsbeschreibung","ru":"Заполните обязательные поля: Имя, Телефон, Эл. почта, Описание требований","fr":"Veuillez remplir les champs obligatoires : Nom, Téléphone, E-mail, Description des besoins","ja":"必須項目を入力してください：氏名、電話番号、メールアドレス、要件説明","ko":"필수 항목을 입력하세요: 이름, 전화번호, 이메일, 요구 사항 설명","es":"Complete los campos obligatorios: Nombre, Teléfono, Correo electrónico, Descripción de requisitos"},
-  "ct_val_phone":{"zh":"请输入有效的电话号码","en":"Please enter a valid phone number","de":"Bitte geben Sie eine gültige Telefonnummer ein","ru":"Введите действительный номер телефона","fr":"Veuillez entrer un numéro de téléphone valide","ja":"有効な電話番号を入力してください","ko":"유효한 전화번호를 입력하세요","es":"Ingrese un número de teléfono válido"}
+  "ct_val_phone":{"zh":"请输入有效的电话号码","en":"Please enter a valid phone number","de":"Bitte geben Sie eine gültige Telefonnummer ein","ru":"Введите действительный номер телефона","fr":"Veuillez entrer un numéro de téléphone valide","ja":"有効な電話番号を入力してください","ko":"유효한 전화번호를 입력하세요","es":"Ingrese un número de teléfono válido"},
+
+  "logo_wall_title":{"zh":"信任我们的合作伙伴","en":"Trusted Partners","de":"Vertrauenswürdige Partner","ru":"Надёжные партнёры","fr":"Partenaires de confiance","ja":"信頼されるパートナー","ko":"신뢰받는 파트너","es":"Socios de confianza"},
+  "logo_wall_sub":{"zh":"全球医疗器械品牌信赖我们的精密制造","en":"Global medical device brands that trust our precision manufacturing","de":"Globale Medizintechnikmarken, die auf unsere Präzisionsfertigung vertrauen","ru":"Мировые бренды медицинских изделий, доверяющие нашему прецизионному производству","fr":"Marques mondiales de dispositifs médicaux qui font confiance à notre fabrication de précision","ja":"精密製造を信頼するグローバル医療機器ブランド","ko":"당사의 정밀 제조를 신뢰하는 글로벌 의료기기 브랜드","es":"Marcas globales de dispositivos médicos que confían en nuestra fabricación de precisión"},
+  "td_title":{"zh":"3D产品展示","en":"3D Product View","de":"3D-Produktansicht","ru":"3D-просмотр продукта","fr":"Vue 3D du produit","ja":"3D製品ビュー","ko":"3D 제품 보기","es":"Vista 3D del producto"}
 };
 
 function switchLang(lang) {
@@ -1725,17 +2197,26 @@ function switchLang(lang) {
         }, 150);
       });
     });
-    // Mobile: tap top-level nav link to toggle dropdown
+    // Mobile: tap top-level nav link to toggle dropdown (only one open at a time)
     document.querySelectorAll('.has-dropdown > a').forEach(function(trigger){
       trigger.addEventListener('click', function(e){
         if (window.innerWidth <= 860) {
           var dd = this.nextElementSibling;
           if (dd && dd.classList.contains('dropdown-menu')) {
             e.preventDefault();
-            dd.classList.toggle('open');
+            var isOpen = dd.classList.contains('open');
+            // Close all other dropdowns first
+            document.querySelectorAll('.dropdown-menu.open').forEach(function(d){ d.classList.remove('open'); });
+            if (!isOpen) dd.classList.add('open');
           }
         }
       });
+    });
+    // Desktop: remove .open class when mouse leaves nav (clean up mobile leftovers)
+    document.querySelector('.nav').addEventListener('mouseleave', function(){
+      if (window.innerWidth > 860) {
+        document.querySelectorAll('.dropdown-menu.open').forEach(function(d){ d.classList.remove('open'); });
+      }
     });
   })();
   // Scroll reveal
@@ -1836,7 +2317,273 @@ function switchLang(lang) {
     btn.addEventListener('click', function(e){ e.preventDefault(); submit(); });
   })();
 
+  /* ═══════════════ Three.js 3D Product Showcase ═══════════════ */
+  (function init3DShowcase() {
+    const container = document.getElementById('td-container');
+    if (!container) return;
+
+    // Guard: wait for THREE to be available (CDN may still be loading)
+    if (typeof THREE === 'undefined') {
+      const checkInterval = setInterval(function() {
+        if (typeof THREE !== 'undefined') {
+          clearInterval(checkInterval);
+          start3D();
+        }
+      }, 100);
+      // Timeout after 10s
+      setTimeout(function() { clearInterval(checkInterval); }, 10000);
+      return;
+    }
+    start3D();
+
+    function start3D() {
+    let isDragging = false, prevMouseX = 0, prevMouseY = 0;
+    let rotationX = 0.3, rotationY = 0, targetRotX = 0.3, targetRotY = 0;
+    let zoomLevel = 5.5;
+
+    function createScene() {
+      scene = new THREE.Scene();
+      scene.background = null;
+      scene.fog = new THREE.Fog(0xf6f7f8, 8, 18);
+
+      camera = new THREE.PerspectiveCamera(45, container.clientWidth / Math.max(container.clientHeight || 360, 1), 0.1, 50);
+      camera.position.set(0, 3, zoomLevel);
+      camera.lookAt(0, 0, 0);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(container.clientWidth, Math.max(container.clientHeight, 360));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.2;
+      container.appendChild(renderer.domElement);
+
+      // Lights
+      const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambient);
+      const key = new THREE.DirectionalLight(0xffffff, 1.8);
+      key.position.set(5, 8, 5);
+      key.castShadow = true;
+      key.shadow.mapSize.set(1024, 1024);
+      key.shadow.camera.near = 0.5;
+      key.shadow.camera.far = 30;
+      key.shadow.camera.left = -8;
+      key.shadow.camera.right = 8;
+      key.shadow.camera.top = 8;
+      key.shadow.camera.bottom = -8;
+      key.shadow.bias = -0.0001;
+      scene.add(key);
+      const fill = new THREE.DirectionalLight(0x88aacc, 0.7);
+      fill.position.set(-3, 1, -2);
+      scene.add(fill);
+      const rim = new THREE.DirectionalLight(0xe16b24, 0.6);
+      rim.position.set(0, -1, 5);
+      scene.add(rim);
+
+      // Platform
+      const platformGeom = new THREE.CylinderGeometry(1.8, 2.0, 0.25, 64);
+      const platformMat = new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.3, metalness: 0.8 });
+      const platform = new THREE.Mesh(platformGeom, platformMat);
+      platform.position.y = -2.1;
+      platform.receiveShadow = true;
+      platform.castShadow = true;
+      scene.add(platform);
+
+      // Base ring
+      const ringGeom = new THREE.TorusGeometry(1.9, 0.08, 16, 64);
+      const ringMat = new THREE.MeshStandardMaterial({ color: 0xe16b24, roughness: 0.2, metalness: 0.9, emissive: 0xe16b24, emissiveIntensity: 0.3 });
+      const ring = new THREE.Mesh(ringGeom, ringMat);
+      ring.rotation.x = Math.PI / 2;
+      ring.position.y = -1.96;
+      ring.receiveShadow = true;
+      scene.add(ring);
+
+      // Model group
+      modelGroup = new THREE.Group();
+      scene.add(modelGroup);
+
+      // Main cylinder (syringe barrel style)
+      const barrelGeom = new THREE.CylinderGeometry(0.35, 0.35, 2.8, 48);
+      const barrelMat = new THREE.MeshStandardMaterial({ color: 0xe8eef4, roughness: 0.1, metalness: 0.15, transparent: true, opacity: 0.88 });
+      const barrel = new THREE.Mesh(barrelGeom, barrelMat);
+      barrel.position.y = 0.15;
+      barrel.castShadow = true;
+      barrel.receiveShadow = true;
+      modelGroup.add(barrel);
+
+      // Inner tube
+      const innerGeom = new THREE.CylinderGeometry(0.22, 0.22, 2.6, 32);
+      const innerMat = new THREE.MeshStandardMaterial({ color: 0xbcc8d8, roughness: 0.05, metalness: 0.3, transparent: true, opacity: 0.5 });
+      const inner = new THREE.Mesh(innerGeom, innerMat);
+      inner.position.y = 0.15;
+      modelGroup.add(inner);
+
+      // Orange accent rings on barrel
+      for (let i = -1; i <= 1; i += 2) {
+        const accRingGeom = new THREE.TorusGeometry(0.38, 0.04, 12, 48);
+        const accRing = new THREE.Mesh(accRingGeom, ringMat);
+        accRing.rotation.x = Math.PI / 2;
+        accRing.position.y = 0.15 + i * 1.15;
+        modelGroup.add(accRing);
+      }
+
+      // Plunger top
+      const plungerGeom = new THREE.CylinderGeometry(0.28, 0.28, 0.5, 32);
+      const plungerMat = new THREE.MeshStandardMaterial({ color: 0xe16b24, roughness: 0.25, metalness: 0.5 });
+      const plunger = new THREE.Mesh(plungerGeom, plungerMat);
+      plunger.position.y = 1.8;
+      plunger.castShadow = true;
+      modelGroup.add(plunger);
+
+      // Plunger rod
+      const rodGeom = new THREE.CylinderGeometry(0.08, 0.08, 1.2, 16);
+      const rodMat = new THREE.MeshStandardMaterial({ color: 0xcccccc, roughness: 0.15, metalness: 0.7 });
+      const rod = new THREE.Mesh(rodGeom, rodMat);
+      rod.position.y = 2.55;
+      rod.castShadow = true;
+      modelGroup.add(rod);
+
+      // Top disc
+      const discGeom = new THREE.CylinderGeometry(0.35, 0.35, 0.1, 32);
+      const disc = new THREE.Mesh(discGeom, plungerMat);
+      disc.position.y = 3.15;
+      disc.castShadow = true;
+      modelGroup.add(disc);
+
+      // Small needle tip
+      const tipGeom = new THREE.ConeGeometry(0.08, 0.4, 16);
+      const tipMat = new THREE.MeshStandardMaterial({ color: 0xdddddd, roughness: 0.1, metalness: 0.9 });
+      const tip = new THREE.Mesh(tipGeom, tipMat);
+      tip.position.y = -1.55;
+      tip.castShadow = true;
+      modelGroup.add(tip);
+
+      // Floating particles
+      const particlesGeom = new THREE.BufferGeometry();
+      const count = 60;
+      const positions = new Float32Array(count * 3);
+      for (let i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 4;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 5;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
+      }
+      particlesGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const particlesMat = new THREE.PointsMaterial({ color: 0xe16b24, size: 0.04, transparent: true, opacity: 0.6 });
+      const particles = new THREE.Points(particlesGeom, particlesMat);
+      particles.name = 'particles';
+      modelGroup.add(particles);
+
+      // Grid helper floor
+      const gridHelper = new THREE.PolarGridHelper(2.5, 32, 20, 64, 0xcccccc, 0xcccccc);
+      gridHelper.position.y = -2.3;
+      scene.add(gridHelper);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if (!modelGroup) return;
+
+      // Smooth rotation
+      rotationX += (targetRotX - rotationX) * 0.08;
+      rotationY += (targetRotY - rotationY) * 0.08;
+      modelGroup.rotation.y = rotationY;
+      modelGroup.rotation.x = rotationX;
+
+      // Rotate particles
+      const particles = modelGroup.getObjectByName('particles');
+      if (particles) particles.rotation.y += 0.003;
+
+      // Auto rotate when not dragging
+      if (!isDragging) {
+        targetRotY += 0.004;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    function onResize() {
+      if (!renderer || !camera) return;
+      const w = container.clientWidth;
+      const h = Math.max(container.clientHeight, 360);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+
+    // Mouse / touch interaction
+    container.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+      container.style.cursor = 'grabbing';
+    });
+    window.addEventListener('mouseup', function() {
+      if (isDragging) {
+        isDragging = false;
+        container.style.cursor = 'grab';
+      }
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      const dx = e.clientX - prevMouseX;
+      const dy = e.clientY - prevMouseY;
+      targetRotY += dx * 0.008;
+      targetRotX += dy * 0.005;
+      targetRotX = Math.max(-1.2, Math.min(1.8, targetRotX));
+      prevMouseX = e.clientX;
+      prevMouseY = e.clientY;
+    });
+    container.addEventListener('touchstart', function(e) {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        prevMouseX = e.touches[0].clientX;
+        prevMouseY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+    window.addEventListener('touchend', function() { isDragging = false; });
+    window.addEventListener('touchmove', function(e) {
+      if (!isDragging || e.touches.length !== 1) return;
+      const dx = e.touches[0].clientX - prevMouseX;
+      const dy = e.touches[0].clientY - prevMouseY;
+      targetRotY += dx * 0.008;
+      targetRotX += dy * 0.005;
+      targetRotX = Math.max(-1.2, Math.min(1.8, targetRotX));
+      prevMouseX = e.touches[0].clientX;
+      prevMouseY = e.touches[0].clientY;
+    }, { passive: true });
+    container.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      zoomLevel += e.deltaY * 0.005;
+      zoomLevel = Math.max(3.5, Math.min(9, zoomLevel));
+      camera.position.z = zoomLevel;
+    }, { passive: false });
+
+    // IntersectionObserver for lazy init
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          observer.unobserve(container);
+          createScene();
+          animate();
+          container.style.cursor = 'grab';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(container);
+    window.addEventListener('resize', onResize);
+    } // end start3D
+  })();
 
 </script>
+<!-- 返回顶部 -->
+<button id="back-to-top" aria-label="返回顶部"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<!-- 移动端底部CTA -->
+<div id="mobile-cta">
+  <button id="mobile-cta-btn"><span data-lang-key="nav_btn_询价">Get a Quote</span></button>
+</div>
+
 </body>
 </html>
