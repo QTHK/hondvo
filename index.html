@@ -1,0 +1,1840 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="弘欧科技（HONDVO）专注精密医疗器械部件与精密模具制造，通过 ISO 13485 / IATF 16949 / ISO 9001 三重认证，提供医疗级注塑、液态硅胶 LSR、双色成型及精密模具一站式解决方案。">
+<meta name="keywords" content="弘欧科技,弘欧精密模具,医疗器械注塑,精密模具,ISO 13485,IATF 16949,液态硅胶LSR,双色注塑,医疗级塑胶件,东莞模具厂">
+<meta property="og:title" content="弘欧科技 - 精密医疗器械部件 &amp; 精密模具制造">
+<meta property="og:description" content="三重国际认证，专注医疗级注塑与精密模具制造。提供从模具设计到量产的一站式服务。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.hondvotechnology.com">
+<meta property="og:image" content="images/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="弘欧科技 - 精密医疗器械部件 &amp; 精密模具制造">
+<meta name="twitter:description" content="三重国际认证，专注医疗级注塑与精密模具制造。">
+<link rel="canonical" href="https://www.hondvotechnology.com">
+<title data-lang-key="page_title">弘欧科技 - 精密医疗器械部件 &amp; 精密模具制造</title>
+<style>
+  :root {
+    --blue: #4A6B8B;
+    --blue-hover: #3D5D7A;
+    --orange: #E16B24;
+    --orange-hover: #CC5910;
+    --gray-100: #F6F7F8;
+    --gray-200: #E8EAED;
+    --gray-400: #999;
+    --gray-600: #666;
+    --gray-800: #1D1D1F;
+    --white: #FFF;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.4s ease, transform 0.4s ease; will-change: transform, opacity; }
+  .reveal.revealed { opacity: 1; transform: translateY(0); }
+  body {
+    zoom: 1.25;
+    font-size: 15px;
+    font-family: 'Microsoft YaHei', 'PingFang SC', -apple-system, 'Helvetica Neue', sans-serif;
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; }
+
+  /* ═══════════ NAV ═══════════ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    transition: background 0.35s, box-shadow 0.35s, transform 0.35s;
+    transform: translateY(0);
+    background: rgba(74,107,139,0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    will-change: transform;
+  }
+  .nav.hidden { transform: translateY(-100%); }
+  .nav.scrolled {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  }
+  .nav .wrap {
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center;
+    height: 68px; padding: 0 60px;
+  }
+  .nav .logo { display: flex; align-items: center; gap: 10px; }
+  .nav .logo img { height: 34px; }
+  .nav .logo .logo-text { font-size: 12px; font-weight: 700; color: #FFF; letter-spacing: 2px; }
+  .nav.scrolled .logo-text { color: var(--gray-800); }
+  .nav .links { display: flex; margin-left: auto; gap: 2px; }
+  .nav .links li { position: relative; }
+  .nav .links a {
+    display: block; padding: 10px 15px;
+    font-size: 14px; color: rgba(255,255,255,0.92);
+    border-radius: 4px;
+    transition: background 0.2s, color 0.35s;
+    white-space: nowrap; letter-spacing: 0.3px;
+  }
+  .nav.scrolled .links a { color: var(--gray-600); }
+  .nav .links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  .nav.scrolled .links a:hover { background: #FFF4EC; color: var(--orange); }
+  .nav .links > li > a.active { color: #fff; font-weight: 600; }
+  .nav.scrolled .links > li > a.active { color: var(--orange); font-weight: 600; background: #FFF4EC; }
+
+  /* ═══════════ DROPDOWN ═══════════ */
+  .nav .links .has-dropdown { position: relative; }
+
+  /* ═══════════ NAV CTA ═══════════ */
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 20px; margin-left: 18px;
+    background: var(--orange); color: #fff;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.6px;
+    border-radius: 6px; white-space: nowrap;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    box-shadow: 0 2px 8px rgba(225,107,36,0.25);
+  }
+  .nav-cta:hover { background: var(--orange-hover); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(225,107,36,0.35); }
+  .nav.scrolled .nav-cta { box-shadow: 0 2px 8px rgba(225,107,36,0.18); }
+  .nav .links .has-dropdown > a { padding-right: 28px; }
+  .nav .links .has-dropdown > a::after {
+    content: '';
+    position: absolute; right: 10px; top: 50%;
+    width: 5px; height: 5px;
+    border-right: 1.5px solid rgba(255,255,255,0.7);
+    border-bottom: 1.5px solid rgba(255,255,255,0.7);
+    transform: translateY(-75%) rotate(45deg);
+    transition: transform 0.3s;
+  }
+  .nav.scrolled .has-dropdown > a::after { border-color: var(--gray-500); }
+  .nav .links .has-dropdown:hover > a::after { transform: translateY(-25%) rotate(-135deg); }
+  .nav .links .dropdown-menu {
+    position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    padding: 8px 0;
+    z-index: 1001;
+  }
+  .nav .links .has-dropdown:hover .dropdown-menu {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(4px);
+  }
+  .nav .links .dropdown-menu.open {
+    opacity: 1; visibility: visible;
+    transform: translateX(-50%) translateY(4px);
+  }
+  .nav .links .dropdown-menu a {
+    display: flex; align-items: center; gap: 0;
+    padding: 11px 22px;
+    font-size: 14px; color: var(--gray-700);
+    border-radius: 0; font-weight: 400;
+    transition: background 0.15s, color 0.15s, padding-left 0.2s;
+    white-space: nowrap;
+  }
+  .nav .links .dropdown-menu a:hover { background: #FFF4EC; color: var(--orange); padding-left: 28px; }
+
+  /* ═══════════ LANG SWITCH ═══════════ */
+  .nav .lang-switch { margin-left: 20px; display: flex; align-items: center; }
+  .nav .lang-select {
+    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    background: rgba(211,211,211,0.85) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+    border: none; border-radius: 6px;
+    color: #333; cursor: pointer;
+    padding: 6px 30px 6px 12px;
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    transition: background 0.3s; white-space: nowrap;
+    outline: none;
+  }
+  .nav .lang-select:hover { background-color: rgba(200,200,200,0.9); }
+  .nav.scrolled .lang-select { background-color: #E8EAED; color: #333; }
+  .nav.scrolled .lang-select:hover { background-color: #D0D3D8; }
+  .lang-dropdown, .lang-btn, .lang-arrow { display: none; }
+
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    width: 100%; height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background: #3D5D7A;
+  }
+  /* 轮播背景层 */
+  .hero .hero-slides {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero .hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transform: scale(1.12);
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform;
+  }
+  .hero .hero-slide.active { opacity: 1; transform: scale(1); }
+  /* 深色叠加层，保证文字可读 */
+  .hero .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: rgba(0,0,0,0.55);
+  }
+  /* 轮播指示器 */
+  .hero .hero-indicators {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; z-index: 3;
+  }
+  .hero .hero-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(255,255,255,0.4); cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .hero .hero-dot.active { background: #FFF; transform: scale(1.3); }
+  .hero .hero-content {
+    text-align: center; color: #fff;
+    position: relative; z-index: 2; padding: 0 40px;
+  }
+  .hero .hero-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 3px;
+    padding: 6px 20px;
+    border: 1px solid rgba(255,255,255,0.5);
+    margin-bottom: 24px; text-transform: uppercase;
+  }
+  .hero h1 { font-size: clamp(30px, 5vw, 48px); font-weight: 600; letter-spacing: 3px; line-height: 1.25; }
+  .hero h1 strong { font-weight: 600; }
+  .hero .hero-sub { font-size: 14.5px; margin-top: 16px; opacity: 0.82; font-weight: 400; letter-spacing: 1px; line-height: 2.0; }
+
+  /* ═══════════ PAGE SWITCHER ═══════════ */
+  .page {
+    display: none;
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow-y: auto; overflow-x: hidden;
+    z-index: 0;
+    padding-top: 68px;
+  }
+  .page:target { display: block; z-index: 1; }
+  #page-home { padding-top: 0; }
+
+  /* ═══════════ SECTION HEADER ═══════════ */
+  .sec-header { text-align: center; padding: 44px 40px 16px; max-width: 800px; margin: 0 auto; }
+  .sec-header h2 { font-size: 26px; font-weight: 600; letter-spacing: 2px; }
+  .sec-header .line { width: 48px; height: 2px; background: var(--orange); margin: 12px auto; }
+  .sec-header p { font-size: 15px; color: var(--gray-600); font-weight: 400; }
+
+  /* ═══════════ STATS BAR ═══════════ */
+  .stats-bar {
+    background: var(--gray-100);
+    padding: 32px 40px;
+    display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;
+  }
+  .stat-item { text-align: center; transition: transform 0.25s; }
+  .stat-item:hover { transform: translateY(-3px); }
+  .stat-item .num { font-size: 36px; font-weight: 400; color: var(--orange); line-height: 1.1; }
+  .stat-item .label { font-size: 12.5px; color: var(--gray-600); margin-top: 8px; letter-spacing: 1px; }
+
+  /* ═══════════ PRODUCT GRID (ystwt: flat, no-radius, no-shadow) ═══════════ */
+  .prod-grid {
+    max-width: 1280px; margin: 0 auto; padding: 0 48px 80px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  @media (max-width: 860px) { .prod-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 1024px) {
+    .nav .wrap { padding: 0 30px; }
+    .cert-gallery { grid-template-columns: repeat(2, 1fr); }
+    .stats-bar { gap: 40px; }
+    .sec-header { padding: 36px 30px 16px; }
+  }
+  .prod-card {
+    position: relative; overflow: hidden; border-radius: 8px;
+    cursor: pointer; transition: background 0.3s;
+  }
+  .prod-card:hover { background: #FFF4EC; }
+  .prod-card .card-img {
+    width: 100%; height: 220px; border-radius: 8px 8px 0 0;
+    position: relative; overflow: hidden;
+    transition: transform 0.5s;
+    border: 1px solid var(--gray-200);
+  }
+  .prod-card:hover .card-img { transform: scale(1.02); }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .prod-card .card-body { padding: 22px 22px 28px; }
+  .prod-card .card-body h3 { font-size: 13.5px; font-weight: 600; margin-bottom: 10px; transition: color 0.2s; }
+  .prod-card:hover .card-body h3 { color: var(--orange); }
+  .prod-card .card-body p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 400; }
+  .prod-card .card-body .link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; font-size: 13px; color: var(--orange); font-weight: 500;
+    letter-spacing: 0.5px; transition: gap 0.25s; cursor: pointer;
+  }
+  .prod-card .card-body .link::after { content: '→'; font-size: 14px; transition: transform 0.25s; }
+  .prod-card:hover .card-body .link { gap: 10px; }
+  .prod-card:hover .card-body .link::after { transform: translateX(2px); }
+
+  /* ═══════════ CERT & IMAGE GALLERY ═══════════ */
+  .cert-gallery {
+    max-width: 1220px; margin: 0 auto; padding: 0 48px 60px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .workshop-gallery {
+    max-width: 1220px; margin: 0 auto; padding: 0 48px 60px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  @media (max-width: 860px) {
+    .cert-gallery { grid-template-columns: 1fr; }
+    .workshop-gallery { grid-template-columns: 1fr; }
+  }
+  .img-cert-card {
+    overflow: hidden; border-radius: 8px;
+    cursor: pointer; transition: transform 0.35s;
+    background: #fff; border: 1px solid var(--gray-200);
+  }
+  .img-cert-card:hover { transform: translateY(-3px); border-color: var(--orange); }
+  .img-cert-card img { width: 100%; height: auto; display: block; transform: translateZ(0); }
+  .workshop-gallery .img-cert-card { aspect-ratio: 3 / 2; }
+  .workshop-gallery .img-cert-card img { height: 100%; object-fit: cover; }
+  .img-cert-card .card-label {
+    padding: 16px 20px; font-size: 16px; color: var(--gray-600);
+    text-align: center; font-weight: 400; letter-spacing: 2px;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:rgba(0,0,0,0.92); cursor:pointer; }
+  .lightbox.active { display:flex; align-items:center; justify-content:center; }
+  .lightbox img { max-width:92vw; max-height:92vh; border-radius:8px; box-shadow:0 8px 60px rgba(0,0,0,0.5); }
+  .lightbox .close { position:absolute; top:24px; right:32px; color:#fff; font-size:36px; cursor:pointer; z-index:10000; }
+
+  /* ═══════════ CTA ═══════════ */
+  .cta-section {
+    background: var(--gray-100); padding: 70px 40px; text-align: center;
+  }
+  .cta-section h3 { font-size: 16px; font-weight: 600; letter-spacing: 2px; margin-bottom: 22px; }
+  .cta-section .cta-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--orange); font-weight: 500;
+    letter-spacing: 1px; transition: gap 0.25s;
+  }
+  .cta-section .cta-link::after { content: '→'; font-size: 15px; transition: transform 0.25s; }
+  .cta-section .cta-link:hover { gap: 12px; }
+  .cta-section .cta-link:hover::after { transform: translateX(3px); }
+
+  /* ═══════════ FOOTER ═══════════ */
+  .footer {
+    background: #FFF; color: #666;
+    padding: 56px 60px 0;
+    border-top: 1px solid #EBEBEB;
+  }
+  .footer .wrap {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2.2fr 1fr 1.1fr 1fr 1fr 0.9fr 0.9fr; gap: 24px;
+  }
+  @media (max-width: 1100px) { .footer .wrap { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 768px) { .footer .wrap { grid-template-columns: 1fr 1fr; } }
+  .footer .footer-brand .logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer .footer-brand .logo-area img { height: 36px; }
+  .footer .footer-brand .logo-area .brand-name { font-size: 15px; font-weight: 700; color: #4A6B8B; letter-spacing: 1px; }
+  .footer .footer-brand .logo-area .brand-name small { font-size: 10px; display: block; font-weight: 400; color: #999; letter-spacing: 0.5px; margin-top: 2px; }
+  .footer .footer-brand p { font-size: 12px; line-height: 1.8; color: #999; }
+  .footer h4 { font-size: 14px; color: #333; margin-bottom: 18px; font-weight: 700; letter-spacing: 0.5px; }
+  .footer .col a { font-size: 12.5px; line-height: 2.4; color: #888; display: block; transition: color 0.2s; }
+  .footer .col a:hover { color: var(--orange); }
+  .footer .bottom {
+    max-width: 1200px; margin: 44px auto 0; padding: 20px 0;
+    border-top: 1px solid #EBEBEB; font-size: 10.5px; color: #AAA;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+  }
+  .footer .bottom .legal-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .footer .bottom .legal-links a { color: #AAA; font-size: 10.5px; transition: color 0.2s; }
+  .footer .bottom .legal-links a:hover { color: var(--orange); }
+  .footer .bottom .social-icons { display: flex; gap: 14px; align-items: center; }
+  .footer .bottom .social-icons .si { width: 20px; height: 20px; color: #AAA; transition: color 0.2s; cursor: pointer; }
+  .footer .bottom .social-icons .si:hover { color: var(--orange); }
+
+  /* ═══════════ INNER PAGE HERO ═══════════ */
+  .inner-hero { background: var(--gray-100); padding: 42px 40px 60px; text-align: center; }
+  .inner-hero h1 { font-size: 30px; font-weight: 600; letter-spacing: 3px; }
+  .inner-hero p { font-size: 13.5px; color: var(--gray-600); margin-top: 8px; font-weight: 400; letter-spacing: 1px; }
+
+  /* ═══════════ INNER CONTENT ═══════════ */
+  .inner-content { max-width: 1140px; margin: 0 auto; padding: 50px 48px 80px; }
+
+  /* ═══════════ ABOUT ═══════════ */
+  .about-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  @media (max-width: 768px) { .about-2col { grid-template-columns: 1fr; gap: 40px; } }
+  .about-text h3 { font-size: 14px; font-weight: 600; margin-bottom: 14px; letter-spacing: 1px; }
+  .about-text p { font-size: 15px; color: var(--gray-600); line-height: 2; font-weight: 400; margin-bottom: 22px; }
+  .about-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .as-item {
+    padding: 26px; text-align: center;
+    border-bottom: 1px solid var(--gray-200);
+    border-right: 1px solid var(--gray-200);
+    transition: background 0.2s; cursor: default;
+  }
+  .as-item:hover { background: #FFF4EC; }
+  .as-item:nth-child(2n) { border-right: none; }
+  .as-item:nth-last-child(-n+2) { border-bottom: none; }
+  .as-item .num { font-size: 28px; font-weight: 400; color: var(--orange); }
+  .as-item .label { font-size: 12px; color: var(--gray-600); margin-top: 4px; }
+
+  /* ═══════════ EQUIPMENT ═══════════ */
+  .eq-block { margin-bottom: 40px; }
+  .eq-block h3 {
+    font-size: 16px; font-weight: 700; margin-bottom: 16px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--gray-200); letter-spacing: 1px;
+  }
+  .eq-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .eq-tag {
+    padding: 9px 18px; border: 1px solid var(--gray-200); border-radius: 6px;
+    font-size: 13.5px; color: var(--gray-600);
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    cursor: default;
+  }
+  .eq-tag:hover { border-color: var(--orange); background: #FFF4EC; color: var(--gray-800); }
+  .eq-tag strong { color: var(--gray-800); font-weight: 600; }
+
+  /* ═══════════ IQ/OQ/PQ ═══════════ */
+  .iqoq-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+  @media (max-width: 768px) { .iqoq-row { grid-template-columns: 1fr; } }
+  .iq-item {
+    padding: 40px 28px; text-align: center;
+    border-right: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    transition: background 0.2s; cursor: default;
+  }
+  .iq-item:hover { background: #FFF4EC; }
+  .iq-item:last-child { border-right: none; }
+  .iq-item .letter { font-size: 36px; font-weight: 400; color: var(--orange); letter-spacing: 2px; margin-bottom: 14px; transition: transform 0.25s; }
+  .iq-item:hover .letter { transform: scale(1.08); }
+  .iq-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .iq-item p { font-size: 15px; color: var(--gray-600); line-height: 1.85; font-weight: 400; }
+
+  /* ═══════════ 核心价值 / 合作伙伴 ═══════════ */
+  .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  @media (max-width: 768px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
+  .partners-map { max-width: 1100px; margin: 20px auto 0; padding: 0 40px; text-align: center; }
+  .partners-map img { width: 100%; max-width: 900px; height: auto; display: inline-block; }
+
+  /* ═══════════ 产品分类折叠栏 ═══════════ */
+  .prod-accordion { max-width: 1100px; margin: 36px auto 0; display: flex; flex-direction: column; gap: 16px; }
+  .acc-item { background: #fff; border: 1px solid var(--gray-200); transition: border-color 0.25s, box-shadow 0.25s; }
+  .acc-item:hover { border-color: var(--orange); }
+  .acc-item.open { border-color: var(--orange); box-shadow: 0 2px 18px rgba(0,0,0,0.06); }
+  .acc-header { display: flex; align-items: center; gap: 16px; width: 100%; padding: 20px 30px; background: none; border: none; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--gray-800); text-align: left; transition: color 0.2s; }
+  .acc-header:hover { color: var(--orange); }
+  .acc-item.open .acc-header { color: var(--orange); }
+  .acc-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13.5px; font-weight: 700; color: #fff; background: var(--blue); transition: background 0.25s, transform 0.25s; }
+  .acc-item:nth-child(2) .acc-icon { background: var(--orange); }
+  .acc-item:nth-child(3) .acc-icon { background: var(--blue); }
+  .acc-item.open .acc-icon { transform: scale(1.06); }
+  .acc-label { flex: 1; }
+  .acc-arrow { flex-shrink: 0; font-size: 14px; color: var(--gray-500); transition: transform 0.3s; }
+  .acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--orange); }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease; }
+  .acc-item.open .acc-body { max-height: 800px; }
+  .acc-content { padding: 0 30px 28px 60px; }
+  .acc-desc { font-size: 15px; color: var(--gray-600); line-height: 1.9; margin-bottom: 20px; }
+  .acc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 14px; }
+  .acc-card { background: var(--gray-100); border-radius: 10px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: default; }
+  .acc-card:hover { transform: translateY(-2px); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+  .acc-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .acc-card .acc-card-name { padding: 12px 12px 6px; font-size: 13.5px; font-weight: 600; color: var(--gray-800); }
+  .acc-card .acc-card-tags { padding: 0 12px 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .acc-card .acc-card-tags span { font-size: 12px; background: #FDE8D4; color: var(--orange); padding: 3px 9px; border-radius: 4px; }
+  @media (max-width: 768px) { .acc-header { padding: 18px 20px; font-size: 16px; } .acc-content { padding: 0 16px 20px 20px; } }
+
+  /* ═══════════ NEWS ═══════════ */
+  .news-list { max-width: 900px; margin: 0 auto; }
+  .news-item {
+    display: grid; grid-template-columns: 180px 1fr; gap: 40px;
+    padding: 26px 0; border-bottom: 1px solid var(--gray-200);
+    transition: background 0.2s; cursor: pointer;
+  }
+  .news-item:hover { background: #FFF4EC; border-left: 3px solid var(--orange); padding-left: 13px; }
+  @media (max-width: 640px) { .news-item { grid-template-columns: 1fr; } }
+  .news-item .meta { font-size: 12px; color: var(--gray-400); }
+  .news-item .meta .date { display: block; font-size: 14px; color: var(--gray-600); margin-bottom: 4px; }
+  .news-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; transition: color 0.2s; }
+  .news-item:hover h4 { color: var(--orange); }
+  .news-item p { font-size: 14px; color: var(--gray-600); line-height: 1.85; font-weight: 400; }
+
+  /* ═══════════ FORM ═══════════ */
+  .contact-form { max-width: 680px; margin: 0 auto; }
+  .fg { margin-bottom: 20px; }
+  .fg label { display: block; font-size: 13px; color: var(--gray-600); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.5px; }
+  .fg input, .fg textarea, .fg select {
+    width: 100%; padding: 13px 32px 13px 16px; border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    font-size: 15px; font-family: inherit; font-weight: 400;
+    color: var(--gray-800); background: var(--gray-100);
+    outline: none; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--orange); background: #fff; box-shadow: 0 0 0 3px rgba(225,107,36,0.1); }
+  .fg input::placeholder, .fg textarea::placeholder { color: var(--gray-400); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  .submit-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 0; background: none; color: var(--orange);
+    border: none; border-bottom: 1px solid var(--orange);
+    font-size: 14px; font-weight: 500; cursor: pointer;
+    letter-spacing: 1px; transition: gap 0.25s;
+  }
+  .submit-btn::after { content: '→'; font-size: 15px; transition: transform 0.25s; }
+  .submit-btn:hover { gap: 12px; }
+  .submit-btn:hover::after { transform: translateX(3px); }
+
+  /* ═══════════ CONTACT PAGE ═══════════ */
+  .contact-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  @media (max-width: 768px) { .contact-2col { grid-template-columns: 1fr; } }
+  .ci-block { padding: 30px 0; }
+  .ci-row { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
+  .ci-row .ci-label { font-size: 12px; color: var(--gray-400); width: 72px; flex-shrink: 0; letter-spacing: 0.5px; padding-top: 2px; word-break: break-word; line-height: 1.5; }
+  .ci-row .ci-val { font-size: 15px; color: var(--gray-800); font-weight: 400; }
+  .ci-row .ci-val strong { display: block; font-weight: 600; margin-bottom: 6px; font-size: 15px; }
+.ci-block .ci-row:first-child,
+.ci-block .ci-row:nth-child(2) { flex-direction: column; gap: 4px; }
+.ci-block .ci-row:first-child .ci-label,
+.ci-block .ci-row:nth-child(2) .ci-label { width: auto; }
+  .ci-highlight {
+    background: var(--gray-100); padding: 36px;
+    text-align: center; transition: background 0.2s;
+  }
+  .ci-highlight:hover { background: #FFF4EC; }
+  .ci-highlight p { font-size: 15px; color: var(--gray-800); margin-bottom: 8px; word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
+  .ci-highlight .sub { font-size: 13px; color: var(--gray-600); line-height: 2; word-break: break-word; overflow-wrap: break-word; hyphens: auto; }
+
+  /* ═══════════ VERIFICATION HIGHLIGHT ═══════════ */
+  .verify-banner {
+    margin-top: 44px; padding: 20px 0;
+    border-top: 1px solid var(--gray-200);
+    font-size: 17px; color: var(--gray-600);
+    font-weight: 600; transition: color 0.2s;
+  }
+  .verify-banner strong { color: var(--orange); font-weight: 700; }
+
+  /* ═══════════ HAMBURGER ═══════════ */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    width: 44px; height: 44px;
+    background: none; border: none; cursor: pointer;
+    padding: 10px; z-index: 1100;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: #fff; border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .hamburger span:nth-child(2) { margin: 5px 0; }
+  .nav.scrolled .hamburger span { background: var(--gray-800); }
+  .nav.open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.open .hamburger span:nth-child(2) { opacity: 0; }
+  .nav.open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ═══════════ RESPONSIVE: max-width 768px ═══════════ */
+  @media (max-width: 768px) {
+    body { zoom: 1; }
+    .hamburger { display: flex; margin-left: auto; }
+    .nav .wrap { padding: 0 16px; height: 60px; }
+    .nav .links {
+      display: none;
+      position: fixed; top: 60px; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      padding: 8px 0 40px;
+      overflow-y: auto;
+      z-index: 1099;
+    }
+    .nav.open .links { display: flex; }
+    .nav .links li { width: 100%; }
+    .nav .links > li > a {
+      display: block; padding: 14px 28px;
+      font-size: 16px; color: var(--gray-800);
+      border-bottom: 1px solid var(--gray-200);
+      border-radius: 0;
+    }
+    .nav .links > li > a:hover, .nav .links > li > a.active { background: #FFF4EC; color: var(--orange); }
+    .nav .links .has-dropdown > a::after { border-color: var(--gray-500); }
+    .nav .links .dropdown-menu {
+      position: static; transform: none; opacity: 1; visibility: visible;
+      box-shadow: none; background: var(--gray-100); border-radius: 0;
+      padding: 0; min-width: auto; display: none;
+    }
+    .nav .links .dropdown-menu.open { display: block; }
+    .nav .links .has-dropdown:hover .dropdown-menu { transform: none; }
+    .nav .links .dropdown-menu a { padding: 12px 28px 12px 44px; font-size: 14px; }
+    .nav-cta { margin-left: 0; font-size: 12px; padding: 7px 14px; }
+    .nav .lang-switch { margin-left: 6px; }
+    .nav .lang-select { padding: 6px 26px 6px 8px; font-size: 11px; background-position: right 6px center; }
+    .nav.scrolled .links { background: rgba(255,255,255,0.98); }
+
+    .hero { height: auto; min-height: 60vh; padding: 90px 0 44px; }
+    .hero h1 { font-size: clamp(24px, 6vw, 32px); letter-spacing: 2px; }
+    .hero .hero-tag { font-size: 11px; letter-spacing: 2px; padding: 5px 14px; margin-bottom: 18px; }
+    .hero .hero-sub { font-size: 13px; line-height: 1.8; margin-top: 10px; }
+    .hero .hero-content { padding: 0 20px; }
+
+    .stats-bar { flex-direction: column; align-items: center; gap: 22px; padding: 26px 20px; }
+    .stat-item .num { font-size: 30px; }
+    .stat-item .label { font-size: 12px; }
+
+    .sec-header { padding: 28px 20px 8px; }
+    .sec-header h2 { font-size: 22px; letter-spacing: 1px; }
+    .sec-header p { font-size: 14px; }
+
+    .prod-grid { padding: 0 20px 48px; }
+    .prod-card .card-img { height: 180px; }
+
+    .cert-gallery { padding: 0 20px 36px; grid-template-columns: 1fr; gap: 16px; }
+    .workshop-gallery { padding: 0 20px 40px; grid-template-columns: 1fr; gap: 16px; }
+
+    .footer { padding: 36px 20px 0; }
+    .footer .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .footer .footer-brand { text-align: center; }
+    .footer .footer-brand .logo-area { justify-content: center; }
+    .footer h4 { margin-bottom: 8px; font-size: 13px; }
+    .footer .bottom { flex-direction: column; text-align: center; padding: 16px 0; font-size: 10px; }
+    .footer .bottom .legal-links { justify-content: center; }
+
+    .inner-hero { padding: 26px 20px 32px; }
+    .inner-hero h1 { font-size: 22px; letter-spacing: 2px; }
+    .inner-hero p { font-size: 12.5px; }
+
+    .inner-content { padding: 28px 20px 48px; }
+
+    .acc-header { padding: 16px 16px; font-size: 14px; }
+    .acc-content { padding: 0 12px 18px 16px; }
+    .acc-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+
+    .cta-section { padding: 40px 20px; }
+    .cta-section h3 { font-size: 15px; }
+
+    .ci-highlight { padding: 24px 16px; }
+    .contact-form { padding: 0; }
+    .partners-map { padding: 0 20px; }
+  }
+
+  /* ═══════════ RESPONSIVE: max-width 480px ═══════════ */
+  @media (max-width: 480px) {
+    body { zoom: 1; }
+    .hero { min-height: 50vh; padding: 76px 0 36px; }
+    .hero h1 { font-size: clamp(20px, 8vw, 26px); }
+    .hero .hero-sub { font-size: 12px; }
+    .hero .hero-indicators { bottom: 14px; }
+
+    .stat-item .num { font-size: 26px; }
+    .stat-item .label { font-size: 11px; }
+
+    .sec-header h2 { font-size: 20px; }
+    .sec-header p { font-size: 13px; }
+
+    .prod-card .card-img { height: 150px; }
+    .prod-card .card-body { padding: 16px 16px 22px; }
+    .prod-card .card-body h3 { font-size: 12.5px; }
+    .prod-card .card-body p { font-size: 13px; }
+
+    .values-grid { grid-template-columns: 1fr; }
+
+    .inner-hero { padding: 22px 16px 28px; }
+    .inner-hero h1 { font-size: 20px; }
+
+    .acc-header { font-size: 13px; padding: 14px 14px; }
+    .acc-content { padding: 0 10px 16px 14px; }
+    .acc-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+
+    .news-item .meta .date { font-size: 13px; }
+    .news-item h4 { font-size: 15px; }
+
+    .footer { padding: 30px 16px 0; }
+
+    img { max-width: 100%; }
+
+    .nav .links a, .nav-cta, .lang-select,
+    .submit-btn, .footer .col a, .acc-header {
+      min-height: 44px;
+    }
+    .nav .links a, .footer .col a { display: flex; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#page-home" class="logo">
+      <img src="images/logo.png" alt="弘欧"><span class="logo-text">HONDVO</span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="菜单"><span></span><span></span><span></span></button>
+    <ul class="links">
+      <li><a data-lang-key="nav_首页" href="#page-home" class="active">Home</a></li>
+      <li class="has-dropdown"><a data-lang-key="nav_关于我们" href="#page-about">About Us</a><div class="dropdown-menu"><a href="#page-about" data-scroll-to="about-who"><span data-lang-key="about_dd_who">Who We Are</span></a><a href="#page-about" data-scroll-to="about-values"><span data-lang-key="about_dd_values">Core Values</span></a><a href="#page-about" data-scroll-to="about-spirit"><span data-lang-key="about_dd_spirit">Our Spirit</span></a><a href="#page-about" data-scroll-to="about-partners"><span data-lang-key="about_dd_partners">Global Partners</span></a></div></li>
+      <li class="has-dropdown"><a data-lang-key="nav_产品与服务" href="#page-products">Products &amp; Services</a><div class="dropdown-menu"><a href="#page-products" data-acc="acc-lsr"><span data-lang-key="prod_lsr_title">LSR Liquid Silicone Products</span></a><a href="#page-products" data-acc="acc-pp"><span data-lang-key="prod_pp_title">Injection Molded Products</span></a><a href="#page-products" data-acc="acc-2k"><span data-lang-key="prod_2k_title">Two-shot / Multi-color Products</span></a></div></li>
+      <li class="has-dropdown"><a data-lang-key="nav_模具中心" href="#page-mold">Mold Center</a><div class="dropdown-menu"><a href="#page-mold" data-scroll-to="mold-cnc"><span data-lang-key="mold_short_cnc">CNC Machining</span></a><a href="#page-mold" data-scroll-to="mold-edm"><span data-lang-key="mold_short_edm">EDM Spark Erosion</span></a><a href="#page-mold" data-scroll-to="mold-wire"><span data-lang-key="mold_short_wire">Wire EDM</span></a><a href="#page-mold" data-scroll-to="mold-grinder"><span data-lang-key="mold_short_grinder">Precision Grinding</span></a><a href="#page-mold" data-scroll-to="mold-injection"><span data-lang-key="mold_short_injection">Injection Molding</span></a><a href="#page-mold" data-scroll-to="mold-qc"><span data-lang-key="mold_short_qc">Quality Inspection</span></a></div></li>
+      <li class="has-dropdown"><a data-lang-key="nav_资质实力" href="#page-qualifications">Qualifications</a><div class="dropdown-menu"><a href="#page-qualifications" data-scroll-to="qual-overview"><span data-lang-key="qual_short_overview">Qualifications</span></a><a href="#page-qualifications" data-scroll-to="qual-env"><span data-lang-key="qual_short_env">Production Environment</span></a><a href="#page-qualifications" data-scroll-to="qual-iqoq"><span data-lang-key="qual_short_iqoq">IQ/OQ/PQ Validation</span></a></div></li>
+      <li><a data-lang-key="nav_新闻动态" href="#page-news">News</a></li>
+      <li><a data-lang-key="nav_联系我们" href="#page-contact">Contact Us</a></li>
+    </ul>
+    <a href="#page-contact" class="nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 7h8M8 12h8M8 17h5"/></svg><span data-lang-key="nav_btn_询价">Get a Quote</span></a>
+    <div class="lang-switch">
+      <select class="lang-select" id="lang-select" onchange="switchLang(this.value)">
+        <option value="zh">中文 (ZH)</option>
+        <option value="en" selected>English (EN)</option>
+        <option value="de">Deutsch (DE)</option>
+        <option value="ru">Русский (RU)</option>
+        <option value="fr">Français (FR)</option>
+        <option value="ja">日本語 (JA)</option>
+        <option value="ko">한국어 (KO)</option>
+        <option value="es">Español (ES)</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════ PAGE: 首页 ═══════════ -->
+<div class="page" id="page-home">
+  <div class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image:url(images/hero_slide_1.jpg)"></div>
+      <div class="hero-slide" style="background-image:url(images/hero_slide_2.jpg)"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-indicators">
+      <div class="hero-dot active" data-slide="0"></div>
+      <div class="hero-dot" data-slide="1"></div>
+    </div>
+    <div class="hero-content reveal">
+      <div class="hero-tag">Precision Manufacturing · Medical Grade</div>
+      <h1><span data-lang-key="hero_title">Precision Manufacturing</span><br><strong data-lang-key="hero_sub">Guardians of Life &amp; Health</strong></h1>
+      <p data-lang-key="hero_desc" class="hero-sub">Class II passive medical device injection components · High-precision injection molds<br>ISO 13485 / ISO 9001 / IATF 16949 certified</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-item reveal"><div class="num">109</div><div data-lang-key="stat_machines" class="label">Machining Equipment</div></div>
+    <div class="stat-item reveal"><div class="num">21</div><div data-lang-key="stat_injection" class="label">Injection Machines</div></div>
+    <div class="stat-item reveal"><div class="num">125</div><div data-lang-key="stat_team" class="label">Professional Team</div></div>
+    <div class="stat-item reveal"><div class="num">3</div><div data-lang-key="stat_certs" class="label">Intl. Certifications</div></div>
+    <div class="stat-item reveal"><div class="num">2</div><div data-lang-key="stat_cleanrooms" class="label">Cleanrooms</div></div>
+  </div>
+
+  <div class="sec-header reveal"><h2 data-lang-key="home_core_title">Core Business</h2><div class="line"></div><p data-lang-key="home_core_sub">Full-chain precision manufacturing capability from mold design to injection mass production</p></div>
+
+  <div class="prod-grid">
+    <div class="prod-card reveal" onclick="location.href='#page-products'">
+      <div class="card-img"><img src="images/core_medical_1.jpg" alt="肠内营养输注系统" loading="lazy"></div>
+      <div class="card-body">
+        <h3 data-lang-key="prod1_title">Enteral Nutrition Infusion System</h3>
+        <p data-lang-key="home_prod1_desc">Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
+      </div>
+    </div>
+    <div class="prod-card reveal" onclick="location.href='#page-products'">
+      <div class="card-img"><img src="images/core_medical_2.jpg" alt="注射给药系统" loading="lazy"></div>
+      <div class="card-body">
+        <h3 data-lang-key="prod2_title">Injection Drug Delivery System</h3>
+        <p data-lang-key="home_prod2_desc">High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface quality control</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
+      </div>
+    </div>
+    <div class="prod-card reveal" onclick="location.href='#page-mold'">
+      <div class="card-img"><img src="images/core_mold_3.jpg" alt="精密注塑模具" loading="lazy"></div>
+      <div class="card-body">
+        <h3 data-lang-key="prod3_title">Precision Injection Molds</h3>
+        <p data-lang-key="home_prod3_desc">23 CNC · 8 EDM · 7 Wire-cut · Hauser / RODERS / YASDA top-tier equipment matrix</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec-header reveal" style="padding-top:10px;"><h2 data-lang-key="home_cert_title">Qualifications &amp; Certifications</h2><div class="line"></div><p data-lang-key="home_cert_sub">International standard systems ensuring reliable assurance for medical clients</p></div>
+  <div class="cert-gallery">
+    <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
+    <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
+    <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
+  </div>
+  <div class="sec-header reveal"><h2 data-lang-key="home_env_title">Production Environment</h2><div class="line"></div><p data-lang-key="home_env_sub">Class 100,000 cleanrooms meeting medical device production requirements</p></div>
+  <div class="workshop-gallery">
+    <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
+    <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
+  </div>
+
+  <div class="cta-section">
+    <h3 data-lang-key="home_cta">Need Medical Device Components?</h3>
+    <a data-lang-key="home_cta_btn" href="#page-contact" class="cta-link">Contact Us Now</a>
+  </div>
+
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 关于我们 ═══════════ -->
+<div class="page" id="page-about">
+  <div class="inner-content">
+<div class="sec-header reveal" id="about-who" style="padding:10px 0;"><h2 data-lang-key="about_who_title" style="font-weight:bold;">HONDVO</h2><div class="line"></div></div>
+<div class="about-2col">
+      <div class="about-text reveal">
+        <h3 data-lang-key="about_mold_title">HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</h3>
+        <p data-lang-key="about_mold_desc">Specializing in the design, manufacturing and delivery of high-precision injection molds. Equipped with a full brand equipment matrix from Swiss Hauser jig grinders, German RODERS 5-axis CNC to Japanese YASDA high-speed machining centers, covering complete mold manufacturing processes including CNC machining, EDM, wire-cut, and precision grinding.</p>
+        <h3 data-lang-key="about_tech_title">HONDVO Technology (Dongguan) Co., Ltd.</h3>
+        <p data-lang-key="about_tech_desc">Leveraging the strong manufacturing capabilities of HONDVO TOOLING LIMITED, focusing on Class II passive medical device injection component production. Equipped with 21 injection machines (including SUMITOMO all-electric, TOYO, and LSR liquid silicone dedicated machines), two Class 100,000 cleanrooms, fully supporting IQ/OQ/PQ validation services.</p>
+      </div>
+      <div class="about-stats-grid">
+        <div class="as-item reveal"><div class="num">109</div><div data-lang-key="stat_machines" class="label">Machining Equipment</div></div>
+        <div class="as-item reveal"><div class="num">21</div><div data-lang-key="stat_injection" class="label">Injection Machines</div></div>
+        <div class="as-item reveal"><div class="num">125</div><div data-lang-key="stat_team" class="label">Professional Team</div></div>
+        <div class="as-item reveal"><div class="num">3</div><div data-lang-key="stat_certs" class="label">Intl. Certifications</div></div>
+        <div class="as-item reveal"><div class="num">2</div><div data-lang-key="stat_cleanrooms" class="label">Cleanrooms</div></div>
+        <div class="as-item reveal"><div class="num">20</div><div data-lang-key="stat_design" class="label">Design Team</div></div>
+      </div>
+    </div>
+<div class="sec-header reveal" id="about-values" style="padding:30px 0 10px;"><h2 data-lang-key="about_values_title">Core Values</h2><div class="line"></div></div>
+<div class="values-grid">
+  <div class="iq-item reveal"><div class="letter">01</div><h4 data-lang-key="about_val1_title">Precision Manufacturing</h4><p data-lang-key="about_val1_desc">Micron-level precision as standard, zero-defect quality culture throughout every process</p></div>
+  <div class="iq-item reveal"><div class="letter">02</div><h4 data-lang-key="about_val2_title">Medical Compliance</h4><p data-lang-key="about_val2_desc">Dual ISO 13485 / IATF 16949 system, full IQ/OQ/PQ validation</p></div>
+  <div class="iq-item reveal"><div class="letter">03</div><h4 data-lang-key="about_val3_title">Rapid Response</h4><p data-lang-key="about_val3_desc">From mold design to mass production delivery, agile supply chain ensures shortest lead time</p></div>
+  <div class="iq-item reveal"><div class="letter">04</div><h4 data-lang-key="about_val4_title">Continuous Innovation</h4><p data-lang-key="about_val4_desc">Continuously introducing world-class equipment and processes, maintaining technological leadership</p></div>
+</div>
+<div class="sec-header reveal" id="about-spirit" style="padding:30px 0 10px;"><h2 data-lang-key="about_spirit_title">Hondvo Spirit</h2><div class="line"></div></div>
+<div class="iqoq-row">
+  <div class="iq-item reveal"><div class="letter" style="font-size:30px;" data-lang-key="about_sp1_icon">Craft</div><h4 data-lang-key="about_sp1_title">Craftsmanship</h4><p data-lang-key="about_sp1_desc">Every mold is a finely crafted masterpiece, with eternal reverence for micron-level precision</p></div>
+  <div class="iq-item reveal"><div class="letter" style="font-size:30px;" data-lang-key="about_sp2_icon">Client</div><h4 data-lang-key="about_sp2_title">Client First</h4><p data-lang-key="about_sp2_desc">Deep understanding of medical device client needs, engineering-driven solutions</p></div>
+  <div class="iq-item reveal"><div class="letter" style="font-size:30px;" data-lang-key="about_sp3_icon">Team</div><h4 data-lang-key="about_sp3_title">Team Collaboration</h4><p data-lang-key="about_sp3_desc">Seamless integration of mold design and injection production, efficient cross-department collaboration</p></div>
+</div>
+<div class="sec-header reveal" id="about-partners" style="padding:30px 0 10px;"><h2 data-lang-key="about_partners_title">Global Partners</h2><div class="line"></div></div>
+<div class="partners-map reveal">
+  <img src="images/global_partners.png" alt="全球合作伙伴分布" loading="lazy">
+</div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 产品与服务 ═══════════ -->
+<div class="page" id="page-products">
+  <div class="inner-hero"><h1 data-lang-key="prod_hero">Products &amp; Services</h1><p data-lang-key="prod_hero_sub">Class II passive medical device injection components</p></div>
+  <div class="inner-content">
+    <!-- 产品分类折叠栏 -->
+    <div class="prod-accordion">
+      <div class="acc-item">
+        <button class="acc-header" id="acc-lsr" onclick="toggleAccordion(this)"><span class="acc-icon">LSR</span><span class="acc-label" data-lang-key="prod_lsr_title">LSR Liquid Silicone Products</span><span class="acc-arrow">&#9660;</span></button>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_lsr_desc">Medical-grade liquid silicone injection products meeting biocompatibility requirements</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/lsr1/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item1">Silicone Mask</div><div class="acc-card-tags"><span>医疗级</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr2/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item2">Silicone Seals</div><div class="acc-card-tags"><span>耐高温</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr3/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item3">Silicone Tubing</div><div class="acc-card-tags"><span>透明</span><span>LSR</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/lsr4/300/225" alt="LSR" loading="lazy"><div class="acc-card-name" data-lang-key="prod_lsr_item4">Silicone Sheath</div><div class="acc-card-tags"><span>生物相容</span><span>LSR</span></div></div></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header" id="acc-pp" onclick="toggleAccordion(this)"><span class="acc-icon">PP</span><span class="acc-label" data-lang-key="prod_pp_title">Injection Molded Products</span><span class="acc-arrow">&#9660;</span></button>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_pp_desc">High-precision injection molding for medical consumables and industrial parts</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/pp1/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item1">Infusion Connector</div><div class="acc-card-tags"><span>医疗级</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp2/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item2">Cap Assembly</div><div class="acc-card-tags"><span>PE</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp3/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item3">Connector</div><div class="acc-card-tags"><span>精密</span><span>PP</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/pp4/300/225" alt="PP" loading="lazy"><div class="acc-card-name" data-lang-key="prod_pp_item4">Housing Parts</div><div class="acc-card-tags"><span>定制</span><span>PP</span></div></div></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-header" id="acc-2k" onclick="toggleAccordion(this)"><span class="acc-icon">2K</span><span class="acc-label" data-lang-key="prod_2k_title">Two-shot / Multi-color Products</span><span class="acc-arrow">&#9660;</span></button>
+        <div class="acc-body"><div class="acc-content"><p class="acc-desc" data-lang-key="prod_2k_desc">Integrated two-shot / multi-color molding, reducing secondary processing</p><div class="acc-grid"><div class="acc-card"><img src="https://picsum.photos/seed/2k1/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item1">Two-shot Handle</div><div class="acc-card-tags"><span>双色</span><span>包胶</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k2/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item2">Multi-color Button</div><div class="acc-card-tags"><span>多色</span><span>精密</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k3/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item3">Soft/Hard Overmold</div><div class="acc-card-tags"><span>软硬胶</span><span>一体</span></div></div><div class="acc-card"><img src="https://picsum.photos/seed/2k4/300/225" alt="2K" loading="lazy"><div class="acc-card-name" data-lang-key="prod_2k_item4">Logo Insert</div><div class="acc-card-tags"><span>嵌件</span><span>双色</span></div></div></div></div></div>
+      </div>
+    </div>
+
+    <div class="sec-header reveal" style="margin-top:48px;"><h2 data-lang-key="core_products_title">Core Product Lines</h2><div class="line"></div><p data-lang-key="core_products_sub">Core Product Lines</p></div>
+<div class="prod-grid" style="padding:0;">
+      <div class="prod-card reveal">
+        <div class="card-img"><img src="images/prod_enteral.jpg" alt="肠内营养输注系统" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-lang-key="prod1_title">Enteral Nutrition Infusion System</h3>
+          <p data-lang-key="prod_prod1_desc">Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations</p>
+          <span data-lang-key="prod_iq" class="link">IQ/OQ/PQ Validation</span>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <div class="card-img"><img src="images/prod_injection.jpg" alt="注射给药系统" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-lang-key="prod2_title">Injection Drug Delivery System</h3>
+          <p data-lang-key="prod_prod2_desc">High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface finish control</p>
+          <span data-lang-key="prod_iq" class="link">IQ/OQ/PQ Validation</span>
+        </div>
+      </div>
+      <div class="prod-card reveal">
+        <div class="card-img"><img src="images/prod_custom.jpg" alt="其他二类器械部件" loading="lazy"></div>
+        <div class="card-body">
+          <h3 data-lang-key="prod_other_title">Other Class II Device Components</h3>
+          <p data-lang-key="prod_other_desc">Customized Class II medical device injection components per customer requirements, covering housings, connectors, tubing fittings, etc.</p>
+          <span data-lang-key="prod_custom" class="link">Custom Development Available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 模具中心 ═══════════ -->
+<div class="page" id="page-mold">
+  <div class="inner-hero"><h1 data-lang-key="mold_hero">Mold Center</h1><p data-lang-key="mold_hero_sub">World-class equipment matrix · Complete mold manufacturing capability</p></div>
+  <div class="inner-content">
+    <div class="workshop-gallery" style="padding:0 0 50px;">
+      <div class="img-cert-card" onclick="openLightbox('images/mold_1.jpg')"><img src="images/mold_1.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img1_desc">Multi-cavity Precision Injection Mold — Mirror-polished with HOGU temperature control system</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_2.jpg')"><img src="images/mold_2.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img2_desc">Hot Runner Precision Mold — Multi-cavity design with independent thermal control module</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_3.jpg')"><img src="images/mold_3.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img3_desc">Liquid Silicone Rubber (LSR) Injection Mold — Precision cavity with integrated alignment frame</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/mold_4.jpg')"><img src="images/mold_4.jpg" alt="模具" loading="lazy"><div class="card-label" data-lang-key="mold_img4_desc">Multi-cavity Slider Mold — Mastip hot runner system, high-gloss mirror finish</div></div>
+    </div>
+
+<div class="eq-block">
+      <h3 id="mold-cnc" data-lang-key="mold_cnc">CNC Machining Centers (23 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>Hauser S35</strong> 坐标磨 瑞士 0.001mm</span>
+        <span class="eq-tag reveal"><strong>Hauser S50L</strong> 坐标磨 瑞士 0.001mm</span>
+        <span class="eq-tag reveal"><strong>Mazak QTE 200L</strong> CNC车床 日本 ±0.002mm</span>
+        <span class="eq-tag reveal"><strong>Kellenberger K10</strong> 数控磨床 瑞士 ±0.0005mm</span>
+        <span class="eq-tag reveal"><strong>MAKINO V90S</strong> 五轴龙门 日本 0.005mm</span>
+        <span class="eq-tag reveal"><strong>YASDA YMC430</strong> 高速CNC 日本 0.001mm ×2</span>
+        <span class="eq-tag reveal"><strong>YASDA YMC650</strong> 高速CNC 日本 0.001mm</span>
+        <span class="eq-tag reveal"><strong>RODERS RXP501</strong> CNC 德国 0.002mm</span>
+        <span class="eq-tag reveal"><strong>RODERS RXP601DSH</strong> 五轴CNC 德国 0.002mm</span>
+        <span class="eq-tag reveal"><strong>FANUC A-T14iF</strong> CNC 日本 0.005mm</span>
+        <span class="eq-tag reveal"><strong>FANUC a-D21MiB</strong> CNC 日本 0.005mm ×2</span>
+        <span class="eq-tag reveal"><strong>HURCO VMX42HSi</strong> CNC 美国 0.005mm ×2</span>
+        <span class="eq-tag reveal"><strong>AWEA SP-2016</strong> 龙门 台湾 0.01mm</span>
+        <span class="eq-tag reveal"><strong>WELE RB-212</strong> 龙门 台湾 0.01mm</span>
+        <span class="eq-tag reveal"><strong>YCM NCV-102AM</strong> CNC铣 台湾 ×2</span>
+        <span class="eq-tag reveal"><strong>YCM NXV-1020AM</strong> CNC铣 台湾</span>
+        <span class="eq-tag reveal"><strong>KERUISI K-540A</strong> CNC 中国 0.005mm ×2</span>
+        <span class="eq-tag reveal"><strong>KERUISI K540iH</strong> CNC 中国 0.005mm ×2</span>
+      </div>
+    </div>
+    <div class="eq-block">
+      <h3 id="mold-edm" data-lang-key="mold_edm">EDM Machines (8 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>AgieCharmilles Form P350</strong> 瑞士 0.002mm ×3</span>
+        <span class="eq-tag reveal"><strong>Sodick AD32Ls</strong> 日本 0.005mm ×2</span>
+        <span class="eq-tag reveal"><strong>MAKINO EDGE3i</strong> 日本 0.005mm</span>
+        <span class="eq-tag reveal"><strong>MAKINO EDGE2i</strong> 日本 0.003mm</span>
+      </div>
+    </div>
+    <div class="eq-block">
+      <h3 id="mold-wire" data-lang-key="mold_wire">Wire-Cut EDM (7 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>Seibu M50HP</strong> 日本 ×2</span>
+        <span class="eq-tag reveal"><strong>SODICK AQ550LS</strong> 日本 0.003mm</span>
+        <span class="eq-tag reveal"><strong>SODICK AQ360LS</strong> 日本 0.005mm</span>
+        <span class="eq-tag reveal"><strong>SANNIU</strong> 台湾 ×3</span>
+      </div>
+    </div>
+    <div class="eq-block">
+      <h3 id="mold-grinder" data-lang-key="mold_grinder">Precision Grinders (9 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>Okamoto 126DX</strong> 日本 0.002mm</span>
+        <span class="eq-tag reveal"><strong>Okamoto 95DX</strong> 日本 0.005mm</span>
+        <span class="eq-tag reveal"><strong>Okamoto ACC-450ST</strong> 日本 0.002mm ×2</span>
+        <span class="eq-tag reveal"><strong>PERMANET 618S</strong> 台湾 0.005mm</span>
+        <span class="eq-tag reveal"><strong>PERMANET HF618S</strong> 台湾 0.01mm</span>
+      </div>
+    </div>
+    <div class="eq-block">
+      <h3 id="mold-injection" data-lang-key="mold_injection">Injection Molding Machines (21 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>SUMITOMO SE50EV</strong> 日本 500KN ×2</span>
+        <span class="eq-tag reveal"><strong>SUMITOMO SE100EV</strong> 日本 1000KN ×4</span>
+        <span class="eq-tag reveal"><strong>SUMITOMO SE180EV</strong> 日本 1800KN ×4</span>
+        <span class="eq-tag reveal"><strong>TOYO CS-230</strong> 日本 2300KN ×2</span>
+        <span class="eq-tag reveal"><strong>TOYO CS-280</strong> 日本 2800KN</span>
+        <span class="eq-tag reveal"><strong>HAITIAN 90~800</strong> 中国 900~8000KN ×4</span>
+        <span class="eq-tag reveal"><strong>BALZEA V200SD</strong> 立式 2000KN</span>
+        <span class="eq-tag reveal"><strong>ZSV160/120-LSR</strong> 液态硅胶专用 ×3</span>
+      </div>
+    </div>
+    <div class="eq-block">
+      <h3 id="mold-qc" data-lang-key="mold_qc">Quality Inspection Equipment (8 units)</h3>
+      <div class="eq-tags">
+        <span class="eq-tag reveal"><strong>HEXAGON VIEWMAX D4</strong> CMM+3D扫描 0.005mm</span>
+        <span class="eq-tag reveal"><strong>HEXAGON Global S 5.07.05</strong> CMM 0.0012mm</span>
+        <span class="eq-tag reveal"><strong>HEXAGON Classic 686</strong> CMM 0.0017mm</span>
+        <span class="eq-tag reveal"><strong>NIKON VMA-4540</strong> 2.5D CMM 0.0012mm</span>
+        <span class="eq-tag reveal"><strong>HEXAGON RigelScan Ultra</strong> 手持3D扫描 0.02mm</span>
+      </div>
+    </div>
+<div class="verify-banner"><strong data-lang-key="verify_prefix">IQ/OQ/PQ Validation Support: </strong><span data-lang-key="verify_text">All molds and injection processes support Installation Qualification (IQ), Operational Qualification (OQ), and Performance Qualification (PQ), ensuring compliance with medical device regulatory requirements.</span></div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 资质实力 ═══════════ -->
+<div class="page" id="page-qualifications">
+  <div class="inner-hero"><h1 data-lang-key="qual_hero">Qualifications</h1><p data-lang-key="qual_hero_sub">International standard certifications · Cleanrooms · Validation capabilities</p></div>
+  <div class="inner-content">
+<div class="cert-gallery" id="qual-overview" style="padding-bottom:16px;">
+      <div class="img-cert-card" onclick="openLightbox('images/cert_1_page1.jpg')"><img src="images/cert_1_page1.jpg" alt="IATF 16949 证书" loading="lazy"><div class="card-label" data-lang-key="cert_iatf">IATF 16949 Automotive Quality Management System</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/cert_2_page1.jpg')"><img src="images/cert_2_page1.jpg" alt="ISO 13485 证书" loading="lazy"><div class="card-label" data-lang-key="cert_13485">ISO 13485 Medical Device Quality Management System</div></div>
+      <div class="img-cert-card" onclick="openLightbox('images/cert_3_page1.jpg')"><img src="images/cert_3_page1.jpg" alt="ISO 9001 证书" loading="lazy"><div class="card-label" data-lang-key="cert_9001">ISO 9001 Quality Management System</div></div>
+    </div>
+    <div class="sec-header reveal" id="qual-env" style="padding:10px 0;"><h2 data-lang-key="qual_env_title">Production Environment</h2><div class="line"></div><p data-lang-key="qual_env_sub">Class 100,000 cleanrooms meeting medical device production requirements</p></div>
+    <div class="workshop-gallery" style="padding:0 0 50px;">
+      <div class="img-cert-card" onclick="openLightbox('images/workshop_1.jpg')"><img src="images/workshop_1.jpg" alt="车间环境" loading="lazy"></div>
+      <div class="img-cert-card" onclick="openLightbox('images/workshop_2.jpg')"><img src="images/workshop_2.jpg" alt="车间环境" loading="lazy"></div>
+    </div>
+    <div class="sec-header reveal" id="qual-iqoq" style="padding:10px 0;"><h2 data-lang-key="qual_iq_title">IQ/OQ/PQ Validation System</h2><div class="line"></div></div>
+    <div class="iqoq-row">
+      <div class="iq-item reveal"><div class="letter">IQ</div><h4 data-lang-key="iq_iq2">Installation Qualification</h4><p data-lang-key="iq_iq2_desc">Verification of equipment/mold installation environment, specifications, and calibration status to ensure compliance with design requirements</p></div>
+      <div class="iq-item reveal"><div class="letter">OQ</div><h4 data-lang-key="iq_oq2">Operational Qualification</h4><p data-lang-key="iq_oq2_desc">Validation of stable operation within defined process parameter ranges, producing consistently qualified intermediate output</p></div>
+      <div class="iq-item reveal"><div class="letter">PQ</div><h4 data-lang-key="iq_pq2">Performance Qualification</h4><p data-lang-key="iq_pq2_desc">Multi-batch continuous production validation, statistically demonstrating process capability meets product quality standards</p></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 新闻动态 ═══════════ -->
+<div class="page" id="page-news">
+  <div class="inner-hero"><h1 data-lang-key="news_hero">News</h1><p data-lang-key="news_hero_sub">Company News · Industry Updates</p></div>
+  <div class="inner-content">
+<div class="news-list">
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-07-28</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_1">HONDVO Technology Passed ISO 13485 Annual Surveillance Audit</h4><p data-lang-key="news_summary_1">HONDVO Technology has successfully passed the ISO 13485 medical device quality management system annual surveillance audit, covering the entire injection molding production process.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-06-15</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_2">Two New TOYO CS-230 All-Electric Injection Machines Put into Production</h4><p data-lang-key="news_summary_2">To meet the growing order demands from medical device clients, the company has introduced two new Japanese TOYO CS-230 all-electric injection machines, now officially operating in the Class 100,000 cleanroom.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-05-10</span><span data-lang-key="news_tag_industry">Industry News</span></div>
+        <div><h4 data-lang-key="news_title_3">HONDVO Showcases at CMEF 2026 China International Medical Equipment Fair</h4><p data-lang-key="news_summary_3">HONDVO Technology showcased its core products including enteral nutrition infusion systems and injection drug delivery systems at CMEF 2026, reaching cooperation intentions with multiple domestic and international medical device companies.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-04-22</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_4">Swiss Hauser S35 Jig Grinder Installation & Commissioning Completed</h4><p data-lang-key="news_summary_4">The Hauser S35 jig grinder with 0.001mm precision has completed installation and commissioning in the mold workshop, further enhancing precision mold manufacturing capabilities.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-03-08</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_5">HONDVO TOOLING Passed IATF 16949 Recertification Audit</h4><p data-lang-key="news_summary_5">HONDVO TOOLING successfully passed the IATF 16949 automotive quality management system recertification audit. System effectiveness was highly praised by auditors, continuing to meet stringent automotive supply chain requirements.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-02-20</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_6">Class 100K Cleanroom Passed International Client Annual On-Site Audit</h4><p data-lang-key="news_summary_6">The Class 100,000 cleanroom successfully passed the annual on-site audit by a European medical device client, covering cleanliness control, SOP compliance, and batch traceability. Achieved excellent assessment with zero corrective actions required.</p></div>
+      </div>
+      <div class="news-item reveal" tabindex="0">
+        <div class="meta"><span class="date">2026-01-12</span><span data-lang-key="news_tag_company">Company News</span></div>
+        <div><h4 data-lang-key="news_title_7">New German RODERS High-Speed Machining Center Delivered to Mold Center</h4><p data-lang-key="news_summary_7">Following the Hauser S35 jig grinder, the mold center adds another major equipment — a German RODERS RXP 500 DCS high-speed machining center has completed installation and acceptance, achieving dual improvements in mold machining precision and efficiency.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PAGE: 联系我们 ═══════════ -->
+<div class="page" id="page-contact">
+  <div class="inner-hero"><h1 data-lang-key="ct_hero">Contact Us</h1><p data-lang-key="ct_hero_sub">Dual-company addresses · Welcome to visit and discuss</p></div>
+  <div class="inner-content">
+<div class="contact-2col">
+      <div class="ci-block">
+        <div class="ci-row"><span data-lang-key="ct_mold_label" class="ci-label">Mold Company</span><span class="ci-val"><strong data-lang-key="ct_mold_name">HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</strong><span data-lang-key="ct_mold_addr">Dongguan, Guangdong, China</span></span></div>
+        <div class="ci-row"><span data-lang-key="ct_tech_label" class="ci-label">Technology Company</span><span class="ci-val"><strong data-lang-key="ct_tech_name">HONDVO Technology (Dongguan) Co., Ltd.</strong><span data-lang-key="ct_tech_addr">Dongguan, Guangdong, China</span></span></div>
+        <div class="ci-row"><span data-lang-key="ct_phone_label" class="ci-label">Phone</span><span class="ci-val">+86 769 8188 9275</span></div>
+        <div class="ci-row"><span data-lang-key="ct_email_label" class="ci-label">Email</span><span class="ci-val">info@hondvotechnology.com</span></div>
+        <div class="ci-row"><span data-lang-key="ct_hours_label" class="ci-label">Working Hours</span><span class="ci-val" data-lang-key="ct_hours_val">Mon - Fri 8:00 - 17:30</span></div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-row">
+            <div class="fg"><label data-lang-key="ct_name">Name</label><input type="text" placeholder="Your Company Name" data-ph-key="ct_placeholder_name"></div>
+            <div class="fg"><label data-lang-key="ct_company_label">Company</label><input type="text" placeholder="Your Phone Number" data-ph-key="ct_placeholder_company"></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label data-lang-key="ct_tel_label">Phone</label><input type="tel" placeholder="Your Email" data-ph-key="ct_placeholder_phone"></div>
+            <div class="fg"><label data-lang-key="ct_email2_label">Email</label><input type="email" placeholder="" data-ph-key="ct_placeholder_email"></div>
+          </div>
+          <div class="fg"><label data-lang-key="ct_type_label">Inquiry Type</label><select><option data-lang-key="ct_type_0">Please Select</option><option data-lang-key="ct_type_1">Medical Device Injection Parts</option><option data-lang-key="ct_type_2">Precision Mold Manufacturing</option><option data-lang-key="ct_type_3">Mold + Injection One-Stop</option><option data-lang-key="ct_type_4">Other Inquiries</option></select></div>
+          <div class="fg"><label data-lang-key="ct_desc_label">Requirements</label><textarea rows="4" placeholder="Please describe your product requirements, technical specifications, expected quantities, etc." data-ph-key="ct_placeholder_desc"></textarea></div>
+          <div style="position:absolute;left:-9999px;top:-9999px" aria-hidden="true"><input type="text" name="honeypot" tabindex="-1" autocomplete="off"></div>
+          <button data-lang-key="ct_submit" class="submit-btn">Submit</button>
+        </div>
+        <div class="ci-highlight" style="margin-top:40px;">
+          <p data-lang-key="ct_visit">Welcome to visit our factory</p>
+          <div data-lang-key="ct_sub_text" class="sub">For business cooperation inquiries, please contact us via phone or email<br>We will arrange a professional team to follow up with you</div>
+          <div class="qr-box" style="margin-top:28px;text-align:center;">
+            <img src="images/qrcode.jpg" alt="企业微信" style="width:140px;height:140px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);" loading="lazy">
+            <p style="margin-top:10px;font-size:13px;color:#778899;" data-lang-key="ct_qr_label">Scan to add WeCom</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <div class="footer-brand">
+        <div class="logo-area">
+          <img src="images/logo.png" alt="弘欧" />
+          <div class="brand-name">弘欧科技<small>HONDVO Technology</small></div>
+        </div>
+        <p data-lang-key="footer_desc">HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing</p>
+      </div>
+      <div class="col"><h4 data-lang-key="ft_about">About Us</h4><a href="#page-about" data-lang-key="ft_about_who">Who We Are</a><a href="#about-values" data-lang-key="ft_about_values">Core Values</a><a href="#about-spirit" data-lang-key="ft_about_spirit">Hondvo Spirit</a><a href="#about-partners" data-lang-key="ft_about_partners">Global Partners</a></div>
+      <div class="col"><h4 data-lang-key="ft_products">Products & Services</h4><a href="#page-products" data-lang-key="ft_prod_enteral">Enteral Nutrition System</a><a href="#page-products" data-lang-key="ft_prod_injection">Injection Drug System</a><a href="#page-products" data-lang-key="ft_prod_other">Other Class II Components</a><a href="#page-mold" data-lang-key="ft_prod_mold">Precision Mold</a></div>
+      <div class="col"><h4 data-lang-key="ft_mold">Mold Center</h4><a href="#page-mold" data-lang-key="ft_mold_design">Mold Design</a><a href="#page-mold" data-lang-key="ft_mold_machining">Precision Machining</a><a href="#page-mold" data-lang-key="ft_mold_injection">Injection Production</a><a href="#page-mold" data-lang-key="ft_mold_quality">Quality Control</a></div>
+      <div class="col"><h4 data-lang-key="ft_qual">Qualifications</h4><a href="#page-qualifications" data-lang-key="ft_qual_13485">ISO 13485</a><a href="#page-qualifications" data-lang-key="ft_qual_16949">IATF 16949</a><a href="#page-qualifications" data-lang-key="ft_qual_9001">ISO 9001</a><a href="#page-qualifications" data-lang-key="ft_qual_env">Production Environment</a><a href="#page-qualifications" data-lang-key="ft_qual_iqoq">IQ/OQ/PQ Validation</a></div>
+      <div class="col"><h4 data-lang-key="ft_news">News</h4><a href="#page-news" data-lang-key="ft_news_company">Company News</a><a href="#page-news" data-lang-key="ft_news_industry">Industry News</a></div>
+      <div class="col"><h4 data-lang-key="ft_contact">Contact Us</h4><a href="#page-contact" data-lang-key="ft_contact_job">Careers</a><a href="#page-contact" data-lang-key="ft_contact_reach">Contact Info</a></div>
+    </div>
+    <div class="wrap bottom">
+      <div class="legal-links">
+        <span data-lang-key="ft_copyright">© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.</span>
+        <span>|</span>
+        <span>ISO 13485 / ISO 9001 / IATF 16949</span>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_privacy">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" data-lang-key="ft_terms">Terms of Service</a>
+      </div>
+      <div class="social-icons">
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10.9c-.7.5-1.2 1.1-1.2 2 0 .9.5 1.5 1.2 2"/><path d="M16 10.9c.7.5 1.2 1.1 1.2 2 0 .9-.5 1.5-1.2 2"/><rect x="3" y="8" width="18" height="11" rx="2"/><path d="M3 10l9 5 9-5"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5a7 7 0 0 0 0 11"/><path d="M10 10a2.5 2.5 0 0 0 0 4"/><path d="M17.5 6.5a7 7 0 0 1 0 11"/><path d="M14 10a2.5 2.5 0 0 1 0 4"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        <svg class="si" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  var links = nav.querySelectorAll('.links > li > a');
+  var lastScrollY = 0;
+  var ticking = false;
+
+  function getActivePage(){
+    var h = window.location.hash || '#page-home';
+    return document.querySelector(h);
+  }
+
+  function isHomePage(){
+    var h = window.location.hash;
+    return !h || h === '#page-home';
+  }
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      var page = getActivePage();
+      var y = page ? page.scrollTop : 0;
+
+      if (isHomePage()) {
+        nav.classList.toggle('scrolled', y > 60);
+      } else {
+        nav.classList.add('scrolled');
+      }
+
+      if (y <= 0) { nav.classList.remove('hidden'); }
+      else if (y > lastScrollY && y > 80) { nav.classList.add('hidden'); }
+      else if (y < lastScrollY) { nav.classList.remove('hidden'); }
+
+      lastScrollY = y;
+      ticking = false;
+    });
+  }
+  function onHash(){
+    var h = window.location.hash || '#page-home';
+    nav.classList.remove('open');
+    links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href') === h); });
+    // Re-bind scroll listener to new active page
+    var oldPage = document.querySelector('.page[data-scroll-bound]');
+    if (oldPage) { oldPage.removeEventListener('scroll', onScroll); oldPage.removeAttribute('data-scroll-bound'); }
+    var newPage = getActivePage();
+    if (newPage) { newPage.addEventListener('scroll', onScroll, {passive:true}); newPage.setAttribute('data-scroll-bound','1'); newPage.scrollTop = 0; }
+    lastScrollY = newPage ? newPage.scrollTop : 0;
+    onScroll();
+    // Reset reveal animations for the new page
+    if (typeof resetReveal === 'function') resetReveal();
+  }
+
+  // Init: bind to current page
+  (function(){
+    var p = getActivePage();
+    if (p) { p.addEventListener('scroll', onScroll, {passive:true}); p.setAttribute('data-scroll-bound','1'); }
+    onScroll();
+  })();
+  window.addEventListener('hashchange', onHash);
+  if (!window.location.hash) window.location.hash = '#page-home';
+  onHash();
+})();
+
+/* Lightbox */
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  lb.querySelector('img').src = src;
+  lb.classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+/* Hero Carousel */
+(function(){
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var cur = 0, total = slides.length;
+  if (total < 2) return;
+  function go(idx) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (idx + total) % total;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  dots.forEach(function(d) {
+    d.addEventListener('click', function(){ go(parseInt(d.dataset.slide)); });
+  });
+  setInterval(function(){ go(cur + 1); }, 8000);
+})();
+
+/* ═══════════ HAMBURGER MENU ═══════════ */
+(function(){
+  var hamburger = document.getElementById('hamburger');
+  var nav = document.getElementById('nav');
+  if (!hamburger) return;
+  hamburger.addEventListener('click', function(e){
+    e.stopPropagation();
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('.links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!nav.contains(e.target)) nav.classList.remove('open');
+  });
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 768) nav.classList.remove('open');
+  });
+})();
+</script>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <img src="" alt="" loading="lazy">
+</div>
+
+
+<script>
+/* ═══════════ I18N SYSTEM (direct replacement) ═══════════ */
+const I18N = {
+  "nav_首页":{"zh":"首页","en":"Home","de":"Startseite","ru":"Главная","fr":"Accueil","ja":"ホーム","ko":"홈","es":"Inicio"},
+  "nav_关于我们":{"zh":"关于我们","en":"About Us","de":"Über uns","ru":"О нас","fr":"À propos","ja":"会社概要","ko":"회사소개","es":"Sobre nosotros"},
+  "nav_产品与服务":{"zh":"产品与服务","en":"Products & Services","de":"Produkte & Dienstleistungen","ru":"Продукты и услуги","fr":"Produits & services","ja":"製品・サービス","ko":"제품 및 서비스","es":"Productos y servicios"},
+  "nav_模具中心":{"zh":"模具中心","en":"Mold Center","de":"Werkzeugbau","ru":"Центр пресс-форм","fr":"Centre de moules","ja":"金型センター","ko":"금형 센터","es":"Centro de moldes"},
+  "nav_资质实力":{"zh":"资质实力","en":"Qualifications","de":"Qualifikationen","ru":"Квалификации","fr":"Qualifications","ja":"認定資格","ko":"인증 및 역량","es":"Certificaciones"},
+  "nav_新闻动态":{"zh":"新闻动态","en":"News","de":"Nachrichten","ru":"Новости","fr":"Actualités","ja":"ニュース","ko":"뉴스","es":"Noticias"},
+  "nav_联系我们":{"zh":"联系我们","en":"Contact Us","de":"Kontakt","ru":"Контакты","fr":"Contact","ja":"お問い合わせ","ko":"문의하기","es":"Contacto"},
+  "nav_btn_询价":{"zh":"立即询价","en":"Get a Quote","de":"Angebot anfordern","ru":"Запросить цену","fr":"Demander un devis","ja":"見積り依頼","ko":"견적 요청","es":"Solicitar cotización"},
+
+  "hero_title":{"zh":"精密制造","en":"Precision Manufacturing","de":"Präzisionsfertigung","ru":"Прецизионное производство","fr":"Fabrication de précision","ja":"精密製造","ko":"정밀 제조","es":"Fabricación de precisión"},
+  "page_title":{"zh":"弘欧科技 - 精密医疗器械部件 & 精密模具制造","en":"HONDVO Technology - Precision Medical Device Components & Precision Mold Manufacturing","de":"HONDVO Technology - Präzisions-Medizinteile & Präzisionswerkzeugbau","ru":"HONDVO Technology - Компоненты для медицинских изделий и прецизионные пресс-формы","fr":"HONDVO Technology - Composants médicaux de précision & fabrication de moules","ja":"HONDVO Technology - 精密医療部品 & 精密金型製造","ko":"HONDVO Technology - 정밀 의료기기 부품 & 정밀 금형 제조","es":"HONDVO Technology - Componentes médicos de precisión y moldes de precisión"},
+  "hero_sub":{"zh":"守护生命健康","en":"Guardians of Life & Health","de":"Hüter von Leben und Gesundheit","ru":"На страже жизни и здоровья","fr":"Gardiens de la vie et de la santé","ja":"生命と健康を守る","ko":"생명과 건강을 지키다","es":"Guardianes de la vida y la salud"},
+  "hero_desc":{"zh":"无源二类医疗器械注塑部件 · 高精密注塑模具<br>ISO 13485 / ISO 9001 / IATF 16949 三体系认证","en":"Class II passive medical device injection components · High-precision injection molds<br>ISO 13485 / ISO 9001 / IATF 16949 triple-system certified","de":"Spritzgussteile für passive Medizinprodukte Klasse II · Hochpräzise Spritzgießwerkzeuge<br>Dreifach zertifiziert nach ISO 13485 / ISO 9001 / IATF 16949","ru":"Литьевые компоненты для пассивных медицинских изделий класса II · Прецизионные пресс-формы<br>Тройная сертификация ISO 13485 / ISO 9001 / IATF 16949","fr":"Pièces injectées pour dispositifs médicaux passifs de classe II · Moules d'injection de haute précision<br>Triple certification ISO 13485 / ISO 9001 / IATF 16949","ja":"クラスIIパッシブ医療機器用射出部品 · 高精密射出成形金型<br>ISO 13485 / ISO 9001 / IATF 16949 トリプル認証取得","ko":"클래스II 수동형 의료기기 사출 부품 · 고정밀 사출 금형<br>ISO 13485 / ISO 9001 / IATF 16949 3중 인증","es":"Componentes de inyección para dispositivos médicos pasivos clase II · Moldes de inyección de alta precisión<br>Triple certificación ISO 13485 / ISO 9001 / IATF 16949"},
+
+  "stat_machines":{"zh":"台加工设备","en":"Machining Equipment","de":"Bearbeitungsmaschinen","ru":"Единиц оборудования","fr":"Machines d'usinage","ja":"台の加工設備","ko":"대의 가공 장비","es":"Máquinas de mecanizado"},
+  "stat_injection":{"zh":"台注塑机","en":"Injection Machines","de":"Spritzgießmaschinen","ru":"Термопластавтоматов","fr":"Machines d'injection","ja":"台の射出成形機","ko":"대의 사출 성형기","es":"Máquinas de inyección"},
+  "stat_team":{"zh":"人专业团队","en":"Professional Team","de":"Fachkräfte im Team","ru":"Специалистов в команде","fr":"Professionnels dans l'équipe","ja":"名の専門チーム","ko":"명의 전문 팀","es":"Profesionales en el equipo"},
+  "stat_certs":{"zh":"项国际认证","en":"Intl. Certifications","de":"Internationale Zertifizierungen","ru":"Международных сертификатов","fr":"Certifications internationales","ja":"件の国際認証","ko":"건의 국제 인증","es":"Certificaciones internacionales"},
+  "stat_cleanrooms":{"zh":"个净化车间","en":"Cleanrooms","de":"Reinräume","ru":"Чистых помещений","fr":"Salles blanches","ja":"室のクリーンルーム","ko":"개의 클린룸","es":"Salas limpias"},
+  "stat_design":{"zh":"人设计团队","en":"Design Team","de":"Konstrukteure","ru":"Конструкторов","fr":"Concepteurs","ja":"名の設計チーム","ko":"명의 설계 팀","es":"Diseñadores en el equipo"},
+
+  "home_core_title":{"zh":"核心业务","en":"Core Business","de":"Kerngeschäft","ru":"Основные направления","fr":"Activités principales","ja":"コア事業","ko":"핵심 사업","es":"Negocio principal"},
+  "home_core_sub":{"zh":"从模具设计到注塑量产，全链路精密制造能力","en":"Full-chain precision manufacturing capability from mold design to injection mass production","de":"Präzisionsfertigung über die gesamte Kette – vom Werkzeugdesign bis zur Serienproduktion","ru":"Сквозные возможности прецизионного производства – от проектирования пресс-форм до серийного литья","fr":"Capacité de fabrication de précision sur toute la chaîne, de la conception de moules à la production en série","ja":"金型設計から射出成形量産まで、一貫した精密製造力","ko":"금형 설계부터 사출 양산까지, 전 공정 정밀 제조 역량","es":"Capacidad de fabricación de precisión de cadena completa, desde el diseño de moldes hasta la producción en serie"},
+
+  "home_prod1_desc":{"zh":"硅胶营养液瓶体、注塑瓶盖、分流接头、管路连接件，满足二类医疗器械法规要求","en":"Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations","de":"Flaschenkörper für Silikon-Nährlösungen, Spritzguss-Verschlusskappen, Verteileranschlüsse, Schlauchverbinder – konform mit Medizinprodukteverordnung Klasse II","ru":"Корпуса флаконов для силиконовых питательных растворов, литьевые крышки, разветвители, трубные соединители – соответствие требованиям для медизделий класса II","fr":"Corps de flacons en silicone pour solutions nutritives, bouchons injectés, raccords de dérivation, connecteurs de tubulure – conformes aux exigences des DM de classe II","ja":"シリコーン栄養液ボトル本体、射出成形キャップ、分岐コネクタ、チューブ接続部品 – クラスII医療機器規制に対応","ko":"실리콘 영양액 병 본체, 사출 캡, 분기 커넥터, 튜브 연결 부품 – 클래스II 의료기기 규정 충족","es":"Cuerpos de frascos de silicona para soluciones nutritivas, tapas inyectadas, conectores de derivación, conexiones de tubería – cumplen con la normativa de dispositivos médicos clase II"},
+  "home_prod2_desc":{"zh":"高精度针筒、推杆组件，严格的尺寸公差与表面质量控制","en":"High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface quality control","de":"Hochpräzise Spritzenzylinder und Kolbenbaugruppen mit strenger Maßtoleranz und Oberflächenkontrolle","ru":"Высокоточные цилиндры шприцев и поршневые узлы с жестким контролем допусков и качества поверхности","fr":"Corps de seringues et ensembles piston de haute précision avec contrôle strict des tolérances dimensionnelles et de l'état de surface","ja":"高精度シリンジバレルおよびプランジャー組立品、厳格な寸法公差と表面品質管理","ko":"고정밀 주사기 배럴 및 플런저 어셈블리, 엄격한 치수 공차 및 표면 품질 관리","es":"Cilindros de jeringa y conjuntos de émbolo de alta precisión con estricto control de tolerancias dimensionales y calidad superficial"},
+  "home_prod3_desc":{"zh":"23台CNC · 8台EDM · 7台线切割 · Hauser / RODERS / YASDA 顶级设备矩阵","en":"23 CNC · 8 EDM · 7 Wire-cut · Hauser / RODERS / YASDA top-tier equipment matrix","de":"23 CNC · 8 EDM · 7 Drahterodiermaschinen · Top-Ausrüstung von Hauser / RODERS / YASDA","ru":"23 станка с ЧПУ · 8 электроэрозионных · 7 проволочно-вырезных · Оборудование высшего класса Hauser / RODERS / YASDA","fr":"23 CNC · 8 électroérosion · 7 découpe au fil · Équipement haut de gamme Hauser / RODERS / YASDA","ja":"CNC 23台 · EDM 8台 · ワイヤーカット 7台 · Hauser / RODERS / YASDA 最高級設備マトリクス","ko":"CNC 23대 · EDM 8대 · 와이어컷 7대 · Hauser / RODERS / YASDA 최상급 장비 매트릭스","es":"23 CNC · 8 electroerosión · 7 corte por hilo · Matriz de equipos de primer nivel Hauser / RODERS / YASDA"},
+
+  "home_more":{"zh":"了解详情","en":"Learn More","de":"Mehr erfahren","ru":"Подробнее","fr":"En savoir plus","ja":"詳細を見る","ko":"자세히 보기","es":"Más información"},
+
+  "home_cert_title":{"zh":"资质认证","en":"Qualifications & Certifications","de":"Qualifikationen & Zertifizierungen","ru":"Квалификации и сертификаты","fr":"Qualifications et certifications","ja":"認定資格と認証","ko":"인증 및 자격","es":"Certificaciones y cualificaciones"},
+  "home_cert_sub":{"zh":"国际标准体系，为医疗客户提供可靠保障","en":"International standard systems ensuring reliable assurance for medical clients","de":"Internationale Normensysteme für zuverlässige Absicherung unserer Medizinkunden","ru":"Международные системы стандартов, обеспечивающие надежные гарантии для медицинских клиентов","fr":"Systèmes de normes internationales garantissant une assurance fiable pour nos clients du secteur médical","ja":"国際標準体系により、医療分野のお客様に信頼性の高い保証を提供","ko":"국제 표준 시스템으로 의료 고객에게 신뢰할 수 있는 보증 제공","es":"Sistemas de estándares internacionales que garantizan una protección fiable para clientes del sector médico"},
+
+  "home_env_title":{"zh":"生产环境","en":"Production Environment","de":"Produktionsumgebung","ru":"Производственная среда","fr":"Environnement de production","ja":"生産環境","ko":"생산 환경","es":"Entorno de producción"},
+  "home_env_sub":{"zh":"十万级净化车间，满足医疗器械生产要求","en":"Class 100,000 cleanrooms meeting medical device production requirements","de":"Reinräume der Klasse 100.000, die die Anforderungen der Medizinproduktefertigung erfüllen","ru":"Чистые помещения класса 100 000, соответствующие требованиям производства медицинских изделий","fr":"Salles blanches de classe 100 000 conformes aux exigences de production de dispositifs médicaux","ja":"クラス100,000のクリーンルーム、医療機器製造要件に対応","ko":"클래스 100,000 클린룸, 의료기기 생산 요건 충족","es":"Salas limpias clase 100.000 que cumplen con los requisitos de producción de dispositivos médicos"},
+
+  "home_cta":{"zh":"有医疗器械部件需求？","en":"Need Medical Device Components?","de":"Bedarf an Medizinteile-Komponenten?","ru":"Нужны компоненты для медицинских изделий?","fr":"Besoin de composants pour dispositifs médicaux ?","ja":"医療機器部品のご要望は？","ko":"의료기기 부품이 필요하신가요?","es":"¿Necesita componentes para dispositivos médicos?"},
+  "home_cta_btn":{"zh":"立即咨询","en":"Contact Us Now","de":"Jetzt anfragen","ru":"Связаться сейчас","fr":"Contactez-nous","ja":"今すぐ相談","ko":"지금 문의하기","es":"Consulte ahora"},
+
+  "about_mold_title":{"zh":"弘欧精密模具（东莞）有限公司","en":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","de":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ru":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","fr":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ja":"弘欧精密模具（東莞）有限公司","ko":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","es":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd."},
+  "about_mold_desc":{"zh":"专业从事高精密注塑模具的设计、制造与交付。拥有从瑞士 Hauser 坐标磨、德国 RODERS 五轴 CNC 到日本 YASDA 高速加工中心的全品牌设备矩阵，覆盖 CNC 加工、EDM 电火花、线切割、精密磨削等完整模具制造工序。","en":"Specializing in the design, manufacturing and delivery of high-precision injection molds. Equipped with a full brand equipment matrix from Swiss Hauser jig grinders, German RODERS 5-axis CNC to Japanese YASDA high-speed machining centers, covering complete mold manufacturing processes including CNC machining, EDM, wire-cut, and precision grinding.","de":"Spezialisiert auf Design, Fertigung und Lieferung hochpräziser Spritzgießwerkzeuge. Ausgestattet mit einem Marken-Gerätepark von Schweizer Hauser Koordinatenschleifmaschinen über deutsche RODERS 5-Achs-CNC bis zu japanischen YASDA Hochgeschwindigkeits-Bearbeitungszentren – für sämtliche Werkzeugbauprozesse inkl. CNC-Bearbeitung, EDM, Drahterosion und Präzisionsschleifen.","ru":"Специализируемся на проектировании, изготовлении и поставке высокоточных литьевых пресс-форм. Оснащены полным парком оборудования ведущих брендов: от швейцарских координатно-шлифовальных станков Hauser, немецких 5-осевых ЧПУ RODERS до японских высокоскоростных центров YASDA, охватывающих все процессы изготовления пресс-форм – ЧПУ, электроэрозию, проволочную резку и прецизионное шлифование.","fr":"Spécialisée dans la conception, la fabrication et la livraison de moules d'injection de haute précision. Équipée d'un parc machines complet allant des rectifieuses à coordonnées suisses Hauser, des CNC 5 axes allemandes RODERS aux centres d'usinage grande vitesse japonais YASDA, couvrant tous les procédés de fabrication de moules : usinage CNC, électroérosion, découpe au fil et rectification de précision.","ja":"高精密射出成形金型の設計・製造・納入を専門としています。スイスHauser社ジグ研削盤、ドイツRODERS社5軸CNC、日本YASDA社高速マシニングセンタまで、フルブランドの設備マトリクスを保有し、CNC加工、EDM放電加工、ワイヤーカット、精密研削など金型製造の全工程に対応します。","ko":"고정밀 사출 금형의 설계, 제조 및 납품을 전문으로 합니다. 스위스 Hauser 지그 연삭기, 독일 RODERS 5축 CNC, 일본 YASDA 고속 가공 센터까지 풀 브랜드 장비 매트릭스를 보유하여 CNC 가공, EDM 방전 가공, 와이어 컷팅, 정밀 연삭 등 완전한 금형 제조 공정을 갖추고 있습니다.","es":"Especializados en el diseño, fabricación y entrega de moldes de inyección de alta precisión. Equipados con una matriz completa de equipos de primeras marcas: desde rectificadoras de coordenadas suizas Hauser, CNC de 5 ejes alemanas RODERS hasta centros de mecanizado de alta velocidad japoneses YASDA, cubriendo todos los procesos de fabricación de moldes: mecanizado CNC, electroerosión, corte por hilo y rectificado de precisión."},
+  "about_tech_title":{"zh":"弘欧科技（东莞）有限公司","en":"HONDVO Technology (Dongguan) Co., Ltd.","de":"HONDVO Technology (Dongguan) Co., Ltd.","ru":"HONDVO Technology (Dongguan) Co., Ltd.","fr":"HONDVO Technology (Dongguan) Co., Ltd.","ja":"弘欧科技（東莞）有限公司","ko":"HONDVO Technology (Dongguan) Co., Ltd.","es":"HONDVO Technology (Dongguan) Co., Ltd."},
+  "about_tech_desc":{"zh":"依托弘欧精密模具的强大制造能力，专注于无源二类医疗器械注塑部件生产。配备 21 台注塑机（含 SUMITOMO 全电动、TOYO、液态硅胶 LSR 专用机），两个十万级净化车间，全面支持 IQ/OQ/PQ 验证服务。","en":"Leveraging the strong manufacturing capabilities of HONDVO TOOLING LIMITED, focusing on Class II passive medical device injection component production. Equipped with 21 injection machines (including SUMITOMO all-electric, TOYO, and LSR liquid silicone dedicated machines), two Class 100,000 cleanrooms, fully supporting IQ/OQ/PQ validation services.","de":"Gestützt auf die starken Fertigungskapazitäten von HONDVO TOOLING LIMITED, spezialisiert auf die Produktion von Spritzgussteilen für passive Medizinprodukte Klasse II. 21 Spritzgießmaschinen (inkl. vollelektrische SUMITOMO, TOYO und LSR-Flüssigsilikon-Spezialmaschinen), zwei Reinräume Klasse 100.000, volle Unterstützung für IQ/OQ/PQ-Validierung.","ru":"Опираясь на мощные производственные возможности HONDVO TOOLING LIMITED, специализируемся на выпуске литьевых компонентов для пассивных медицинских изделий класса II. 21 термопластавтомат (включая полностью электрические SUMITOMO, TOYO и специализированные машины для жидкого силикона LSR), два чистых помещения класса 100 000, полная поддержка валидации IQ/OQ/PQ.","fr":"S'appuyant sur les solides capacités de fabrication de HONDVO TOOLING LIMITED, spécialisée dans la production de composants injectés pour dispositifs médicaux passifs de classe II. 21 machines d'injection (dont SUMITOMO tout électrique, TOYO et machines dédiées silicone liquide LSR), deux salles blanches classe 100 000, support complet pour la validation IQ/OQ/PQ.","ja":"弘欧精密模具の強力な製造能力を基盤に、クラスIIパッシブ医療機器用射出部品の生産に特化。射出成形機21台（住友全電動、TOYO、液状シリコーンLSR専用機を含む）、クラス100,000クリーンルーム2室を完備し、IQ/OQ/PQバリデーションを全面サポート。","ko":"HONDVO TOOLING LIMITED의 강력한 제조 역량을 바탕으로 클래스II 수동형 의료기기 사출 부품 생산에 주력합니다. 사출 성형기 21대(SUMITOMO 전동식, TOYO, 액상 실리콘 LSR 전용기 포함), 클래스 100,000 클린룸 2실 보유, IQ/OQ/PQ 밸리데이션 전면 지원.","es":"Apoyándose en las sólidas capacidades de fabricación de HONDVO TOOLING LIMITED, especializada en la producción de componentes de inyección para dispositivos médicos pasivos de clase II. 21 máquinas de inyección (incluidas SUMITOMO totalmente eléctricas, TOYO y máquinas dedicadas de silicona líquida LSR), dos salas limpias clase 100.000, soporte completo para servicios de validación IQ/OQ/PQ."},
+
+  "prod_hero":{"zh":"产品与服务","en":"Products & Services","de":"Produkte & Dienstleistungen","ru":"Продукты и услуги","fr":"Produits & services","ja":"製品・サービス","ko":"제품 및 서비스","es":"Productos y servicios"},
+  "prod_hero_sub":{"zh":"无源二类医疗器械注塑部件","en":"Class II passive medical device injection components","de":"Spritzgussteile für passive Medizinprodukte Klasse II","ru":"Литьевые компоненты для пассивных медицинских изделий класса II","fr":"Composants injectés pour dispositifs médicaux passifs de classe II","ja":"クラスIIパッシブ医療機器用射出部品","ko":"클래스II 수동형 의료기기 사출 부품","es":"Componentes de inyección para dispositivos médicos pasivos clase II"},
+
+  "core_products_title":{"zh":"核心产品线","en":"Core Product Lines","de":"Kernproduktlinien","ru":"Основные продуктовые линейки","fr":"Gammes de produits principales","ja":"主要製品ライン","ko":"주요 제품 라인","es":"Líneas de productos principales"},
+  "core_products_sub":{"zh":"核心产品线","en":"Core Product Lines","de":"Kernproduktlinien","ru":"Основные продуктовые линейки","fr":"Gammes de produits principales","ja":"主要製品ライン","ko":"주요 제품 라인","es":"Líneas de productos principales"},
+  "prod1_title":{"zh":"肠内营养输注系统","en":"Enteral Nutrition Infusion System","de":"Enterales Ernährungssystem","ru":"Система энтерального питания","fr":"Système de nutrition entérale","ja":"経腸栄養注入システム","ko":"경장 영양 주입 시스템","es":"Sistema de nutrición enteral"},
+  "prod2_title":{"zh":"注射给药系统","en":"Injection Drug Delivery System","de":"Injektionssystem zur Medikamentenverabreichung","ru":"Система инъекционной доставки лекарств","fr":"Système d'administration de médicaments par injection","ja":"注射薬物送達システム","ko":"주사 약물 전달 시스템","es":"Sistema de administración de fármacos por inyección"},
+  "prod3_title":{"zh":"精密注塑模具","en":"Precision Injection Molds","de":"Präzisionsspritzgießwerkzeuge","ru":"Прецизионные литьевые пресс-формы","fr":"Moules d'injection de précision","ja":"精密射出成形金型","ko":"정밀 사출 금형","es":"Moldes de inyección de precisión"},
+  "prod_prod1_desc":{"zh":"硅胶营养液瓶体、注塑瓶盖、分流接头、管路连接件，满足二类医疗器械法规要求","en":"Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations","de":"Flaschenkörper für Silikon-Nährlösungen, Spritzguss-Verschlusskappen, Verteileranschlüsse, Schlauchverbinder – konform mit Medizinprodukteverordnung Klasse II","ru":"Корпуса флаконов для силиконовых питательных растворов, литьевые крышки, разветвители, трубные соединители – соответствие требованиям для медизделий класса II","fr":"Corps de flacons en silicone pour solutions nutritives, bouchons injectés, raccords de dérivation, connecteurs de tubulure – conformes aux exigences DM classe II","ja":"シリコーン栄養液ボトル本体、射出成形キャップ、分岐コネクタ、チューブ接続部品 – クラスII医療機器規制に対応","ko":"실리콘 영양액 병 본체, 사출 캡, 분기 커넥터, 튜브 연결 부품 – 클래스II 의료기기 규정 충족","es":"Cuerpos de frascos de silicona para soluciones nutritivas, tapas inyectadas, conectores de derivación, conexiones de tubería – cumplen con normativa DM clase II"},
+  "prod_prod2_desc":{"zh":"高精度针筒、推杆组件，严格尺寸公差控制与表面光洁度保障","en":"High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface finish control","de":"Hochpräzise Spritzenzylinder und Kolbenbaugruppen mit strenger Maßtoleranz und Oberflächengüte","ru":"Высокоточные цилиндры шприцев и поршневые узлы с жестким контролем допусков и качества поверхности","fr":"Corps de seringues et ensembles piston de haute précision avec contrôle strict des tolérances et de l'état de surface","ja":"高精度シリンジバレルおよびプランジャー組立品、厳格な寸法公差と表面仕上げ管理","ko":"고정밀 주사기 배럴 및 플런저 어셈블리, 엄격한 치수 공차 및 표면 조도 관리","es":"Cilindros de jeringa y conjuntos de émbolo de alta precisión con estricto control de tolerancias y acabado superficial"},
+
+  "prod_iq":{"zh":"IQ/OQ/PQ 验证","en":"IQ/OQ/PQ Validation","de":"IQ/OQ/PQ-Validierung","ru":"Валидация IQ/OQ/PQ","fr":"Validation IQ/OQ/PQ","ja":"IQ/OQ/PQ バリデーション","ko":"IQ/OQ/PQ 밸리데이션","es":"Validación IQ/OQ/PQ"},
+  "prod_other_title":{"zh":"其他二类器械部件","en":"Other Class II Device Components","de":"Weitere Medizinprodukte-Komponenten Klasse II","ru":"Прочие компоненты для медизделий класса II","fr":"Autres composants pour DM de classe II","ja":"その他クラスII医療機器部品","ko":"기타 클래스II 의료기기 부품","es":"Otros componentes para DM clase II"},
+  "prod_other_desc":{"zh":"根据客户需求定制的各类二类医疗器械注塑部件，涵盖外壳、连接器、管路接头等","en":"Customized Class II medical device injection components per customer requirements, covering housings, connectors, tubing fittings, etc.","de":"Kundenspezifische Spritzgussteile für Medizinprodukte Klasse II – Gehäuse, Steckverbinder, Schlauchanschlüsse u.v.m.","ru":"Литьевые компоненты для медицинских изделий класса II по требованиям заказчика: корпуса, соединители, трубные фитинги и др.","fr":"Composants injectés sur mesure pour DM de classe II selon les besoins du client : boîtiers, connecteurs, raccords de tubulure, etc.","ja":"お客様のご要望に応じたクラスII医療機器用カスタム射出部品 – 筐体、コネクタ、チューブ継手など","ko":"고객 요구에 맞춘 클래스II 의료기기용 맞춤형 사출 부품 – 하우징, 커넥터, 튜브 피팅 등","es":"Componentes de inyección personalizados para DM clase II según requisitos del cliente: carcasas, conectores, conexiones de tubería, etc."},
+  "prod_custom":{"zh":"支持定制开发","en":"Custom Development Available","de":"Kundenindividuelle Entwicklung möglich","ru":"Возможна индивидуальная разработка","fr":"Développement sur mesure disponible","ja":"カスタム開発対応","ko":"맞춤 개발 가능","es":"Desarrollo personalizado disponible"},
+
+  "iq_iq2":{"zh":"安装确认","en":"Installation Qualification","de":"Installationsqualifizierung (IQ)","ru":"Квалификация установки (IQ)","fr":"Qualification d'installation (IQ)","ja":"据付時適格性評価（IQ）","ko":"설치 적격성 평가 (IQ)","es":"Calificación de instalación (IQ)"},
+  "iq_iq2_desc":{"zh":"设备/模具的安装环境、规格、校准状态验证，确保符合设计要求","en":"Verification of equipment/mold installation environment, specifications, and calibration status to ensure compliance with design requirements","de":"Überprüfung von Installationsumgebung, Spezifikationen und Kalibrierstatus der Ausrüstung/Werkzeuge zur Sicherstellung der Konformität mit den Designanforderungen","ru":"Проверка среды установки, спецификаций и состояния калибровки оборудования/пресс-форм для обеспечения соответствия проектным требованиям","fr":"Vérification de l'environnement d'installation, des spécifications et de l'état d'étalonnage des équipements/moules pour garantir la conformité aux exigences de conception","ja":"設備・金型の設置環境、仕様、校正状態を検証し、設計要件への適合を確認","ko":"장비/금형의 설치 환경, 사양, 교정 상태를 검증하여 설계 요구사항 충족 확인","es":"Verificación del entorno de instalación, especificaciones y estado de calibración de equipos/moldes para garantizar el cumplimiento de los requisitos de diseño"},
+  "iq_oq2":{"zh":"运行确认","en":"Operational Qualification","de":"Betriebsqualifizierung (OQ)","ru":"Квалификация эксплуатации (OQ)","fr":"Qualification opérationnelle (OQ)","ja":"運転時適格性評価（OQ）","ko":"운전 적격성 평가 (OQ)","es":"Calificación operativa (OQ)"},
+  "iq_oq2_desc":{"zh":"在设定工艺参数范围内验证稳定运行，输出一致性合格的中间品","en":"Validation of stable operation within defined process parameter ranges, producing consistently qualified intermediate output","de":"Validierung des stabilen Betriebs innerhalb definierter Prozessparameter – Ausgabe gleichbleibend qualifizierter Zwischenprodukte","ru":"Валидация стабильной работы в заданных диапазонах технологических параметров с выпуском стабильно качественной промежуточной продукции","fr":"Validation du fonctionnement stable dans les plages de paramètres définies, produisant des sorties intermédiaires constamment conformes","ja":"設定されたプロセスパラメータ範囲内での安定稼働を検証し、一貫して適合する中間品を出力","ko":"설정된 공정 매개변수 범위 내에서 안정적인 작동을 검증하고, 일관되게 적합한 중간 출력물을 생산","es":"Validación del funcionamiento estable dentro de los rangos de parámetros de proceso definidos, produciendo resultados intermedios consistentemente calificados"},
+  "iq_pq2":{"zh":"性能确认","en":"Performance Qualification","de":"Leistungsqualifizierung (PQ)","ru":"Квалификация производительности (PQ)","fr":"Qualification de performance (PQ)","ja":"性能適格性評価（PQ）","ko":"성능 적격성 평가 (PQ)","es":"Calificación de rendimiento (PQ)"},
+  "iq_pq2_desc":{"zh":"连续多批次生产验证，统计证明过程能力满足产品质量标准","en":"Multi-batch continuous production validation, statistically demonstrating process capability meets product quality standards","de":"Mehrchargen-Dauervalidierung mit statistischem Nachweis, dass die Prozessfähigkeit die Produktqualitätsstandards erfüllt","ru":"Валидация непрерывного многосерийного производства со статистическим подтверждением соответствия возможностей процесса стандартам качества продукции","fr":"Validation de production continue sur plusieurs lots, démontrant statistiquement que la capabilité du processus satisfait aux normes de qualité","ja":"複数ロット連続生産バリデーションにより、プロセス能力が製品品質基準を満たすことを統計的に実証","ko":"다중 배치 연속 생산 검증을 통해 공정 능력이 제품 품질 기준을 충족함을 통계적으로 입증","es":"Validación de producción continua de múltiples lotes, demostrando estadísticamente que la capacidad del proceso cumple con los estándares de calidad del producto"},
+
+  "mold_hero":{"zh":"模具中心","en":"Mold Center","de":"Werkzeugbau","ru":"Центр пресс-форм","fr":"Centre de moules","ja":"金型センター","ko":"금형 센터","es":"Centro de moldes"},
+  "mold_hero_sub":{"zh":"全球顶级设备矩阵 · 完整模具制造能力","en":"World-class equipment matrix · Complete mold manufacturing capability","de":"Weltklasse-Gerätepark · Komplette Werkzeugbau-Kapazität","ru":"Оборудование мирового класса · Полные возможности изготовления пресс-форм","fr":"Équipement de classe mondiale · Capacité complète de fabrication de moules","ja":"世界トップクラスの設備マトリクス · 完全な金型製造力","ko":"세계적 수준의 장비 매트릭스 · 완전한 금형 제조 역량","es":"Equipamiento de clase mundial · Capacidad completa de fabricación de moldes"},
+  "mold_img1_desc":{"zh":"多腔精密注塑模具 — 镜面抛光工艺，HOGU温控系统","en":"Multi-cavity Precision Injection Mold — Mirror-polished with HOGU temperature control system","de":"Mehrkavitäten-Präzisionsspritzgießwerkzeug – Spiegelpolitur mit HOGU-Temperiersystem","ru":"Многогнездная прецизионная литьевая пресс-форма – зеркальная полировка, система термостатирования HOGU","fr":"Moule d'injection de précision multi-empreintes – poli miroir avec système de thermorégulation HOGU","ja":"多数個取り精密射出成形金型 – 鏡面研磨仕上げ、HOGU温調システム","ko":"다중 캐비티 정밀 사출 금형 – 경면 연마, HOGU 온도 제어 시스템","es":"Molde de inyección de precisión multicavidad – pulido espejo con sistema de control de temperatura HOGU"},
+  "mold_img2_desc":{"zh":"热流道精密模具 — 多腔设计，独立温控加热模组","en":"Hot Runner Precision Mold — Multi-cavity design with independent thermal control module","de":"Heißkanal-Präzisionswerkzeug – Mehrkavitäten-Design mit unabhängigem Temperiermodul","ru":"Прецизионная пресс-форма с горячеканальной системой – многогнездная конструкция с независимым модулем терморегулирования","fr":"Moule de précision à canaux chauds – conception multi-empreintes avec module de chauffage indépendant","ja":"ホットランナー精密金型 – 多数個取り設計、独立温調ヒーターモジュール","ko":"핫 러너 정밀 금형 – 다중 캐비티 설계, 독립 온도 제어 가열 모듈","es":"Molde de precisión con canal caliente – diseño multicavidad con módulo de calefacción independiente"},
+  "mold_img3_desc":{"zh":"液态硅胶 LSR 注塑模具 — 精密型腔，定位框架一体成型","en":"Liquid Silicone Rubber (LSR) Injection Mold — Precision cavity with integrated alignment frame","de":"LSR-Flüssigsilikon-Spritzgießwerkzeug – Präzisionskavität mit integriertem Positionierrahmen","ru":"Пресс-форма для литья жидкого силикона LSR – прецизионная полость с интегрированной установочной рамой","fr":"Moule d'injection de silicone liquide LSR – cavité de précision avec cadre de positionnement intégré","ja":"液状シリコーンLSR射出成形金型 – 精密キャビティ、位置決めフレーム一体成形","ko":"액상 실리콘 LSR 사출 금형 – 정밀 캐비티, 위치 결정 프레임 일체형","es":"Molde de inyección de silicona líquida LSR – cavidad de precisión con marco de alineación integrado"},
+  "mold_img4_desc":{"zh":"多腔滑块脱模模具 — Mastip 热流道系统，高光镜面工艺","en":"Multi-cavity Slider Mold — Mastip hot runner system, high-gloss mirror finish","de":"Mehrkavitäten-Schieberwerkzeug – Mastip Heißkanalsystem, Hochglanz-Spiegeloberfläche","ru":"Многогнездная пресс-форма с ползунами – горячеканальная система Mastip, высокоглянцевая зеркальная отделка","fr":"Moule à tiroirs multi-empreintes – système à canaux chauds Mastip, finition miroir haute brillance","ja":"多数個取りスライダー金型 – Mastipホットランナーシステム、高光沢鏡面仕上げ","ko":"다중 캐비티 슬라이더 금형 – Mastip 핫 러너 시스템, 고광택 경면","es":"Molde de corredera multicavidad – sistema de canal caliente Mastip, acabado espejo de alto brillo"},
+  "mold_cnc":{"zh":"CNC 数控加工中心（23台）","en":"CNC Machining Centers (23 units)","de":"CNC-Bearbeitungszentren (23 Stk.)","ru":"Обрабатывающие центры с ЧПУ (23 шт.)","fr":"Centres d'usinage CNC (23 unités)","ja":"CNCマシニングセンタ（23台）","ko":"CNC 머시닝 센터 (23대)","es":"Centros de mecanizado CNC (23 unidades)"},
+  "mold_edm":{"zh":"EDM 电火花加工（8台）","en":"EDM Machines (8 units)","de":"EDM-Maschinen (8 Stk.)","ru":"Электроэрозионные станки (8 шт.)","fr":"Machines d'électroérosion (8 unités)","ja":"EDM放電加工機（8台）","ko":"EDM 방전 가공기 (8대)","es":"Máquinas de electroerosión (8 unidades)"},
+  "mold_wire":{"zh":"线切割（7台）","en":"Wire-Cut EDM (7 units)","de":"Drahterodiermaschinen (7 Stk.)","ru":"Проволочно-вырезные станки (7 шт.)","fr":"Machines de découpe au fil (7 unités)","ja":"ワイヤーカット放電加工機（7台）","ko":"와이어 컷 방전 가공기 (7대)","es":"Máquinas de corte por hilo (7 unidades)"},
+  "mold_grinder":{"zh":"精密磨床（9台）","en":"Precision Grinders (9 units)","de":"Präzisionsschleifmaschinen (9 Stk.)","ru":"Прецизионные шлифовальные станки (9 шт.)","fr":"Rectifieuses de précision (9 unités)","ja":"精密研削盤（9台）","ko":"정밀 연삭기 (9대)","es":"Rectificadoras de precisión (9 unidades)"},
+  "mold_injection":{"zh":"注塑机（21台）","en":"Injection Molding Machines (21 units)","de":"Spritzgießmaschinen (21 Stk.)","ru":"Термопластавтоматы (21 шт.)","fr":"Machines d'injection (21 unités)","ja":"射出成形機（21台）","ko":"사출 성형기 (21대)","es":"Máquinas de moldeo por inyección (21 unidades)"},
+  "mold_qc":{"zh":"品质检测设备（8台）","en":"Quality Inspection Equipment (8 units)","de":"Qualitätsprüfgeräte (8 Stk.)","ru":"Оборудование контроля качества (8 шт.)","fr":"Équipement de contrôle qualité (8 unités)","ja":"品質検査設備（8台）","ko":"품질 검사 장비 (8대)","es":"Equipos de inspección de calidad (8 unidades)"},
+
+  "verify_prefix":{"zh":"IQ/OQ/PQ 验证支持：","en":"IQ/OQ/PQ Validation Support: ","de":"IQ/OQ/PQ-Validierungsunterstützung: ","ru":"Поддержка валидации IQ/OQ/PQ: ","fr":"Support validation IQ/OQ/PQ : ","ja":"IQ/OQ/PQ バリデーション対応：","ko":"IQ/OQ/PQ 밸리데이션 지원: ","es":"Soporte de validación IQ/OQ/PQ: "},
+  "verify_text":{"zh":"所有模具和注塑工艺均支持安装确认（IQ）、运行确认（OQ）、性能确认（PQ），确保符合医疗器械法规要求。","en":"All molds and injection processes support Installation Qualification (IQ), Operational Qualification (OQ), and Performance Qualification (PQ), ensuring compliance with medical device regulatory requirements.","de":"Alle Werkzeuge und Spritzgießprozesse unterstützen IQ, OQ und PQ zur Sicherstellung der Konformität mit den Vorschriften für Medizinprodukte.","ru":"Все пресс-формы и процессы литья поддерживают IQ, OQ и PQ для обеспечения соответствия нормативным требованиям к медицинским изделиям.","fr":"Tous les moules et procédés d'injection prennent en charge les validations IQ, OQ et PQ, garantissant la conformité aux exigences réglementaires des dispositifs médicaux.","ja":"すべての金型と射出成形プロセスはIQ、OQ、PQに対応し、医療機器規制要件への適合を保証します。","ko":"모든 금형과 사출 공정은 IQ, OQ, PQ를 지원하여 의료기기 규제 요구사항 준수를 보장합니다.","es":"Todos los moldes y procesos de inyección admiten IQ, OQ y PQ, garantizando el cumplimiento de los requisitos normativos de dispositivos médicos."},
+
+  "qual_hero":{"zh":"资质实力","en":"Qualifications","de":"Qualifikationen","ru":"Квалификации","fr":"Qualifications","ja":"認定資格","ko":"인증 및 역량","es":"Certificaciones"},
+  "qual_hero_sub":{"zh":"国际标准体系认证 · 净化车间 · 验证能力","en":"International standard certifications · Cleanrooms · Validation capabilities","de":"Internationale Normzertifizierungen · Reinräume · Validierungskompetenz","ru":"Международные сертификаты · Чистые помещения · Возможности валидации","fr":"Certifications internationales · Salles blanches · Capacités de validation","ja":"国際標準認証 · クリーンルーム · バリデーション能力","ko":"국제 표준 인증 · 클린룸 · 밸리데이션 역량","es":"Certificaciones internacionales · Salas limpias · Capacidades de validación"},
+  "qual_env_title":{"zh":"生产环境","en":"Production Environment","de":"Produktionsumgebung","ru":"Производственная среда","fr":"Environnement de production","ja":"生産環境","ko":"생산 환경","es":"Entorno de producción"},
+  "qual_env_sub":{"zh":"十万级净化车间，满足医疗器械生产要求","en":"Class 100,000 cleanrooms meeting medical device production requirements","de":"Reinräume Klasse 100.000, die die Anforderungen der Medizinproduktefertigung erfüllen","ru":"Чистые помещения класса 100 000, соответствующие требованиям производства медицинских изделий","fr":"Salles blanches classe 100 000 conformes aux exigences de production de dispositifs médicaux","ja":"クラス100,000クリーンルーム、医療機器生産要件に対応","ko":"클래스 100,000 클린룸, 의료기기 생산 요건 충족","es":"Salas limpias clase 100.000 que cumplen con los requisitos de producción de dispositivos médicos"},
+  "qual_iq_title":{"zh":"IQ/OQ/PQ 验证体系","en":"IQ/OQ/PQ Validation System","de":"IQ/OQ/PQ-Validierungssystem","ru":"Система валидации IQ/OQ/PQ","fr":"Système de validation IQ/OQ/PQ","ja":"IQ/OQ/PQ バリデーション体系","ko":"IQ/OQ/PQ 밸리데이션 체계","es":"Sistema de validación IQ/OQ/PQ"},
+
+  "news_hero":{"zh":"新闻动态","en":"News","de":"Nachrichten","ru":"Новости","fr":"Actualités","ja":"ニュース","ko":"뉴스","es":"Noticias"},
+  "news_hero_sub":{"zh":"公司新闻 · 行业资讯","en":"Company News · Industry Updates","de":"Unternehmensnachrichten · Brancheninformationen","ru":"Новости компании · Отраслевая информация","fr":"Actualités de l'entreprise · Informations sectorielles","ja":"企業ニュース · 業界情報","ko":"회사 뉴스 · 업계 정보","es":"Noticias de la empresa · Información del sector"},
+
+  "ct_hero":{"zh":"联系我们","en":"Contact Us","de":"Kontakt","ru":"Контакты","fr":"Contact","ja":"お問い合わせ","ko":"문의하기","es":"Contacto"},
+  "ct_hero_sub":{"zh":"双公司地址 · 欢迎来访洽谈","en":"Dual-company addresses · Welcome to visit and discuss","de":"Zwei Standorte · Wir freuen uns auf Ihren Besuch","ru":"Адреса двух компаний · Приглашаем посетить и обсудить","fr":"Adresses des deux sociétés · Bienvenue pour visiter et discuter","ja":"2社の住所 · ご来訪・ご相談を歓迎します","ko":"양사 주소 · 방문 상담 환영","es":"Direcciones de dos empresas · Bienvenidos a visitar y conversar"},
+
+  "ct_mold_label":{"zh":"模具公司","en":"Mold Company","de":"Werkzeugbau","ru":"Инструментальное производство","fr":"Société d'outillage","ja":"金型会社","ko":"금형 회사","es":"Empresa de moldes"},
+  "ct_tech_label":{"zh":"科技公司","en":"Technology Company","de":"Technologieunternehmen","ru":"Технологическая компания","fr":"Société technologique","ja":"テクノロジー企業","ko":"기술 회사","es":"Empresa tecnológica"},
+  "ct_phone_label":{"zh":"电话","en":"Phone","de":"Telefon","ru":"Телефон","fr":"Téléphone","ja":"電話","ko":"전화","es":"Teléfono"},
+  "ct_email_label":{"zh":"邮箱","en":"Email","de":"E-Mail","ru":"Эл. почта","fr":"E-mail","ja":"メール","ko":"이메일","es":"Correo electrónico"},
+  "ct_hours_label":{"zh":"工作时间","en":"Working Hours","de":"Geschäftszeiten","ru":"Часы работы","fr":"Heures d'ouverture","ja":"営業時間","ko":"영업 시간","es":"Horario comercial"},
+  "ct_name":{"zh":"姓名","en":"Name","de":"Name","ru":"Имя","fr":"Nom","ja":"氏名","ko":"이름","es":"Nombre"},
+  "ct_company_label":{"zh":"公司名称","en":"Company","de":"Unternehmen","ru":"Компания","fr":"Entreprise","ja":"会社名","ko":"회사명","es":"Empresa"},
+  "ct_tel_label":{"zh":"联系电话","en":"Phone","de":"Telefon","ru":"Телефон","fr":"Téléphone","ja":"電話番号","ko":"전화번호","es":"Teléfono"},
+  "ct_email2_label":{"zh":"电子邮箱","en":"Email","de":"E-Mail","ru":"Эл. почта","fr":"E-mail","ja":"メールアドレス","ko":"이메일","es":"Correo electrónico"},
+  "ct_type_label":{"zh":"需求类型","en":"Inquiry Type","de":"Anfragetyp","ru":"Тип запроса","fr":"Type de demande","ja":"お問い合わせ種別","ko":"문의 유형","es":"Tipo de consulta"},
+  "ct_type_0":{"zh":"请选择","en":"Please Select","de":"Bitte wählen","ru":"Выберите","fr":"Sélectionnez","ja":"選択してください","ko":"선택하세요","es":"Seleccione"},
+  "ct_type_1":{"zh":"医疗器械注塑件","en":"Medical Device Injection Parts","de":"Medizintechnik-Spritzgussteile","ru":"Литьевые детали для медизделий","fr":"Pièces injectées pour dispositifs médicaux","ja":"医療機器用射出部品","ko":"의료기기 사출 부품","es":"Piezas de inyección para dispositivos médicos"},
+  "ct_type_2":{"zh":"精密模具制造","en":"Precision Mold Manufacturing","de":"Präzisionswerkzeugbau","ru":"Изготовление прецизионных пресс-форм","fr":"Fabrication de moules de précision","ja":"精密金型製造","ko":"정밀 금형 제조","es":"Fabricación de moldes de precisión"},
+  "ct_type_3":{"zh":"模具+注塑一站式","en":"Mold + Injection One-Stop","de":"Werkzeugbau + Spritzguss aus einer Hand","ru":"Пресс-формы + литье под ключ","fr":"Moule + injection clé en main","ja":"金型＋射出成形ワンストップ","ko":"금형+사출 원스톱","es":"Molde + inyección integral"},
+  "ct_type_4":{"zh":"其他咨询","en":"Other Inquiries","de":"Sonstige Anfragen","ru":"Прочие запросы","fr":"Autres demandes","ja":"その他お問い合わせ","ko":"기타 문의","es":"Otras consultas"},
+  "ct_desc_label":{"zh":"需求描述","en":"Requirements","de":"Anforderungsbeschreibung","ru":"Описание требований","fr":"Description des besoins","ja":"要件説明","ko":"요구 사항 설명","es":"Descripción de requisitos"},
+  "ct_submit":{"zh":"提交留言","en":"Submit","de":"Absenden","ru":"Отправить","fr":"Envoyer","ja":"送信","ko":"제출","es":"Enviar"},
+  "ct_visit":{"zh":"欢迎来厂参观考察","en":"Welcome to visit our factory","de":"Willkommen zur Werksbesichtigung","ru":"Приглашаем посетить наш завод","fr":"Bienvenue pour visiter notre usine","ja":"工場見学を歓迎します","ko":"공장 방문을 환영합니다","es":"Bienvenidos a visitar nuestra fábrica"},
+  "ct_sub_text":{"zh":"如有业务合作需求，请通过电话或邮件与我们联系<br>我们将安排专业团队与您对接","en":"For business cooperation inquiries, please contact us via phone or email<br>We will arrange a professional team to follow up with you","de":"Bei geschäftlichen Kooperationsanfragen kontaktieren Sie uns bitte telefonisch oder per E-Mail<br>Wir stellen ein professionelles Team für Sie bereit","ru":"По вопросам делового сотрудничества свяжитесь с нами по телефону или эл. почте<br>Мы выделим профессиональную команду для работы с вами","fr":"Pour toute demande de coopération, contactez-nous par téléphone ou e-mail<br>Nous mettrons une équipe professionnelle à votre disposition","ja":"業務提携のお問い合わせは、お電話またはメールにてご連絡ください<br>専門チームが対応いたします","ko":"비즈니스 협력 문의는 전화 또는 이메일로 연락 주시기 바랍니다<br>전문 팀이 대응하겠습니다","es":"Para consultas de cooperación comercial, contáctenos por teléfono o correo electrónico<br>Asignaremos un equipo profesional para atenderle"},
+  "ct_qr_label":{"zh":"扫码添加企业微信","en":"Scan to add WeCom","de":"QR-Code scannen für WeCom","ru":"Сканируйте QR-код для добавления в WeCom","fr":"Scannez le QR code pour ajouter WeCom","ja":"QRコードをスキャンしてWeComを追加","ko":"QR 코드 스캔하여 위챗 컴 추가","es":"Escanee el código QR para añadir WeCom"},
+
+  "cert_iatf":{"zh":"IATF 16949 汽车行业质量管理体系","en":"IATF 16949 Automotive Quality Management System","de":"IATF 16949 Qualitätsmanagement für die Automobilindustrie","ru":"IATF 16949 Система менеджмента качества для автомобильной промышленности","fr":"IATF 16949 Système de management de la qualité automobile","ja":"IATF 16949 自動車産業品質マネジメントシステム","ko":"IATF 16949 자동차 산업 품질경영시스템","es":"IATF 16949 Sistema de gestión de calidad automotriz"},
+  "cert_13485":{"zh":"ISO 13485 医疗器械质量管理体系","en":"ISO 13485 Medical Device Quality Management System","de":"ISO 13485 Qualitätsmanagement für Medizinprodukte","ru":"ISO 13485 Система менеджмента качества медицинских изделий","fr":"ISO 13485 Système de management de la qualité des dispositifs médicaux","ja":"ISO 13485 医療機器品質マネジメントシステム","ko":"ISO 13485 의료기기 품질경영시스템","es":"ISO 13485 Sistema de gestión de calidad de dispositivos médicos"},
+  "cert_9001":{"zh":"ISO 9001 质量管理体系","en":"ISO 9001 Quality Management System","de":"ISO 9001 Qualitätsmanagementsystem","ru":"ISO 9001 Система менеджмента качества","fr":"ISO 9001 Système de management de la qualité","ja":"ISO 9001 品質マネジメントシステム","ko":"ISO 9001 품질경영시스템","es":"ISO 9001 Sistema de gestión de calidad"},
+
+  "ct_mold_name":{"zh":"弘欧精密模具（东莞）有限公司","en":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","de":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ru":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","fr":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ja":"弘欧精密模具（東莞）有限公司","ko":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","es":"HONDVO TOOLING LIMITED (Dongguan) Co., Ltd."},
+  "ct_tech_name":{"zh":"弘欧科技（东莞）有限公司","en":"HONDVO Technology (Dongguan) Co., Ltd.","de":"HONDVO Technology (Dongguan) Co., Ltd.","ru":"HONDVO Technology (Dongguan) Co., Ltd.","fr":"HONDVO Technology (Dongguan) Co., Ltd.","ja":"弘欧科技（東莞）有限公司","ko":"HONDVO Technology (Dongguan) Co., Ltd.","es":"HONDVO Technology (Dongguan) Co., Ltd."},
+  "ct_mold_addr":{"zh":"广东省东莞市","en":"Dongguan, Guangdong, China","de":"Dongguan, Guangdong, China","ru":"Дунгуань, провинция Гуандун, Китай","fr":"Dongguan, Guangdong, Chine","ja":"中国広東省東莞市","ko":"중국 광둥성 둥관시","es":"Dongguan, Guangdong, China"},
+  "ct_tech_addr":{"zh":"广东省东莞市","en":"Dongguan, Guangdong, China","de":"Dongguan, Guangdong, China","ru":"Дунгуань, провинция Гуандун, Китай","fr":"Dongguan, Guangdong, Chine","ja":"中国広東省東莞市","ko":"중국 광둥성 둥관시","es":"Dongguan, Guangdong, China"},
+  "ct_hours_val":{"zh":"周一至周五 8:00 - 17:30","en":"Mon - Fri 8:00 - 17:30","de":"Mo - Fr 8:00 - 17:30","ru":"Пн - Пт 8:00 - 17:30","fr":"Lun - Ven 8:00 - 17:30","ja":"月〜金 8:00 - 17:30","ko":"월~금 8:00 - 17:30","es":"Lun - Vie 8:00 - 17:30"},
+  "ct_placeholder_name":{"zh":"您的姓名","en":"Your Name","de":"Ihr Name","ru":"Ваше имя","fr":"Votre nom","ja":"お名前","ko":"이름","es":"Su nombre"},
+  "ct_placeholder_company":{"zh":"您的公司名称","en":"Your Company Name","de":"Ihr Unternehmen","ru":"Ваша компания","fr":"Votre entreprise","ja":"会社名","ko":"회사명","es":"Su empresa"},
+  "ct_placeholder_phone":{"zh":"您的联系电话","en":"Your Phone Number","de":"Ihre Telefonnummer","ru":"Ваш телефон","fr":"Votre téléphone","ja":"電話番号","ko":"전화번호","es":"Su teléfono"},
+  "ct_placeholder_email":{"zh":"您的电子邮箱","en":"Your Email","de":"Ihre E-Mail","ru":"Ваш email","fr":"Votre e-mail","ja":"メールアドレス","ko":"이메일","es":"Su correo electrónico"},
+  "ct_placeholder_desc":{"zh":"请描述您的产品需求、技术要求、预期数量等信息","en":"Please describe your product requirements, technical specifications, expected quantities, etc.","de":"Bitte beschreiben Sie Ihre Produktanforderungen, technischen Spezifikationen, erwarteten Mengen usw.","ru":"Опишите ваши требования к продукции, технические спецификации, ожидаемые объемы и т.д.","fr":"Veuillez décrire vos exigences produits, spécifications techniques, quantités prévues, etc.","ja":"製品要件、技術仕様、予定数量などをご記入ください","ko":"제품 요구사항, 기술 사양, 예상 수량 등을 설명해 주세요","es":"Describa los requisitos del producto, especificaciones técnicas, cantidades previstas, etc."},
+
+  "news_tag_company":{"zh":"公司新闻","en":"Company News","de":"Unternehmensnachrichten","ru":"Новости компании","fr":"Actualités de l'entreprise","ja":"企業ニュース","ko":"회사 뉴스","es":"Noticias de la empresa"},
+  "news_tag_industry":{"zh":"行业资讯","en":"Industry News","de":"Brancheninformationen","ru":"Отраслевые новости","fr":"Informations sectorielles","ja":"業界情報","ko":"업계 정보","es":"Información del sector"},
+  "news_title_1":{"zh":"弘欧科技通过 ISO 13485 年度监督审核","en":"HONDVO Technology Passed ISO 13485 Annual Surveillance Audit","de":"HONDVO Technology hat das jährliche ISO 13485-Überwachungsaudit bestanden","ru":"HONDVO Technology успешно прошла ежегодный надзорный аудит ISO 13485","fr":"HONDVO Technology a réussi l'audit annuel de surveillance ISO 13485","ja":"弘欧科技、ISO 13485年次サーベイランス審査に合格","ko":"HONDVO Technology, ISO 13485 연간 감시 심사 통과","es":"HONDVO Technology superó la auditoría anual de vigilancia ISO 13485"},
+  "news_title_2":{"zh":"新增两台 TOYO CS-230 全电动注塑机投入生产","en":"Two New TOYO CS-230 All-Electric Injection Machines Put into Production","de":"Zwei neue vollelektrische TOYO CS-230 Spritzgießmaschinen in Produktion genommen","ru":"Два новых полностью электрических термопластавтомата TOYO CS-230 запущены в производство","fr":"Deux nouvelles machines d'injection tout électrique TOYO CS-230 mises en production","ja":"新型TOYO CS-230全電動射出成形機2台が生産稼働開始","ko":"TOYO CS-230 전동식 사출 성형기 2대 신규 생산 투입","es":"Dos nuevas máquinas de inyección totalmente eléctricas TOYO CS-230 puestas en producción"},
+  "news_title_3":{"zh":"公司参加 2026 中国国际医疗器械博览会（CMEF）","en":"HONDVO Showcases at CMEF 2026 China International Medical Equipment Fair","de":"HONDVO stellt auf der CMEF 2026 – China International Medical Equipment Fair aus","ru":"HONDVO представляет продукцию на CMEF 2026 – Китайской международной выставке медицинского оборудования","fr":"HONDVO expose à la CMEF 2026 – Foire internationale chinoise de l'équipement médical","ja":"CMEF 2026 中国国際医療機器博覧会に出展","ko":"CMEF 2026 중국 국제 의료기기 박람회 참가","es":"HONDVO se presenta en CMEF 2026 – Feria Internacional China de Equipamiento Médico"},
+  "news_title_4":{"zh":"瑞士 Hauser S35 坐标磨完成安装调试","en":"Swiss Hauser S35 Jig Grinder Installation & Commissioning Completed","de":"Installation und Inbetriebnahme der Schweizer Hauser S35 Koordinatenschleifmaschine abgeschlossen","ru":"Завершены установка и пусконаладка швейцарского координатно-шлифовального станка Hauser S35","fr":"Installation et mise en service de la rectifieuse à coordonnées suisse Hauser S35 terminées","ja":"スイスHauser S35ジグ研削盤の設置・調整が完了","ko":"스위스 Hauser S35 지그 연삭기 설치 및 시운전 완료","es":"Instalación y puesta en marcha de la rectificadora de coordenadas suiza Hauser S35 completada"},
+  "news_summary_1":{"zh":"近日，弘欧科技顺利通过 ISO 13485 医疗器械质量管理体系年度监督审核，审核范围覆盖注塑件生产全过程。","en":"HONDVO Technology has successfully passed the ISO 13485 medical device quality management system annual surveillance audit, covering the entire injection molding production process.","de":"HONDVO Technology hat das jährliche ISO 13485-Überwachungsaudit für Qualitätsmanagement bei Medizinprodukten erfolgreich bestanden – der Auditumfang deckte den gesamten Spritzgießprozess ab.","ru":"HONDVO Technology успешно прошла ежегодный надзорный аудит системы менеджмента качества медицинских изделий ISO 13485, охвативший весь процесс литьевого производства.","fr":"HONDVO Technology a réussi l'audit annuel de surveillance ISO 13485 du système de management de la qualité des dispositifs médicaux, couvrant l'ensemble du processus de production par injection.","ja":"このたび弘欧科技は、ISO 13485医療機器品質マネジメントシステムの年次サーベイランス審査に合格しました。審査範囲は射出成形品の生産全工程をカバーしています。","ko":"최근 HONDVO Technology는 ISO 13485 의료기기 품질경영시스템 연간 감시 심사를 성공적으로 통과했습니다. 심사 범위는 사출 성형품 생산 전 공정을 포함합니다.","es":"HONDVO Technology ha superado con éxito la auditoría anual de vigilancia del sistema de gestión de calidad de dispositivos médicos ISO 13485, cubriendo todo el proceso de producción de inyección."},
+  "news_summary_2":{"zh":"为满足医疗器械客户日益增长的订单需求，公司新引进两台日本 TOYO CS-230 全电动注塑机，已正式投入十万级净化车间运行。","en":"To meet the growing order demands from medical device clients, the company has introduced two new Japanese TOYO CS-230 all-electric injection machines, now officially operating in the Class 100,000 cleanroom.","de":"Um die wachsende Nachfrage von Medizintechnikkunden zu bedienen, hat das Unternehmen zwei neue vollelektrische TOYO CS-230 Spritzgießmaschinen aus Japan installiert, die jetzt im Reinraum Klasse 100.000 in Betrieb sind.","ru":"Для удовлетворения растущего спроса клиентов в сфере медицинских изделий компания установила два новых полностью электрических термопластавтомата TOYO CS-230 (Япония), которые уже введены в эксплуатацию в чистом помещении класса 100 000.","fr":"Pour répondre à la demande croissante des clients DM, l'entreprise a installé deux nouvelles machines d'injection tout électrique TOYO CS-230 (Japon), désormais opérationnelles en salle blanche classe 100 000.","ja":"医療機器顧客の増加する受注需要に応えるため、日本製TOYO CS-230全電動射出成形機2台を新たに導入し、クラス100,000クリーンルームでの稼働を開始しました。","ko":"의료기기 고객의 증가하는 주문 수요에 대응하기 위해 일본 TOYO CS-230 전동식 사출 성형기 2대를 신규 도입하여 클래스 100,000 클린룸에서 정식 가동 중입니다.","es":"Para satisfacer la creciente demanda de pedidos de clientes de dispositivos médicos, la empresa ha incorporado dos nuevas máquinas de inyección totalmente eléctricas TOYO CS-230 japonesas, ya operativas en la sala limpia clase 100.000."},
+  "news_summary_3":{"zh":"弘欧科技携肠内营养输注系统、注射给药系统等核心产品亮相 CMEF 2026，与多家国内外医疗器械企业达成合作意向。","en":"HONDVO Technology showcased its core products including enteral nutrition infusion systems and injection drug delivery systems at CMEF 2026, reaching cooperation intentions with multiple domestic and international medical device companies.","de":"HONDVO Technology präsentierte auf der CMEF 2026 Kernprodukte wie enterale Ernährungssysteme und Injektionssysteme und erzielte Kooperationsabsichten mit mehreren in- und ausländischen Medizintechnikunternehmen.","ru":"HONDVO Technology представила на CMEF 2026 основные продукты, включая системы энтерального питания и инъекционные системы, достигнув договоренностей о сотрудничестве с рядом отечественных и зарубежных компаний.","fr":"HONDVO Technology a présenté à la CMEF 2026 ses produits phares – systèmes de nutrition entérale et systèmes d'injection – et a établi des intentions de coopération avec plusieurs entreprises nationales et internationales.","ja":"弘欧科技はCMEF 2026にて経腸栄養注入システム、注射薬物送達システムなどの主力製品を出展し、国内外の多くの医療機器企業と協業意向を達成しました。","ko":"HONDVO Technology는 CMEF 2026에서 경장 영양 주입 시스템, 주사 약물 전달 시스템 등 주요 제품을 선보이며 다수의 국내외 의료기기 기업과 협력 의향을 체결했습니다.","es":"HONDVO Technology presentó en CMEF 2026 sus productos principales, incluyendo sistemas de nutrición enteral y sistemas de administración de fármacos por inyección, alcanzando intenciones de cooperación con múltiples empresas nacionales e internacionales."},
+  "news_summary_4":{"zh":"精度达到 0.001mm 的 Hauser S35 坐标磨在模具车间完成安装调试，进一步提升了精密模具的加工能力。","en":"The Hauser S35 jig grinder with 0.001mm precision has completed installation and commissioning in the mold workshop, further enhancing precision mold manufacturing capabilities.","de":"Die Hauser S35 Koordinatenschleifmaschine mit 0,001 mm Genauigkeit wurde im Werkzeugbau installiert und in Betrieb genommen, wodurch die Präzisionswerkzeug-Fertigungskapazität weiter gesteigert wurde.","ru":"Координатно-шлифовальный станок Hauser S35 с точностью 0,001 мм завершил установку и наладку в инструментальном цехе, дополнительно повысив возможности изготовления прецизионных пресс-форм.","fr":"La rectifieuse à coordonnées Hauser S35 d'une précision de 0,001 mm a terminé son installation et sa mise en service dans l'atelier de moules, améliorant encore les capacités de fabrication de moules de précision.","ja":"精度0.001mmのHauser S35ジグ研削盤が金型工場での設置・調整を完了し、精密金型の加工能力をさらに向上させました。","ko":"정밀도 0.001mm의 Hauser S35 지그 연삭기가 금형 작업장에 설치 및 시운전을 완료하여 정밀 금형 가공 역량을 한층 강화했습니다.","es":"La rectificadora de coordenadas Hauser S35 con precisión de 0,001 mm ha completado su instalación y puesta en marcha en el taller de moldes, mejorando aún más la capacidad de fabricación de moldes de precisión."},
+
+  "news_title_5":{"zh":"弘欧精密模具通过 IATF 16949 换证审核","en":"HONDVO TOOLING Passed IATF 16949 Recertification Audit","de":"HONDVO TOOLING hat das IATF 16949-Rezertifizierungsaudit bestanden","ru":"HONDVO TOOLING успешно прошла ресертификационный аудит IATF 16949","fr":"HONDVO TOOLING a réussi l'audit de recertification IATF 16949","ja":"弘欧精密模具、IATF 16949更新審査に合格","ko":"HONDVO TOOLING, IATF 16949 갱신 심사 통과","es":"HONDVO TOOLING superó la auditoría de recertificación IATF 16949"},
+  "news_summary_5":{"zh":"弘欧精密模具顺利通过 IATF 16949 汽车行业质量管理体系换证审核，体系运行有效性获审核组高度评价，持续满足汽车供应链严苛要求。","en":"HONDVO TOOLING successfully passed the IATF 16949 automotive quality management system recertification audit. System effectiveness was highly praised by auditors, continuing to meet stringent automotive supply chain requirements.","de":"HONDVO TOOLING hat das IATF 16949-Rezertifizierungsaudit für Qualitätsmanagement in der Automobilindustrie erfolgreich bestanden. Die Wirksamkeit des Systems wurde vom Auditteam hoch bewertet; die strengen Anforderungen der automobilen Lieferkette werden weiterhin erfüllt.","ru":"HONDVO TOOLING успешно прошла ресертификационный аудит системы менеджмента качества IATF 16949 для автомобильной промышленности. Эффективность системы получила высокую оценку аудиторов; строгие требования автомобильной цепочки поставок продолжают выполняться.","fr":"HONDVO TOOLING a réussi l'audit de recertification IATF 16949 pour le SMQ automobile. L'efficacité du système a été hautement appréciée par les auditeurs, continuant à satisfaire aux exigences strictes de la chaîne d'approvisionnement automobile.","ja":"弘欧精密模具はIATF 16949自動車産業品質マネジメントシステムの更新審査に合格しました。システムの有効性について審査チームから高い評価を受け、自動車サプライチェーンの厳格な要求事項を継続的に満たしています。","ko":"HONDVO TOOLING은 IATF 16949 자동차 산업 품질경영시스템 갱신 심사를 성공적으로 통과했습니다. 시스템 운영의 유효성은 심사팀으로부터 높은 평가를 받았으며, 자동차 공급망의 엄격한 요구사항을 지속적으로 충족하고 있습니다.","es":"HONDVO TOOLING superó con éxito la auditoría de recertificación del sistema de gestión de calidad automotriz IATF 16949. La eficacia del sistema fue altamente valorada por los auditores, cumpliendo continuamente con los estrictos requisitos de la cadena de suministro automotriz."},
+  "news_title_6":{"zh":"十万级净化车间通过国际客户年度现场审计","en":"Class 100K Cleanroom Passed International Client Annual On-Site Audit","de":"Reinraum Klasse 100.000 hat jährliches Vor-Ort-Audit eines internationalen Kunden bestanden","ru":"Чистое помещение класса 100 000 прошло ежегодный выездной аудит международного клиента","fr":"La salle blanche classe 100 000 a réussi l'audit annuel sur site d'un client international","ja":"クラス100,000クリーンルームが国際顧客の年次現地監査に合格","ko":"클래스 100,000 클린룸, 국제 고객 연간 현장 심사 통과","es":"La sala limpia clase 100.000 superó la auditoría anual in situ de un cliente internacional"},
+  "news_summary_6":{"zh":"公司十万级净化车间顺利通过欧洲医疗器械客户年度现场审计，涵盖洁净度控制、人员操作规范、批次追溯全流程，获得客户免整改通过的优异评价。","en":"The Class 100,000 cleanroom successfully passed the annual on-site audit by a European medical device client, covering cleanliness control, SOP compliance, and batch traceability. Achieved excellent assessment with zero corrective actions required.","de":"Der Reinraum Klasse 100.000 hat das jährliche Vor-Ort-Audit eines europäischen Medizintechnikkunden erfolgreich bestanden – einschließlich Reinheitskontrolle, Personalverfahren und Chargenrückverfolgbarkeit – mit ausgezeichneter Bewertung ohne Korrekturmaßnahmen.","ru":"Чистое помещение класса 100 000 успешно прошло ежегодный выездной аудит европейского клиента в сфере медицинских изделий, включая контроль чистоты, соблюдение процедур и прослеживаемость партий, получив отличную оценку без необходимости корректирующих действий.","fr":"La salle blanche classe 100 000 a réussi l'audit annuel sur site d'un client européen du DM, couvrant le contrôle de la propreté, les procédures opérationnelles et la traçabilité des lots, avec une excellente évaluation sans actions correctives requises.","ja":"クラス100,000クリーンルームが欧州医療機器顧客の年次現地監査に合格しました。清浄度管理、作業手順遵守、ロットトレーサビリティの全工程が審査され、是正措置不要の優秀評価を獲得しました。","ko":"클래스 100,000 클린룸이 유럽 의료기기 고객의 연간 현장 심사를 성공적으로 통과했습니다. 청정도 관리, 작업자 운영 규정, 배치 추적성 전 과정을 포함하여 시정 조치 없는 우수 평가를 받았습니다.","es":"La sala limpia clase 100.000 superó con éxito la auditoría anual in situ de un cliente europeo de dispositivos médicos, cubriendo control de limpieza, procedimientos operativos y trazabilidad de lotes, obteniendo una calificación excelente sin acciones correctivas requeridas."},
+  "news_title_7":{"zh":"模具中心新增德国 RODERS 高速加工中心完成交付","en":"New German RODERS High-Speed Machining Center Delivered to Mold Center","de":"Neues deutsches RODERS Hochgeschwindigkeits-Bearbeitungszentrum an den Werkzeugbau geliefert","ru":"Новый немецкий высокоскоростной обрабатывающий центр RODERS поставлен в инструментальный центр","fr":"Nouveau centre d'usinage grande vitesse allemand RODERS livré au centre de moules","ja":"ドイツRODERS高速マシニングセンタを金型センターに新規導入","ko":"독일 RODERS 고속 머시닝 센터, 금형 센터에 신규 도입 완료","es":"Nuevo centro de mecanizado de alta velocidad alemán RODERS entregado al centro de moldes"},
+  "news_summary_7":{"zh":"继 Hauser S35 坐标磨后，模具中心再添重量级设备——德国 RODERS RXP 500 DCS 高速加工中心完成安装验收，模具加工精度与效率实现双提升。","en":"Following the Hauser S35 jig grinder, the mold center adds another major equipment — a German RODERS RXP 500 DCS high-speed machining center has completed installation and acceptance, achieving dual improvements in mold machining precision and efficiency.","de":"Nach der Hauser S35 Koordinatenschleifmaschine erhält der Werkzeugbau eine weitere bedeutende Anlage – ein deutsches RODERS RXP 500 DCS Hochgeschwindigkeits-Bearbeitungszentrum wurde installiert und abgenommen, was sowohl Präzision als auch Effizienz im Werkzeugbau steigert.","ru":"Вслед за координатно-шлифовальным станком Hauser S35 инструментальный центр пополнился еще одной важной единицей – немецкий высокоскоростной обрабатывающий центр RODERS RXP 500 DCS завершил установку и приемку, обеспечив двойное повышение точности и эффективности обработки пресс-форм.","fr":"Après la rectifieuse Hauser S35, le centre de moules s'enrichit d'un équipement majeur – un centre d'usinage grande vitesse allemand RODERS RXP 500 DCS installé et réceptionné, offrant une double amélioration de la précision et de l'efficacité d'usinage des moules.","ja":"Hauser S35ジグ研削盤に続き、金型センターに独RODERS RXP 500 DCS高速マシニングセンタが新たに導入され、設置検収を完了しました。金型加工の精度と効率がともに向上しています。","ko":"Hauser S35 지그 연삭기에 이어 금형 센터에 독일 RODERS RXP 500 DCS 고속 머시닝 센터가 추가 도입되어 설치 및 검수를 완료했습니다. 금형 가공 정밀도와 효율성을 동시에 향상시켰습니다.","es":"Tras la rectificadora Hauser S35, el centro de moldes suma otro equipo de primer nivel: un centro de mecanizado de alta velocidad alemán RODERS RXP 500 DCS ha completado su instalación y aceptación, logrando una doble mejora en precisión y eficiencia de mecanizado de moldes."},
+
+  "prod_lsr_title":{"zh":"LSR 液体硅胶产品","en":"LSR Liquid Silicone Products","de":"LSR Flüssigsilikonprodukte","ru":"Изделия из жидкого силикона LSR","fr":"Produits en silicone liquide LSR","ja":"LSR液状シリコーン製品","ko":"LSR 액상 실리콘 제품","es":"Productos de silicona líquida LSR"},
+  "prod_lsr_desc":{"zh":"涵盖医疗级液体硅胶注塑产品，满足生物相容性要求","en":"Medical-grade liquid silicone injection products meeting biocompatibility requirements","de":"Medizinische Flüssigsilikon-Spritzgießprodukte, die Biokompatibilitätsanforderungen erfüllen","ru":"Медицинские изделия из жидкого силикона, соответствующие требованиям биосовместимости","fr":"Produits d'injection de silicone liquide de qualité médicale, conformes aux exigences de biocompatibilité","ja":"生体適合性要件を満たす医療グレード液状シリコーン射出製品","ko":"생체 적합성 요건을 충족하는 의료 등급 액상 실리콘 사출 제품","es":"Productos de inyección de silicona líquida de grado médico que cumplen con los requisitos de biocompatibilidad"},
+  "prod_lsr_item1":{"zh":"硅胶面罩","en":"Silicone Mask","de":"Silikonmaske","ru":"Силиконовая маска","fr":"Masque en silicone","ja":"シリコーンマスク","ko":"실리콘 마스크","es":"Mascarilla de silicona"},
+  "prod_lsr_item2":{"zh":"硅胶密封件","en":"Silicone Seals","de":"Silikondichtungen","ru":"Силиконовые уплотнения","fr":"Joints en silicone","ja":"シリコーンシール","ko":"실리콘 씰","es":"Juntas de silicona"},
+  "prod_lsr_item3":{"zh":"硅胶管路","en":"Silicone Tubing","de":"Silikonschläuche","ru":"Силиконовые трубки","fr":"Tubulures en silicone","ja":"シリコーンチューブ","ko":"실리콘 튜브","es":"Tuberías de silicona"},
+  "prod_lsr_item4":{"zh":"硅胶护套","en":"Silicone Sheath","de":"Silikonummantelung","ru":"Силиконовая оболочка","fr":"Gaine en silicone","ja":"シリコーンシース","ko":"실리콘 시스","es":"Funda de silicona"},
+  "prod_pp_title":{"zh":"注塑产品","en":"Injection Molded Products","de":"Spritzgussprodukte","ru":"Литьевые изделия","fr":"Produits injectés","ja":"射出成形製品","ko":"사출 성형 제품","es":"Productos de inyección"},
+  "prod_pp_desc":{"zh":"高精度注塑成型，涵盖医疗耗材、工业部件等","en":"High-precision injection molding for medical consumables and industrial parts","de":"Hochpräziser Spritzguss für medizinische Verbrauchsmaterialien und Industrieteile","ru":"Высокоточное литье под давлением для медицинских расходных материалов и промышленных деталей","fr":"Moulage par injection de haute précision pour consommables médicaux et pièces industrielles","ja":"医療用消耗品や工業部品向けの高精度射出成形","ko":"의료 소모품 및 산업용 부품을 위한 고정밀 사출 성형","es":"Moldeo por inyección de alta precisión para consumibles médicos y piezas industriales"},
+  "prod_pp_item1":{"zh":"输液接头","en":"Infusion Connector","de":"Infusionsanschluss","ru":"Инфузионный коннектор","fr":"Connecteur de perfusion","ja":"輸液コネクタ","ko":"수액 커넥터","es":"Conector de infusión"},
+  "prod_pp_item2":{"zh":"瓶盖组件","en":"Cap Assembly","de":"Verschlusskappen-Baugruppe","ru":"Узел крышки","fr":"Ensemble bouchon","ja":"キャップアセンブリ","ko":"캡 어셈블리","es":"Conjunto de tapa"},
+  "prod_pp_item3":{"zh":"连接器","en":"Connector","de":"Steckverbinder","ru":"Соединитель","fr":"Connecteur","ja":"コネクタ","ko":"커넥터","es":"Conector"},
+  "prod_pp_item4":{"zh":"外壳部件","en":"Housing Parts","de":"Gehäuseteile","ru":"Корпусные детали","fr":"Pièces de boîtier","ja":"筐体部品","ko":"하우징 부품","es":"Piezas de carcasa"},
+  "prod_2k_title":{"zh":"双色/多色产品","en":"Two-shot / Multi-color Products","de":"Zweifarben-/Mehrfarbenprodukte","ru":"Двух-/многоцветные изделия","fr":"Produits bi-matière / multi-couleurs","ja":"2色/多色製品","ko":"2색/다색 제품","es":"Productos de dos colores / multicolor"},
+  "prod_2k_desc":{"zh":"双色/多色注塑一体化成型，减少二次加工","en":"Integrated two-shot / multi-color molding, reducing secondary processing","de":"Integrierte Zweifarben-/Mehrfarbenspritzgießfertigung, weniger Nachbearbeitung","ru":"Интегрированное двух-/многоцветное литье, сокращающее вторичную обработку","fr":"Moulage bi-matière / multi-couleurs intégré, réduisant les opérations secondaires","ja":"2色/多色一体成形により二次加工を削減","ko":"2색/다색 일체형 사출 성형으로 2차 가공 감소","es":"Moldeo integrado de dos colores / multicolor, reduciendo el procesamiento secundario"},
+  "prod_2k_item1":{"zh":"双色手柄","en":"Two-shot Handle","de":"Zweifarbengriff","ru":"Двухцветная рукоятка","fr":"Poignée bi-matière","ja":"2色ハンドル","ko":"2색 핸들","es":"Mango de dos colores"},
+  "prod_2k_item2":{"zh":"多色按钮","en":"Multi-color Button","de":"Mehrfarbentaste","ru":"Многоцветная кнопка","fr":"Bouton multi-couleurs","ja":"多色ボタン","ko":"다색 버튼","es":"Botón multicolor"},
+  "prod_2k_item3":{"zh":"软硬胶组件","en":"Soft/Hard Overmold","de":"Hart-Weich-Kombination","ru":"Комбинация мягкого и твердого материала","fr":"Combinaison souple/dur","ja":"軟質/硬質オーバーモールド","ko":"경질/연질 오버몰드","es":"Sobreinyección blanda/dura"},
+  "prod_2k_item4":{"zh":"Logo 嵌件","en":"Logo Insert","de":"Logo-Einleger","ru":"Вставка логотипа","fr":"Insert de logo","ja":"ロゴインサート","ko":"로고 인서트","es":"Inserto de logo"},
+
+  "mold_short_cnc":{"zh":"CNC 数控加工","en":"CNC Machining","de":"CNC-Bearbeitung","ru":"ЧПУ обработка","fr":"Usinage CNC","ja":"CNC加工","ko":"CNC 가공","es":"Mecanizado CNC"},
+  "mold_short_edm":{"zh":"EDM 电火花","en":"EDM Spark Erosion","de":"EDM Funkenerosion","ru":"EDM электроэрозия","fr":"Électroérosion EDM","ja":"EDM放電加工","ko":"EDM 방전","es":"Electroerosión EDM"},
+  "mold_short_wire":{"zh":"线切割","en":"Wire EDM","de":"Drahterosion","ru":"Проволочная резка","fr":"Découpe au fil","ja":"ワイヤーカット","ko":"와이어 컷","es":"Corte por hilo"},
+  "mold_short_grinder":{"zh":"精密磨床","en":"Precision Grinding","de":"Präzisionsschleifen","ru":"Прециз. шлифование","fr":"Rectification de précision","ja":"精密研削","ko":"정밀 연삭","es":"Rectificado de precisión"},
+  "mold_short_injection":{"zh":"注塑机","en":"Injection Molding","de":"Spritzgießen","ru":"Литье под давлением","fr":"Injection","ja":"射出成形","ko":"사출 성형","es":"Moldeo por inyección"},
+  "mold_short_qc":{"zh":"品质检测","en":"Quality Inspection","de":"Qualitätsprüfung","ru":"Контроль качества","fr":"Contrôle qualité","ja":"品質検査","ko":"품질 검사","es":"Inspección de calidad"},
+  "qual_short_overview":{"zh":"资质实力","en":"Qualifications","de":"Qualifikationen","ru":"Квалификации","fr":"Qualifications","ja":"認定資格","ko":"인증 및 역량","es":"Certificaciones"},
+  "qual_short_env":{"zh":"生产环境","en":"Production Environment","de":"Produktionsumgebung","ru":"Производственная среда","fr":"Environnement de production","ja":"生産環境","ko":"생산 환경","es":"Entorno de producción"},
+  "qual_short_iqoq":{"zh":"IQ/OQ/PQ 验证体系","en":"IQ/OQ/PQ Validation","de":"IQ/OQ/PQ-Validierung","ru":"Валидация IQ/OQ/PQ","fr":"Validation IQ/OQ/PQ","ja":"IQ/OQ/PQ バリデーション","ko":"IQ/OQ/PQ 밸리데이션","es":"Validación IQ/OQ/PQ"},
+
+  "about_dd_who":{"zh":"我们是谁","en":"Who We Are","de":"Wer wir sind","ru":"Кто мы","fr":"Qui sommes-nous","ja":"私たちについて","ko":"우리는 누구인가","es":"Quiénes somos"},
+  "about_dd_values":{"zh":"核心价值","en":"Core Values","de":"Kernwerte","ru":"Наши ценности","fr":"Nos valeurs","ja":"コアバリュー","ko":"핵심 가치","es":"Valores fundamentales"},
+  "about_dd_spirit":{"zh":"弘欧精神","en":"Our Spirit","de":"Unser Geist","ru":"Наш дух","fr":"Notre esprit","ja":"弘欧の精神","ko":"홍오 정신","es":"Nuestro espíritu"},
+  "about_dd_partners":{"zh":"全球合作伙伴","en":"Global Partners","de":"Globale Partner","ru":"Глобальные партнеры","fr":"Partenaires mondiaux","ja":"グローバルパートナー","ko":"글로벌 파트너","es":"Socios globales"},
+  "about_who_title":{"zh":"HONDVO","en":"HONDVO","de":"HONDVO","ru":"HONDVO","fr":"HONDVO","ja":"HONDVO","ko":"HONDVO","es":"HONDVO"},
+  "about_values_title":{"zh":"核心价值","en":"Core Values","de":"Kernwerte","ru":"Наши ценности","fr":"Nos valeurs","ja":"コアバリュー","ko":"핵심 가치","es":"Valores fundamentales"},
+  "about_spirit_title":{"zh":"弘欧精神","en":"Hondvo Spirit","de":"Hondvo-Geist","ru":"Дух Hondvo","fr":"Esprit Hondvo","ja":"弘欧精神","ko":"홍오 정신","es":"Espíritu Hondvo"},
+  "about_partners_title":{"zh":"全球合作伙伴","en":"Global Partners","de":"Globale Partner","ru":"Глобальные партнеры","fr":"Partenaires mondiaux","ja":"グローバルパートナー","ko":"글로벌 파트너","es":"Socios globales"},
+  "about_val1_title":{"zh":"精密制造","en":"Precision Manufacturing","de":"Präzisionsfertigung","ru":"Прецизионное производство","fr":"Fabrication de précision","ja":"精密製造","ko":"정밀 제조","es":"Fabricación de precisión"},
+  "about_val1_desc":{"zh":"以微米级精度为标准，零缺陷质量文化贯穿每一道工序","en":"Micron-level precision as standard, zero-defect quality culture throughout every process","de":"Mikrometergenauigkeit als Standard – Null-Fehler-Qualitätskultur in jedem Prozessschritt","ru":"Микронная точность как стандарт, культура нулевых дефектов на каждом этапе","fr":"Précision au micron comme standard, culture qualité zéro défaut à chaque étape","ja":"ミクロン単位の精度を基準に、全工程に浸透したゼロディフェクトの品質文化","ko":"마이크론 단위 정밀도를 기준으로, 모든 공정에 제로 결함 품질 문화가 스며들어 있습니다","es":"Precisión a nivel de micras como estándar, cultura de calidad de cero defectos en cada proceso"},
+  "about_val2_title":{"zh":"医疗合规","en":"Medical Compliance","de":"Medizinische Compliance","ru":"Медицинское соответствие","fr":"Conformité médicale","ja":"医療コンプライアンス","ko":"의료 규정 준수","es":"Cumplimiento médico"},
+  "about_val2_desc":{"zh":"ISO 13485 / IATF 16949 双体系运行，全流程 IQ/OQ/PQ 验证","en":"Dual ISO 13485 / IATF 16949 system, full IQ/OQ/PQ validation","de":"ISO 13485 / IATF 16949 Doppelsystem mit durchgängiger IQ/OQ/PQ-Validierung","ru":"Двойная система ISO 13485 / IATF 16949, полная валидация IQ/OQ/PQ","fr":"Double système ISO 13485 / IATF 16949, validation IQ/OQ/PQ complète","ja":"ISO 13485 / IATF 16949 デュアルシステム運用、全工程IQ/OQ/PQバリデーション","ko":"ISO 13485 / IATF 16949 이중 시스템 운영, 전 공정 IQ/OQ/PQ 밸리데이션","es":"Sistema dual ISO 13485 / IATF 16949, validación IQ/OQ/PQ completa"},
+  "about_val3_title":{"zh":"快速响应","en":"Rapid Response","de":"Schnelle Reaktion","ru":"Быстрое реагирование","fr":"Réactivité rapide","ja":"迅速対応","ko":"신속 대응","es":"Respuesta rápida"},
+  "about_val3_desc":{"zh":"从模具设计到量产交付，敏捷供应链确保最短交期","en":"From mold design to mass production delivery, agile supply chain ensures shortest lead time","de":"Vom Werkzeugdesign bis zur Serienauslieferung – agile Lieferkette für kürzeste Durchlaufzeiten","ru":"От проектирования пресс-форм до серийной поставки – гибкая цепочка поставок обеспечивает минимальные сроки","fr":"De la conception des moules à la livraison en série, une chaîne d'approvisionnement agile garantit les délais les plus courts","ja":"金型設計から量産納品まで、俊敏なサプライチェーンが最短納期を実現","ko":"금형 설계부터 양산 납품까지, 민첩한 공급망으로 최단 납기 보장","es":"Desde el diseño de moldes hasta la entrega en serie, una cadena de suministro ágil garantiza los plazos más cortos"},
+  "about_val4_title":{"zh":"持续创新","en":"Continuous Innovation","de":"Kontinuierliche Innovation","ru":"Постоянные инновации","fr":"Innovation continue","ja":"継続的革新","ko":"지속적 혁신","es":"Innovación continua"},
+  "about_val4_desc":{"zh":"持续引入国际顶尖设备与工艺，保持技术领先优势","en":"Continuously introducing world-class equipment and processes, maintaining technological leadership","de":"Kontinuierliche Einführung internationaler Spitzentechnologie für technologische Führung","ru":"Постоянное внедрение передового международного оборудования и технологий для сохранения лидерства","fr":"Introduction continue d'équipements et de procédés de pointe pour maintenir l'avance technologique","ja":"国際的な最先端設備とプロセスの継続的導入により、技術的優位性を維持","ko":"국제 최고 수준의 장비와 공정을 지속적으로 도입하여 기술 리더십 유지","es":"Introducción continua de equipos y procesos de primer nivel internacional para mantener el liderazgo tecnológico"},
+
+  "about_sp1_icon":{"zh":"匠心","en":"Craft","de":"Handwerkskunst","ru":"Мастерство","fr":"Savoir-faire","ja":"匠心","ko":"장인정신","es":"Artesanía"},
+  "about_sp1_title":{"zh":"工匠精神","en":"Craftsmanship","de":"Handwerkskunst","ru":"Мастерство","fr":"Savoir-faire","ja":"匠の精神","ko":"장인 정신","es":"Artesanía"},
+  "about_sp1_desc":{"zh":"每一套模具都是精雕细琢的作品，对微米级精度永怀敬畏","en":"Every mold is a finely crafted masterpiece, with eternal reverence for micron-level precision","de":"Jedes Werkzeug ist ein meisterhaft gefertigtes Kunstwerk – mit tiefem Respekt vor Mikrometer-Präzision","ru":"Каждая пресс-форма – тщательно изготовленное произведение, с неизменным почтением к микронной точности","fr":"Chaque moule est une œuvre finement ciselée, avec un respect éternel pour la précision au micron","ja":"一つひとつの金型は丹念に作り込まれた作品であり、ミクロン精度への畏敬の念を忘れません","ko":"모든 금형은 정교하게 제작된 작품이며, 마이크론 단위 정밀도에 대한 경외심을 영원히 간직합니다","es":"Cada molde es una obra maestra finamente elaborada, con eterna reverencia por la precisión micrométrica"},
+  "about_sp2_icon":{"zh":"客户","en":"Client","de":"Kunde","ru":"Клиент","fr":"Client","ja":"お客様","ko":"고객","es":"Cliente"},
+  "about_sp2_title":{"zh":"客户至上","en":"Client First","de":"Kundenorientierung","ru":"Клиент превыше всего","fr":"Le client d'abord","ja":"お客様第一","ko":"고객 우선","es":"El cliente primero"},
+  "about_sp2_desc":{"zh":"深入理解医疗器械客户需求，以工程能力驱动解决方案","en":"Deep understanding of medical device client needs, engineering-driven solutions","de":"Tiefes Verständnis für die Anforderungen von Medizintechnikkunden – lösungsorientiert durch Ingenieurkompetenz","ru":"Глубокое понимание потребностей клиентов в сфере медизделий, инженерные решения","fr":"Compréhension approfondie des besoins des clients DM, solutions pilotées par l'ingénierie","ja":"医療機器顧客のニーズを深く理解し、エンジニアリング力でソリューションを提供","ko":"의료기기 고객의 요구를 깊이 이해하고, 엔지니어링 역량으로 솔루션을 제공합니다","es":"Comprensión profunda de las necesidades de los clientes de dispositivos médicos, soluciones impulsadas por la ingeniería"},
+  "about_sp3_icon":{"zh":"协作","en":"Team","de":"Teamwork","ru":"Команда","fr":"Équipe","ja":"協働","ko":"협업","es":"Equipo"},
+  "about_sp3_title":{"zh":"团队协作","en":"Team Collaboration","de":"Teamarbeit","ru":"Командная работа","fr":"Travail d'équipe","ja":"チームワーク","ko":"팀워크","es":"Trabajo en equipo"},
+  "about_sp3_desc":{"zh":"模具设计与注塑生产无缝衔接，跨部门高效协同","en":"Seamless integration of mold design and injection production, efficient cross-department collaboration","de":"Nahtlose Integration von Werkzeugdesign und Spritzgießproduktion – effiziente abteilungsübergreifende Zusammenarbeit","ru":"Бесшовная интеграция проектирования пресс-форм и литьевого производства, эффективное межведомственное взаимодействие","fr":"Intégration transparente de la conception de moules et de la production par injection, collaboration interdépartementale efficace","ja":"金型設計と射出成形生産のシームレスな連携、部門を超えた効率的な協力体制","ko":"금형 설계와 사출 생산의 원활한 연계, 부서 간 효율적인 협업","es":"Integración perfecta del diseño de moldes y la producción por inyección, colaboración interdepartamental eficiente"},
+
+  "footer_desc":{"zh":"弘欧科技（东莞）有限公司 · 弘欧精密模具（东莞）有限公司<br>专注无源二类医疗器械注塑部件与精密模具制造","en":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Specialized in Class II passive medical device injection components & precision mold manufacturing","de":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Spezialisiert auf Spritzgussteile für passive Medizinprodukte Klasse II & Präzisionswerkzeugbau","ru":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Специализация: литьевые компоненты для пассивных медизделий класса II и прецизионные пресс-формы","fr":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Spécialisée dans les composants injectés pour DM passifs de classe II et la fabrication de moules de précision","ja":"弘欧科技（東莞）有限公司 · 弘欧精密模具（東莞）有限公司<br>クラスIIパッシブ医療機器用射出部品と精密金型製造に特化","ko":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>클래스II 수동형 의료기기 사출 부품 및 정밀 금형 제조 전문","es":"HONDVO Technology (Dongguan) Co., Ltd. · HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.<br>Especializada en componentes de inyección para DM pasivos clase II y fabricación de moldes de precisión"},
+  "ft_about":{"zh":"关于我们","en":"About Us","de":"Über uns","ru":"О нас","fr":"À propos","ja":"会社概要","ko":"회사 소개","es":"Sobre nosotros"},
+  "ft_about_who":{"zh":"我们是谁","en":"Who We Are","de":"Wer wir sind","ru":"Кто мы","fr":"Qui sommes-nous","ja":"私たちについて","ko":"우리는 누구인가","es":"Quiénes somos"},
+  "ft_about_values":{"zh":"核心价值","en":"Core Values","de":"Kernwerte","ru":"Наши ценности","fr":"Nos valeurs","ja":"コアバリュー","ko":"핵심 가치","es":"Valores fundamentales"},
+  "ft_about_spirit":{"zh":"弘欧精神","en":"Hondvo Spirit","de":"Hondvo-Geist","ru":"Дух Hondvo","fr":"Esprit Hondvo","ja":"弘欧精神","ko":"홍오 정신","es":"Espíritu Hondvo"},
+  "ft_about_partners":{"zh":"全球合作伙伴","en":"Global Partners","de":"Globale Partner","ru":"Глобальные партнеры","fr":"Partenaires mondiaux","ja":"グローバルパートナー","ko":"글로벌 파트너","es":"Socios globales"},
+  "ft_products":{"zh":"产品与服务","en":"Products & Services","de":"Produkte & Dienstleistungen","ru":"Продукты и услуги","fr":"Produits & services","ja":"製品・サービス","ko":"제품 및 서비스","es":"Productos y servicios"},
+  "ft_prod_enteral":{"zh":"肠内营养输注系统","en":"Enteral Nutrition System","de":"Enterales Ernährungssystem","ru":"Система энтерального питания","fr":"Système de nutrition entérale","ja":"経腸栄養システム","ko":"경장 영양 시스템","es":"Sistema de nutrición enteral"},
+  "ft_prod_injection":{"zh":"注射给药系统","en":"Injection Drug System","de":"Injektionssystem","ru":"Инъекционная система","fr":"Système d'injection","ja":"注射薬物システム","ko":"주사 약물 시스템","es":"Sistema de inyección"},
+  "ft_prod_other":{"zh":"其他二类器械部件","en":"Other Class II Components","de":"Weitere Klasse-II-Komponenten","ru":"Прочие компоненты класса II","fr":"Autres composants classe II","ja":"その他クラスII部品","ko":"기타 클래스II 부품","es":"Otros componentes clase II"},
+  "ft_prod_mold":{"zh":"精密模具制造","en":"Precision Mold","de":"Präzisionswerkzeugbau","ru":"Прецизионные пресс-формы","fr":"Moules de précision","ja":"精密金型","ko":"정밀 금형","es":"Moldes de precisión"},
+  "ft_mold":{"zh":"模具中心","en":"Mold Center","de":"Werkzeugbau","ru":"Центр пресс-форм","fr":"Centre de moules","ja":"金型センター","ko":"금형 센터","es":"Centro de moldes"},
+  "ft_mold_design":{"zh":"模具设计","en":"Mold Design","de":"Werkzeugdesign","ru":"Проектирование пресс-форм","fr":"Conception de moules","ja":"金型設計","ko":"금형 설계","es":"Diseño de moldes"},
+  "ft_mold_machining":{"zh":"精密加工","en":"Precision Machining","de":"Präzisionsbearbeitung","ru":"Прецизионная обработка","fr":"Usinage de précision","ja":"精密加工","ko":"정밀 가공","es":"Mecanizado de precisión"},
+  "ft_mold_injection":{"zh":"注塑量产","en":"Injection Production","de":"Spritzgießproduktion","ru":"Серийное литье","fr":"Production par injection","ja":"射出成形量産","ko":"사출 양산","es":"Producción por inyección"},
+  "ft_mold_quality":{"zh":"品质管控","en":"Quality Control","de":"Qualitätskontrolle","ru":"Контроль качества","fr":"Contrôle qualité","ja":"品質管理","ko":"품질 관리","es":"Control de calidad"},
+  "ft_qual":{"zh":"资质实力","en":"Qualifications","de":"Qualifikationen","ru":"Квалификации","fr":"Qualifications","ja":"認定資格","ko":"인증 및 역량","es":"Certificaciones"},
+  "ft_qual_13485":{"zh":"ISO 13485","en":"ISO 13485","de":"ISO 13485","ru":"ISO 13485","fr":"ISO 13485","ja":"ISO 13485","ko":"ISO 13485","es":"ISO 13485"},
+  "ft_qual_16949":{"zh":"IATF 16949","en":"IATF 16949","de":"IATF 16949","ru":"IATF 16949","fr":"IATF 16949","ja":"IATF 16949","ko":"IATF 16949","es":"IATF 16949"},
+  "ft_qual_9001":{"zh":"ISO 9001","en":"ISO 9001","de":"ISO 9001","ru":"ISO 9001","fr":"ISO 9001","ja":"ISO 9001","ko":"ISO 9001","es":"ISO 9001"},
+  "ft_qual_env":{"zh":"生产环境","en":"Production Environment","de":"Produktionsumgebung","ru":"Производственная среда","fr":"Environnement de production","ja":"生産環境","ko":"생산 환경","es":"Entorno de producción"},
+  "ft_qual_iqoq":{"zh":"IQ/OQ/PQ 验证","en":"IQ/OQ/PQ Validation","de":"IQ/OQ/PQ-Validierung","ru":"Валидация IQ/OQ/PQ","fr":"Validation IQ/OQ/PQ","ja":"IQ/OQ/PQ バリデーション","ko":"IQ/OQ/PQ 밸리데이션","es":"Validación IQ/OQ/PQ"},
+  "ft_news":{"zh":"新闻动态","en":"News","de":"Nachrichten","ru":"Новости","fr":"Actualités","ja":"ニュース","ko":"뉴스","es":"Noticias"},
+  "ft_news_company":{"zh":"公司新闻","en":"Company News","de":"Unternehmensnachrichten","ru":"Новости компании","fr":"Actualités entreprise","ja":"企業ニュース","ko":"회사 뉴스","es":"Noticias de empresa"},
+  "ft_news_industry":{"zh":"行业资讯","en":"Industry News","de":"Brancheninformationen","ru":"Отраслевые новости","fr":"Actualités secteur","ja":"業界情報","ko":"업계 정보","es":"Noticias del sector"},
+  "ft_contact":{"zh":"联系我们","en":"Contact Us","de":"Kontakt","ru":"Контакты","fr":"Contact","ja":"お問い合わせ","ko":"문의하기","es":"Contacto"},
+  "ft_contact_job":{"zh":"人才招聘","en":"Careers","de":"Karriere","ru":"Карьера","fr":"Carrières","ja":"採用情報","ko":"채용","es":"Carreras"},
+  "ft_contact_reach":{"zh":"联系方式","en":"Contact Info","de":"Kontakt","ru":"Контакты","fr":"Contact","ja":"連絡先","ko":"연락처","es":"Contacto"},
+  "ft_copyright":{"zh":"© 2026 弘欧科技（东莞）有限公司 & 弘欧精密模具（东莞）有限公司","en":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","de":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ru":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","fr":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","ja":"© 2026 弘欧科技（東莞）有限公司 & 弘欧精密模具（東莞）有限公司","ko":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd.","es":"© 2026 HONDVO Technology (Dongguan) Co., Ltd. & HONDVO TOOLING LIMITED (Dongguan) Co., Ltd."},
+  "ft_privacy":{"zh":"隐私政策","en":"Privacy Policy","de":"Datenschutz","ru":"Конфиденциальность","fr":"Confidentialité","ja":"プライバシーポリシー","ko":"개인정보처리방침","es":"Política de privacidad"},
+  "ft_terms":{"zh":"服务条款","en":"Terms of Service","de":"AGB","ru":"Условия","fr":"Conditions","ja":"利用規約","ko":"이용약관","es":"Términos"},
+
+  "ct_submitting":{"zh":"提交中...","en":"Submitting...","de":"Wird gesendet...","ru":"Отправка...","fr":"Envoi en cours...","ja":"送信中...","ko":"제출 중...","es":"Enviando..."},
+  "ct_success":{"zh":"提交成功！我们将在24小时内联系您","en":"Submitted! We will contact you within 24 hours","de":"Gesendet! Wir melden uns innerhalb von 24 Stunden","ru":"Отправлено! Мы свяжемся с вами в течение 24 часов","fr":"Envoyé ! Nous vous contacterons dans les 24 heures","ja":"送信完了！24時間以内にご連絡いたします","ko":"제출 완료! 24시간 이내에 연락드리겠습니다","es":"¡Enviado! Le contactaremos en 24 horas"},
+  "ct_failure":{"zh":"提交失败，请重试或直接致电","en":"Submission failed. Please retry or call us directly","de":"Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut oder rufen Sie uns an","ru":"Ошибка отправки. Повторите попытку или позвоните нам","fr":"Échec de l'envoi. Veuillez réessayer ou nous appeler","ja":"送信に失敗しました。再試行いただくか、お電話ください","ko":"제출 실패. 다시 시도하시거나 전화 주세요","es":"Error al enviar. Reintente o llámenos"},
+  "ct_val_required":{"zh":"请填写必填字段：姓名、联系电话、邮箱、需求描述","en":"Please fill in required fields: Name, Phone, Email, Requirements","de":"Bitte füllen Sie die Pflichtfelder aus: Name, Telefon, E-Mail, Anforderungsbeschreibung","ru":"Заполните обязательные поля: Имя, Телефон, Эл. почта, Описание требований","fr":"Veuillez remplir les champs obligatoires : Nom, Téléphone, E-mail, Description des besoins","ja":"必須項目を入力してください：氏名、電話番号、メールアドレス、要件説明","ko":"필수 항목을 입력하세요: 이름, 전화번호, 이메일, 요구 사항 설명","es":"Complete los campos obligatorios: Nombre, Teléfono, Correo electrónico, Descripción de requisitos"},
+  "ct_val_phone":{"zh":"请输入有效的电话号码","en":"Please enter a valid phone number","de":"Bitte geben Sie eine gültige Telefonnummer ein","ru":"Введите действительный номер телефона","fr":"Veuillez entrer un numéro de téléphone valide","ja":"有効な電話番号を入力してください","ko":"유효한 전화번호를 입력하세요","es":"Ingrese un número de teléfono válido"}
+};
+
+function switchLang(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  // Update select value
+  const sel = document.getElementById('lang-select');
+  if (sel) sel.value = lang;
+  localStorage.setItem('hondvo_lang', lang);
+
+  document.querySelectorAll('[data-lang-key]').forEach(el => {
+    const key = el.getAttribute('data-lang-key');
+    const entry = I18N[key];
+    if (!entry || !entry[lang]) return;
+    el.innerHTML = entry[lang];
+  });
+
+  document.querySelectorAll('[data-ph-key]').forEach(el => {
+    const key = el.getAttribute('data-ph-key');
+    const entry = I18N[key];
+    if (!entry || !entry[lang]) return;
+    el.setAttribute('placeholder', entry[lang]);
+  });
+}
+
+(function(){
+  const saved = localStorage.getItem('hondvo_lang') || 'en';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => switchLang(saved));
+  } else {
+    switchLang(saved);
+  }
+})();
+
+
+  function toggleAccordion(btn) {
+    const item = btn.closest('.acc-item');
+    if (!item) return;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(acc => acc.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  // Dropdown link click: navigate to target page then expand/scroll
+  (function(){
+    // Accordion: expand target after page switch
+    document.querySelectorAll('.dropdown-menu a[data-acc]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var accId = this.getAttribute('data-acc');
+        var pageHash = this.getAttribute('href');
+        location.hash = pageHash;
+        setTimeout(function(){
+          var btn = document.getElementById(accId);
+          if (btn) {
+            document.querySelectorAll('.acc-item.open').forEach(function(acc){ acc.classList.remove('open'); });
+            var item = btn.closest('.acc-item');
+            if (item) item.classList.add('open');
+            btn.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }, 150);
+      });
+    });
+    // General scroll-to: navigate then scroll
+    document.querySelectorAll('.dropdown-menu a[data-scroll-to]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var targetId = this.getAttribute('data-scroll-to');
+        var pageHash = this.getAttribute('href');
+        location.hash = pageHash;
+        setTimeout(function(){
+          var el = document.getElementById(targetId);
+          if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 150);
+      });
+    });
+    // Mobile: tap top-level nav link to toggle dropdown
+    document.querySelectorAll('.has-dropdown > a').forEach(function(trigger){
+      trigger.addEventListener('click', function(e){
+        if (window.innerWidth <= 860) {
+          var dd = this.nextElementSibling;
+          if (dd && dd.classList.contains('dropdown-menu')) {
+            e.preventDefault();
+            dd.classList.toggle('open');
+          }
+        }
+      });
+    });
+  })();
+  // Scroll reveal
+  var revealObs, resetReveal;
+  (function(){
+    revealObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('revealed'); revealObs.unobserve(e.target); }
+      });
+    }, {rootMargin:'-120px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+    resetReveal = function(){
+      document.querySelectorAll('.reveal.revealed').forEach(function(el){ el.classList.remove('revealed'); });
+      document.querySelectorAll('.reveal').forEach(function(el){ revealObs.observe(el); });
+    };
+  })();
+
+
+  /* ═══════════ FORM SUBMISSION ═══════════ */
+  (function(){
+    var form = document.querySelector('.contact-form');
+    if (!form) return;
+    var btn = form.querySelector('.submit-btn');
+    if (!btn) return;
+
+    function currentLang(){ return localStorage.getItem('hondvo_lang') || 'en'; }
+
+    var getInputs = function(){
+      return {
+        name: form.querySelectorAll('input[type="text"]')[0],
+        company: form.querySelectorAll('input[type="text"]')[1],
+        phone: form.querySelector('input[type="tel"]'),
+        email: form.querySelector('input[type="email"]'),
+        type: form.querySelector('select'),
+        desc: form.querySelector('textarea'),
+        honeypot: form.querySelector('input[name="honeypot"]')
+      };
+    };
+
+    function validatePhone(p){ return /^(\+\d{1,3}\s?)?\d{7,15}$/.test(p.replace(/[\s\-\(\)]/g,'')); }
+
+    function btnState(state){
+      var t = function(k){ return (I18N[k]||{})[currentLang()]||''; };
+      btn.style.transition = 'all 0.3s';
+      btn.disabled = true;
+      btn.style.opacity = '0.85';
+      if (state==='loading'){ btn.style.background='#999'; btn.style.color='#fff'; btn.textContent = t('ct_submitting'); }
+      else if (state==='success'){
+        btn.style.background='#4CAF50'; btn.style.color='#fff'; btn.textContent = t('ct_success');
+        setTimeout(function(){
+          btn.disabled = false; btn.style.opacity='1'; btn.style.background=''; btn.style.color=''; btn.textContent = t('ct_submit');
+        }, 3500);
+      } else if (state==='error'){
+        btn.disabled = false; btn.style.background='#F44336'; btn.style.color='#fff'; btn.textContent = t('ct_failure');
+        setTimeout(function(){
+          btn.style.opacity='1'; btn.style.background=''; btn.style.color=''; btn.textContent = t('ct_submit');
+        }, 4000);
+      }
+    }
+
+    async function submit(){
+      var f = getInputs();
+      if (f.honeypot && f.honeypot.value) return;
+
+      var name = (f.name||{}).value||''; var company = (f.company||{}).value||'';
+      var phone = (f.phone||{}).value||''; var email = (f.email||{}).value||'';
+      var type = (f.type||{}).options ? (f.type.options[f.type.selectedIndex]||{}).text || '' : '';
+      var desc = (f.desc||{}).value||'';
+
+      company = company.trim(); phone = phone.trim(); desc = desc.trim(); name = name.trim();
+
+      var t = function(k){ return (I18N[k]||{})[currentLang()]||''; };
+
+      if (!name || !phone || !email || !desc){ alert(t('ct_val_required')); return; }
+      if (!validatePhone(phone)){ alert(t('ct_val_phone')); return; }
+
+      btnState('loading');
+
+      var web3Body = JSON.stringify({
+        access_key: '2b63e2dc-1a6a-4610-8dfd-3e2a1ef6d064',
+        form_name: 'HONDVO Contact Form',
+        form_email: email,
+        subject: '【新询价】' + (type || 'General'),
+        message: '咨询类型: ' + type + '\n公司名称: ' + company + '\n联系人: ' + name + '\n电话: ' + phone + '\n邮箱: ' + email + '\n留言: ' + desc
+      });
+
+      fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json'}, body: web3Body })
+        .then(function(){
+          btnState('success');
+          f.name.value = ''; f.company.value = ''; f.phone.value = '';
+          f.email.value = ''; f.type.selectedIndex = 0; f.desc.value = '';
+        })
+        .catch(function(){
+          btnState('error');
+        });
+    }
+
+    btn.addEventListener('click', function(e){ e.preventDefault(); submit(); });
+  })();
+
+
+</script>
+</body>
+</html>
