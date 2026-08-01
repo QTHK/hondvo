@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 6aeb48dd7a8ca5aad268020d0126298d_e17a44108d8c11f1b82d525400287e28
+    ReservedCode1: 5TPgMb/gjr28uDG/CTh9a65moxTYq7RSnmaxGaYNybDltu9E9725mZwt8vNToHznG2Lma7oxz6P8B1gcgbUm7goZFiogn03vKaSRB8nzo4wijrtMBjipMM94OmGz2FBIyZNe9HMQXFhAsO6TJKRaIqdGmj6q04g1ObIGDHzcGlplv0lFgEUhbmoa5m4=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 6aeb48dd7a8ca5aad268020d0126298d_e17a44108d8c11f1b82d525400287e28
+    ReservedCode2: 5TPgMb/gjr28uDG/CTh9a65moxTYq7RSnmaxGaYNybDltu9E9725mZwt8vNToHznG2Lma7oxz6P8B1gcgbUm7goZFiogn03vKaSRB8nzo4wijrtMBjipMM94OmGz2FBIyZNe9HMQXFhAsO6TJKRaIqdGmj6q04g1ObIGDHzcGlplv0lFgEUhbmoa5m4=
+---
+
 # HONDVO 网站交接文档
 
 ## 项目概览
@@ -98,3 +109,4 @@ git push origin main
 ## 本地预览
 
 直接用浏览器打开 `index.html` 即可预览。表单提交和 sitemap 需通过 GitHub Pages 线上环境验证。
+*（内容由AI生成，仅供参考）*

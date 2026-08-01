@@ -1,13 +1,4 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 6aeb48dd7a8ca5aad268020d0126298d_aea2a5ac8d7711f196d8525400f8a581
-    ReservedCode1: Yz40h5slAz7E5kg6mCJXRSO2gBc0KxTb8SmnEznSkH7Rz2srRnD32h04Jx3Sr4sg/Pj8lDFnwSfdkFvji+aIeJhPj7sIHpzgw2pizvKLYEZmvcW9uT1TYXszbPARyuPQd+obcZkRze7hUNQvqiXaDOrI66cRtWqloIKOYKsAqYSYmvPa1tCZRWT0Qik=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 6aeb48dd7a8ca5aad268020d0126298d_aea2a5ac8d7711f196d8525400f8a581
-    ReservedCode2: Yz40h5slAz7E5kg6mCJXRSO2gBc0KxTb8SmnEznSkH7Rz2srRnD32h04Jx3Sr4sg/Pj8lDFnwSfdkFvji+aIeJhPj7sIHpzgw2pizvKLYEZmvcW9uT1TYXszbPARyuPQd+obcZkRze7hUNQvqiXaDOrI66cRtWqloIKOYKsAqYSYmvPa1tCZRWT0Qik=
----
+
 
 # HONDVO
 
@@ -40,6 +31,7 @@ AIGC:
 - **双公司分区** — 模具 / 科技独立展示，信息清晰分离
 
 ---
+
 
 ## 技术栈
 
@@ -81,6 +73,7 @@ hondvo/
 git clone https://github.com/QTHK/hondvo.git
 cd hondvo
 python -m http.server 8080
+
 ```
 
 浏览器打开 `http://localhost:8080` 即可预览。
@@ -99,5 +92,6 @@ python -m http.server 8080
 
 - **电话** +86 13545580032
 - **邮箱** 2789536032@qq.com
+
 
 
