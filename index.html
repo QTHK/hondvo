@@ -1656,7 +1656,7 @@ function switchLang(lang) {
   // Update select value
   const sel = document.getElementById('lang-select');
   if (sel) sel.value = lang;
-  localStorage.setItem('hondvo_lang', lang);
+  sessionStorage.setItem('hondvo_lang', lang);
 
   document.querySelectorAll('[data-lang-key]').forEach(el => {
     const key = el.getAttribute('data-lang-key');
@@ -1674,7 +1674,7 @@ function switchLang(lang) {
 }
 
 (function(){
-  const saved = localStorage.getItem('hondvo_lang') || 'en';
+  const saved = sessionStorage.getItem('hondvo_lang') || 'en';
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => switchLang(saved));
   } else {
@@ -1759,7 +1759,7 @@ function switchLang(lang) {
     var btn = form.querySelector('.submit-btn');
     if (!btn) return;
 
-    function currentLang(){ return localStorage.getItem('hondvo_lang') || 'en'; }
+    function currentLang(){ return sessionStorage.getItem('hondvo_lang') || 'en'; }
 
     var getInputs = function(){
       return {
