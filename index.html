@@ -244,8 +244,6 @@
     max-width: 1280px; margin: 0 auto; padding: 0 48px 80px;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
   }
-  .section-subheading { text-align: center; padding: 20px 40px 30px; }
-  .section-subheading h2 { font-size: 22px; font-weight: 600; letter-spacing: 2px; color: var(--gray-800); }
   @media (max-width: 860px) { .prod-grid { grid-template-columns: 1fr; } }
   @media (max-width: 1024px) {
     .nav .wrap { padding: 0 30px; }
@@ -297,7 +295,7 @@
     cursor: pointer; transition: transform 0.35s;
     background: #fff; border: 1px solid var(--gray-200);
   }
-  .img-cert-card:hover { transform: translateY(-3px); border-color: var(--orange); }
+  .img-cert-card:hover { transform: translateY(-3px) scale(1.04); border-color: var(--orange); }
   .img-cert-card img { width: 100%; height: auto; display: block; transform: translateZ(0); }
   .workshop-gallery .img-cert-card { aspect-ratio: 3 / 2; }
   .workshop-gallery .img-cert-card img { height: 100%; object-fit: cover; }
@@ -334,10 +332,7 @@
     display: grid; grid-template-columns: 2.2fr 1fr 1.1fr 1fr 1fr 0.9fr 0.9fr; gap: 24px;
   }
   @media (max-width: 1100px) { .footer .wrap { grid-template-columns: repeat(4, 1fr); } }
-  @media (max-width: 768px) { .footer .wrap { grid-template-columns: 1fr 1fr; } 
-    .section-subheading { padding: 16px 20px 20px; }
-    .section-subheading h2 { font-size: 18px; }
-}
+  @media (max-width: 768px) { .footer .wrap { grid-template-columns: 1fr 1fr; } }
   .footer .footer-brand .logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
   .footer .footer-brand .logo-area img { height: 36px; }
   .footer .footer-brand .logo-area .brand-name { font-size: 15px; font-weight: 700; color: #4A6B8B; letter-spacing: 1px; }
@@ -362,6 +357,10 @@
   .inner-hero { background: var(--gray-100); padding: 42px 40px 60px; text-align: center; }
   .inner-hero h1 { font-size: 30px; font-weight: 600; letter-spacing: 3px; }
   .inner-hero p { font-size: 13.5px; color: var(--gray-600); margin-top: 8px; font-weight: 400; letter-spacing: 1px; }
+
+  /* ═══════════ SECTION SUBHEADING ═══════════ */
+  .section-subheading { text-align: center; padding: 20px 40px 30px; }
+  .section-subheading h2 { font-size: 22px; font-weight: 600; letter-spacing: 2px; color: var(--gray-800); }
 
   /* ═══════════ INNER CONTENT ═══════════ */
   .inner-content { max-width: 1140px; margin: 0 auto; padding: 50px 48px 80px; }
@@ -394,10 +393,10 @@
   .eq-tag {
     padding: 9px 18px; border: 1px solid var(--gray-200); border-radius: 6px;
     font-size: 13.5px; color: var(--gray-600);
-    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.25s ease;
     cursor: default;
   }
-  .eq-tag:hover { border-color: var(--orange); background: #FFF4EC; color: var(--gray-800); }
+  .eq-tag:hover { border-color: var(--orange); background: #FFF4EC; color: var(--gray-800); transform: scale(1.08); }
   .eq-tag strong { color: var(--gray-800); font-weight: 600; }
 
   /* ═══════════ IQ/OQ/PQ ═══════════ */
@@ -615,6 +614,9 @@
     .inner-hero h1 { font-size: 22px; letter-spacing: 2px; }
     .inner-hero p { font-size: 12.5px; }
 
+    .section-subheading { padding: 16px 20px 20px; }
+    .section-subheading h2 { font-size: 18px; }
+
     .inner-content { padding: 28px 20px 48px; }
 
     .acc-header { padding: 16px 16px; font-size: 14px; }
@@ -814,7 +816,7 @@
 
   /* 4b: Card hover float + shadow */
   .prod-card.hover-float { transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease; }
-  .prod-card.hover-float:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+  .prod-card.hover-float:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
 
   /* 4c: Link hover underline slide-in */
   .link-slide { position: relative; text-decoration: none; }
@@ -896,6 +898,104 @@
     .td-badge { top: 10px; right: 10px; font-size: 10px; padding: 3px 10px; }
   }
 
+  /* ═══════════ PURCHASE CARDS ═══════════ */
+  .purchase-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; max-width: 960px; margin: 0 auto 48px; padding: 0 40px;
+  }
+  @media (max-width: 768px) { .purchase-cards { grid-template-columns: 1fr; padding: 0 24px; } }
+  .purchase-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 12px; padding: 36px 28px; text-align: center;
+    cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .purchase-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--orange);
+  }
+  .purchase-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+  }
+  .purchase-card .pc-icon {
+    width: 56px; height: 56px; margin: 0 auto 16px;
+    background: rgba(225,107,36,0.1); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .purchase-card .pc-icon svg { width: 28px; height: 28px; color: var(--orange); }
+  .purchase-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--gray-800); }
+  .purchase-card p { font-size: 13px; color: var(--gray-600); line-height: 1.7; }
+  .purchase-card .pc-btn {
+    display: inline-block; margin-top: 14px;
+    padding: 8px 24px; background: var(--orange); color: #fff;
+    border-radius: 6px; font-size: 13px; font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .purchase-card .pc-btn:hover { background: var(--orange-hover); transform: translateY(-1px); }
+
+  /* ═══════════ PURCHASE MODAL ═══════════ */
+  .purchase-modal {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .purchase-modal.active { opacity: 1; pointer-events: auto; }
+  .purchase-modal .modal-box {
+    background: var(--white); border-radius: 16px;
+    max-width: 560px; width: 92vw; max-height: 85vh; overflow-y: auto;
+    padding: 36px 32px 28px; position: relative; margin: 0 16px;
+    animation: modalSlideIn 0.35s ease;
+  }
+  @keyframes modalSlideIn { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .purchase-modal .modal-close {
+    position: absolute; top: 14px; right: 18px;
+    width: 36px; height: 36px; border: none; background: none;
+    font-size: 22px; color: var(--gray-400); cursor: pointer;
+    border-radius: 50%; transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+  }
+  .purchase-modal .modal-close:hover { background: var(--gray-100); color: var(--gray-800); }
+  .purchase-modal .modal-title {
+    font-size: 20px; font-weight: 700; color: var(--gray-800);
+    margin-bottom: 24px; padding-bottom: 12px;
+    border-bottom: 2px solid var(--orange);
+  }
+  .purchase-modal .fg { margin-bottom: 16px; }
+  .purchase-modal .fg label {
+    display: block; font-size: 13px; color: var(--gray-600);
+    margin-bottom: 6px; font-weight: 500;
+  }
+  .purchase-modal .fg input,
+  .purchase-modal .fg textarea,
+  .purchase-modal .fg select {
+    width: 100%; padding: 10px 14px; border: 1px solid var(--gray-200);
+    border-radius: 6px; font-size: 14px; font-family: inherit;
+    color: var(--gray-800); transition: border-color 0.2s; background: var(--white);
+  }
+  .purchase-modal .fg input:focus,
+  .purchase-modal .fg textarea:focus,
+  .purchase-modal .fg select:focus {
+    outline: none; border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(225,107,36,0.1);
+  }
+  .purchase-modal .fg textarea { resize: vertical; min-height: 80px; }
+  .purchase-modal .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 500px) { .purchase-modal .form-row { grid-template-columns: 1fr; } }
+  .purchase-modal .radio-group { display: flex; gap: 20px; padding-top: 6px; flex-wrap: wrap; }
+  .purchase-modal .radio-group label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 14px; color: var(--gray-800); cursor: pointer; font-weight: 400;
+  }
+  .purchase-modal .radio-group input[type="radio"] { accent-color: var(--orange); width: auto; }
+  .purchase-modal .modal-submit {
+    width: 100%; padding: 12px; background: var(--orange);
+    color: var(--white); border: none; border-radius: 8px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    margin-top: 8px; transition: background 0.2s;
+  }
+  .purchase-modal .modal-submit:hover { background: var(--orange-hover); }
+  .purchase-modal .modal-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
 </style>
 <!-- ═══════════ JSON-LD Structured Data (Organization) ═══════════ -->
 <script type="application/ld+json">
@@ -922,12 +1022,7 @@
     "https://www.hondvo.com/?lang=ja",
     "https://www.hondvo.com/?lang=ko",
     "https://www.hondvo.com/?lang=es"
-  ],
-  "pc_submitting":{"zh":"提交中...","en":"Submitting...","de":"Wird gesendet...","ru":"Отправка...","fr":"Envoi en cours...","ja":"送信中...","ko":"제출 중...","es":"Enviando..."},
-  "pc_success_msg":{"zh":"提交成功，我们会尽快联系您！","en":"Submitted successfully! We will contact you soon.","de":"Erfolgreich gesendet! Wir werden Sie bald kontaktieren.","ru":"Отправлено успешно! Мы свяжемся с вами в ближайшее время.","fr":"Envoyé avec succès! Nous vous contacterons bientôt.","ja":"送信成功！近日中にご連絡いたします。","ko":"제출 성공! 곧 연락드리겠습니다.","es":"¡Enviado con éxito! Le contactaremos pronto."},
-  "pc_failure_msg":{"zh":"提交失败，请重试或直接联系我们。","en":"Submission failed. Please try again or contact us directly.","de":"Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.","ru":"Ошибка отправки. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.","fr":"Échec de l'envoi. Veuillez réessayer ou nous contacter directement.","ja":"送信に失敗しました。再試行いただくか、直接お問い合わせください。","ko":"제출 실패. 다시 시도하거나 직접 문의해 주세요.","es":"Error al enviar. Inténtelo de nuevo o contáctenos directamente."},
-  "pc_val_required":{"zh":"请填写必填项","en":"Please fill in required fields","de":"Bitte füllen Sie die Pflichtfelder aus","ru":"Пожалуйста, заполните обязательные поля","fr":"Veuillez remplir les champs obligatoires","ja":"必須項目をご記入ください","ko":"필수 항목을 입력해 주세요","es":"Por favor, complete los campos obligatorios"}
-
+  ]
 }
 </script>
 
@@ -1129,9 +1224,7 @@
 
 <!-- ═══════════ PAGE: 关于我们 ═══════════ -->
 <div class="page" id="page-about">
-  <div 
-        <div class="section-subheading"><h2 data-lang-key="ct_type_4">Other Inquiries</h2></div>
-class="inner-content">
+  <div class="inner-content">
 <div class="sec-header reveal" id="about-who" style="padding:10px 0;"><h2 data-lang-key="about_who_title" style="font-weight:bold;">HONDVO</h2><div class="line"></div></div>
 <div class="about-2col">
       <div class="about-text reveal">
@@ -1536,6 +1629,25 @@ class="inner-content">
 <!-- ═══════════ PAGE: 联系我们 ═══════════ -->
 <div class="page" id="page-contact">
   <div class="inner-hero"><h1 data-lang-key="ct_hero">Contact Us</h1><p data-lang-key="ct_hero_sub">Dual-company addresses · Welcome to visit and discuss</p></div>
+  <!-- ═══════ 购买入口卡片 ═══════ -->
+  <div class="purchase-cards">
+    <div class="purchase-card" data-modal="modal-mold">
+      <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3 data-lang-key="pc_mold_title">Mold Sales</h3>
+      <a class="pc-btn" data-lang-key="nav_btn_询价">Get a Quote</a>
+    </div>
+    <div class="purchase-card" data-modal="modal-product">
+      <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l8 4a2 2 0 0 0 2 0l8-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+      <h3 data-lang-key="pc_product_title">Finished Products</h3>
+      <a class="pc-btn" data-lang-key="nav_btn_询价">Get a Quote</a>
+    </div>
+    <div class="purchase-card" data-modal="modal-oem">
+      <div class="pc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <h3 data-lang-key="pc_oem_title">OEM Manufacturing</h3>
+      <a class="pc-btn" data-lang-key="nav_btn_询价">Get a Quote</a>
+    </div>
+  </div>
+<div class="section-subheading"><h2 data-lang-key="ct_type_4">Other Inquiries</h2></div>
   <div class="inner-content">
 <div class="contact-2col">
       <div class="ci-block">
@@ -2132,9 +2244,59 @@ const I18N = {
   "ct_val_required":{"zh":"请填写必填字段：姓名、联系电话、邮箱、需求描述","en":"Please fill in required fields: Name, Phone, Email, Requirements","de":"Bitte füllen Sie die Pflichtfelder aus: Name, Telefon, E-Mail, Anforderungsbeschreibung","ru":"Заполните обязательные поля: Имя, Телефон, Эл. почта, Описание требований","fr":"Veuillez remplir les champs obligatoires : Nom, Téléphone, E-mail, Description des besoins","ja":"必須項目を入力してください：氏名、電話番号、メールアドレス、要件説明","ko":"필수 항목을 입력하세요: 이름, 전화번호, 이메일, 요구 사항 설명","es":"Complete los campos obligatorios: Nombre, Teléfono, Correo electrónico, Descripción de requisitos"},
   "ct_val_phone":{"zh":"请输入有效的电话号码","en":"Please enter a valid phone number","de":"Bitte geben Sie eine gültige Telefonnummer ein","ru":"Введите действительный номер телефона","fr":"Veuillez entrer un numéro de téléphone valide","ja":"有効な電話番号を入力してください","ko":"유효한 전화번호를 입력하세요","es":"Ingrese un número de teléfono válido"},
 
+  "pc_mold_title":{"zh":"模具售卖","en":"Mold Sales","de":"Formenverkauf","ru":"Продажа пресс-форм","fr":"Vente de moules","ja":"金型販売","ko":"금형 판매","es":"Venta de moldes"},
+  "pc_mold_desc":{"zh":"精密注塑模具 · 液态硅胶模 · 多色模具","en":"Precision injection molds · LSR molds · Multi-color molds","de":"Präzisionsspritzgussformen · LSR-Formen · Mehrfarbenformen","ru":"Прецизионные литьевые формы · LSR-формы · Многоцветные формы","fr":"Moules d'injection de précision · Moules LSR · Moules multi-couleurs","ja":"精密射出成形金型 · LSR金型 · 多色金型","ko":"정밀 사출 금형 · LSR 금형 · 다색 금형","es":"Moldes de inyección de precisión · Moldes LSR · Moldes multicolor"},
+  "pc_product_title":{"zh":"产品成品售卖","en":"Finished Products","de":"Fertigprodukte","ru":"Готовая продукция","fr":"Produits finis","ja":"製品販売","ko":"완제품 판매","es":"Productos terminados"},
+  "pc_product_desc":{"zh":"医疗级注塑件 · II类医疗器械部件","en":"Medical-grade injection parts · Class II medical device components","de":"Medizinische Spritzgussteile · Medizinprodukte Klasse II","ru":"Медицинские литьевые детали · Компоненты мед. изделий класса II","fr":"Pièces d'injection de qualité médicale · Composants DM de classe II","ja":"医療グレード射出成形品 · クラスII医療機器部品","ko":"의료급 사출 부품 · Class II 의료기기 부품","es":"Piezas de inyección de grado médico · Componentes DM clase II"},
+  "pc_oem_title":{"zh":"代工服务","en":"OEM Manufacturing","de":"Lohnfertigung","ru":"Контрактное производство","fr":"Fabrication OEM","ja":"OEM製造","ko":"OEM 제조","es":"Fabricación OEM"},
+  "pc_oem_desc":{"zh":"注塑代工 · 组装代工 · 全流程代工","en":"Injection OEM · Assembly OEM · Full-process contract manufacturing","de":"Spritzguss-Lohnfertigung · Montage · Komplettfertigung","ru":"Литьё под давлением · Сборка · Полный цикл","fr":"OEM injection · OEM assemblage · Sous-traitance complète","ja":"射出成形OEM · 組立OEM · 一貫製造受託","ko":"사출 OEM · 조립 OEM · 전공정 위탁 제조","es":"OEM inyección · OEM ensamblaje · Fabricación integral"},
+
+  "pc_mold_type":{"zh":"模具类型","en":"Mold Type","de":"Formentyp","ru":"Тип формы","fr":"Type de moule","ja":"金型タイプ","ko":"금형 유형","es":"Tipo de molde"},
+  "pc_steel":{"zh":"钢料要求","en":"Steel Grade","de":"Stahlsorte","ru":"Марка стали","fr":"Nuance d'acier","ja":"鋼材グレード","ko":"강재 등급","es":"Grado de acero"},
+  "pc_cavity":{"zh":"穴数","en":"Number of Cavities","de":"Anzahl Kavitäten","ru":"Кол-во гнёзд","fr":"Nombre d'empreintes","ja":"キャビティ数","ko":"캐비티 수","es":"Número de cavidades"},
+  "pc_product_name":{"zh":"产品名称","en":"Product Name","de":"Produktname","ru":"Название продукта","fr":"Nom du produit","ja":"製品名","ko":"제품명","es":"Nombre del producto"},
+  "pc_quantity":{"zh":"年用量 / 批次数","en":"Annual Demand / Batch Quantity","de":"Jahresbedarf / Losgröße","ru":"Годовая потребность / Размер партии","fr":"Demande annuelle / Taille de lot","ja":"年間需要量 / バッチ数量","ko":"연간 수요 / 배치 수량","es":"Demanda anual / Tamaño de lote"},
+  "pc_packaging":{"zh":"包装要求","en":"Packaging Requirements","de":"Verpackungsanforderungen","ru":"Требования к упаковке","fr":"Exigences d'emballage","ja":"包装要件","ko":"포장 요구 사항","es":"Requisitos de embalaje"},
+  "pc_oem_type":{"zh":"代工类型","en":"OEM Type","de":"Lohnfertigungstyp","ru":"Тип контрактного производства","fr":"Type d'OEM","ja":"OEMタイプ","ko":"OEM 유형","es":"Tipo de OEM"},
+  "pc_drawing":{"zh":"来图/来样","en":"Drawing / Sample Availability","de":"Zeichnung / Muster verfügbar","ru":"Наличие чертежей / образцов","fr":"Plan / Échantillon disponible","ja":"図面・サンプルの有無","ko":"도면 / 샘플 유무","es":"Disponibilidad de planos / muestras"},
+  "pc_est_quantity":{"zh":"预估批量","en":"Estimated Batch Size","de":"Geschätzte Losgröße","ru":"Ожидаемый размер партии","fr":"Taille de lot estimée","ja":"推定バッチサイズ","ko":"예상 배치 규모","es":"Tamaño de lote estimado"},
+
   "logo_wall_title":{"zh":"信任我们的合作伙伴","en":"Trusted Partners","de":"Vertrauenswürdige Partner","ru":"Надёжные партнёры","fr":"Partenaires de confiance","ja":"信頼されるパートナー","ko":"신뢰받는 파트너","es":"Socios de confianza"},
   "logo_wall_sub":{"zh":"全球医疗器械品牌信赖我们的精密制造","en":"Global medical device brands that trust our precision manufacturing","de":"Globale Medizintechnikmarken, die auf unsere Präzisionsfertigung vertrauen","ru":"Мировые бренды медицинских изделий, доверяющие нашему прецизионному производству","fr":"Marques mondiales de dispositifs médicaux qui font confiance à notre fabrication de précision","ja":"精密製造を信頼するグローバル医療機器ブランド","ko":"당사의 정밀 제조를 신뢰하는 글로벌 의료기기 브랜드","es":"Marcas globales de dispositivos médicos que confían en nuestra fabricación de precisión"},
-  "td_title":{"zh":"3D产品展示","en":"3D Product View","de":"3D-Produktansicht","ru":"3D-просмотр продукта","fr":"Vue 3D du produit","ja":"3D製品ビュー","ko":"3D 제품 보기","es":"Vista 3D del producto"}
+  "td_title":{"zh":"3D产品展示","en":"3D Product View","de":"3D-Produktansicht","ru":"3D-просмотр продукта","fr":"Vue 3D du produit","ja":"3D製品ビュー","ko":"3D 제품 보기","es":"Vista 3D del producto"},
+  "pc_ph_mold_type":{"zh":"例如：普通注塑模、液态注塑模、双色多色模","en":"e.g. Standard injection mold, LSR mold, two-shot mold","de":"例如：普通注塑模、液态注塑模、双色多色模","ru":"例如：普通注塑模、液态注塑模、双色多色模","fr":"例如：普通注塑模、液态注塑模、双色多色模","ja":"例如：普通注塑模、液态注塑模、双色多色模","ko":"例如：普通注塑模、液态注塑模、双色多色模","es":"例如：普通注塑模、液态注塑模、双色多色模"},
+  "pc_ph_steel":{"zh":"例如：S136、NAK80、H13","en":"e.g. S136, NAK80, H13","de":"例如：S136、NAK80、H13","ru":"例如：S136、NAK80、H13","fr":"例如：S136、NAK80、H13","ja":"例如：S136、NAK80、H13","ko":"例如：S136、NAK80、H13","es":"例如：S136、NAK80、H13"},
+  "pc_ph_pkg":{"zh":"例如：普通包装、洁净室包装","en":"e.g. Standard packaging, cleanroom packaging","de":"例如：普通包装、洁净室包装","ru":"例如：普通包装、洁净室包装","fr":"例如：普通包装、洁净室包装","ja":"例如：普通包装、洁净室包装","ko":"例如：普通包装、洁净室包装","es":"例如：普通包装、洁净室包装"},
+  "pc_ph_oem_type":{"zh":"例如：注塑代工、组装代工、全流程代工","en":"e.g. Injection OEM, assembly OEM, full-process OEM","de":"例如：注塑代工、组装代工、全流程代工","ru":"例如：注塑代工、组装代工、全流程代工","fr":"例如：注塑代工、组装代工、全流程代工","ja":"例如：注塑代工、组装代工、全流程代工","ko":"例如：注塑代工、组装代工、全流程代工","es":"例如：注塑代工、组装代工、全流程代工"},
+  "pc_mold_opt1":{"zh":"普通注塑模","en":"Standard Injection Mold","de":"普通注塑模","ru":"普通注塑模","fr":"普通注塑模","ja":"普通注塑模","ko":"普通注塑模","es":"普通注塑模"},
+  "pc_mold_opt2":{"zh":"液态注塑模","en":"Liquid Silicone Mold (LSR)","de":"液态注塑模","ru":"液态注塑模","fr":"液态注塑模","ja":"液态注塑模","ko":"液态注塑模","es":"液态注塑模"},
+  "pc_mold_opt3":{"zh":"双色/多色模","en":"Two-shot / Multi-color Mold","de":"双色/多色模","ru":"双色/多色模","fr":"双色/多色模","ja":"双色/多色模","ko":"双色/多色模","es":"双色/多色模"},
+  "pc_steel_other":{"zh":"其他","en":"Other","de":"其他","ru":"其他","fr":"其他","ja":"其他","ko":"其他","es":"其他"},
+  "pc_pkg_opt1":{"zh":"普通包装","en":"Standard Packaging","de":"普通包装","ru":"普通包装","fr":"普通包装","ja":"普通包装","ko":"普通包装","es":"普通包装"},
+  "pc_pkg_opt2":{"zh":"洁净室包装","en":"Cleanroom Packaging","de":"洁净室包装","ru":"洁净室包装","fr":"洁净室包装","ja":"洁净室包装","ko":"洁净室包装","es":"洁净室包装"},
+  "pc_pkg_opt3":{"zh":"其他","en":"Other","de":"其他","ru":"其他","fr":"其他","ja":"其他","ko":"其他","es":"其他"},
+  "pc_oem_opt1":{"zh":"注塑代工","en":"Injection OEM","de":"注塑代工","ru":"注塑代工","fr":"注塑代工","ja":"注塑代工","ko":"注塑代工","es":"注塑代工"},
+  "pc_oem_opt2":{"zh":"组装代工","en":"Assembly OEM","de":"组装代工","ru":"组装代工","fr":"组装代工","ja":"组装代工","ko":"组装代工","es":"组装代工"},
+  "pc_oem_opt3":{"zh":"印刷代工","en":"Printing OEM","de":"印刷代工","ru":"印刷代工","fr":"印刷代工","ja":"印刷代工","ko":"印刷代工","es":"印刷代工"},
+  "pc_oem_opt4":{"zh":"全流程代工","en":"Full-Process OEM","de":"全流程代工","ru":"全流程代工","fr":"全流程代工","ja":"全流程代工","ko":"全流程代工","es":"全流程代工"},
+  "pc_draw_opt1":{"zh":"有图纸","en":"With Drawing","de":"Mit Zeichnung","ru":"С чертежом","fr":"Avec plan","ja":"図面あり","ko":"도면 있음","es":"Con plano"},
+  "pc_draw_opt2":{"zh":"有样品","en":"With Sample","de":"Mit Muster","ru":"С образцом","fr":"Avec échantillon","ja":"サンプルあり","ko":"샘플 있음","es":"Con muestra"},
+  "pc_draw_opt3":{"zh":"仅有概念","en":"Concept Only","de":"Nur Konzept","ru":"Только концепция","fr":"Concept seulement","ja":"コンセプトのみ","ko":"컨셉만 있음","es":"Solo concepto"},
+  "pc_ph_name":{"zh":"请输入您的姓名","en":"Your Name","de":"请输入您的姓名","ru":"请输入您的姓名","fr":"请输入您的姓名","ja":"请输入您的姓名","ko":"请输入您的姓名","es":"请输入您的姓名"},
+  "pc_ph_company":{"zh":"请输入公司名称","en":"Your Company","de":"请输入公司名称","ru":"请输入公司名称","fr":"请输入公司名称","ja":"请输入公司名称","ko":"请输入公司名称","es":"请输入公司名称"},
+  "pc_ph_phone":{"zh":"请输入电话号码","en":"Phone Number","de":"请输入电话号码","ru":"请输入电话号码","fr":"请输入电话号码","ja":"请输入电话号码","ko":"请输入电话号码","es":"请输入电话号码"},
+  "pc_ph_email":{"zh":"请输入邮箱地址","en":"Email Address","de":"请输入邮箱地址","ru":"请输入邮箱地址","fr":"请输入邮箱地址","ja":"请输入邮箱地址","ko":"请输入邮箱地址","es":"请输入邮箱地址"},
+  "pc_ph_cavity":{"zh":"例如：1出4 / 1+1","en":"e.g. 1+1 / 4 cavities","de":"例如：1出4 / 1+1","ru":"例如：1出4 / 1+1","fr":"例如：1出4 / 1+1","ja":"例如：1出4 / 1+1","ko":"例如：1出4 / 1+1","es":"例如：1出4 / 1+1"},
+  "pc_ph_mold_req":{"zh":"请描述产品图纸、技术规格等","en":"Describe product drawings, technical specs, etc.","de":"请描述产品图纸、技术规格等","ru":"请描述产品图纸、技术规格等","fr":"请描述产品图纸、技术规格等","ja":"请描述产品图纸、技术规格等","ko":"请描述产品图纸、技术规格等","es":"请描述产品图纸、技术规格等"},
+  "pc_ph_prod_name":{"zh":"例如：肠内营养连接器、鲁尔接头","en":"e.g. Enteral nutrition connector, Luer lock","de":"例如：肠内营养连接器、鲁尔接头","ru":"例如：肠内营养连接器、鲁尔接头","fr":"例如：肠内营养连接器、鲁尔接头","ja":"例如：肠内营养连接器、鲁尔接头","ko":"例如：肠内营养连接器、鲁尔接头","es":"例如：肠内营养连接器、鲁尔接头"},
+  "pc_ph_quantity":{"zh":"例如：10万件/年","en":"e.g. 100,000 pcs/year","de":"例如：10万件/年","ru":"例如：10万件/年","fr":"例如：10万件/年","ja":"例如：10万件/年","ko":"例如：10万件/年","es":"例如：10万件/年"},
+  "pc_ph_prod_req":{"zh":"请描述规格、交期要求等","en":"Specifications, delivery requirements, etc.","de":"请描述规格、交期要求等","ru":"请描述规格、交期要求等","fr":"请描述规格、交期要求等","ja":"请描述规格、交期要求等","ko":"请描述规格、交期要求等","es":"请描述规格、交期要求等"},
+  "pc_ph_batch":{"zh":"例如：5万件/批","en":"e.g. 50,000 pcs/batch","de":"例如：5万件/批","ru":"例如：5万件/批","fr":"例如：5万件/批","ja":"例如：5万件/批","ko":"例如：5万件/批","es":"例如：5万件/批"},
+  "pc_ph_oem_req":{"zh":"请描述工艺要求、交期、特殊需求等","en":"Process requirements, delivery timeline, special needs, etc.","de":"请描述工艺要求、交期、特殊需求等","ru":"请描述工艺要求、交期、特殊需求等","fr":"请描述工艺要求、交期、特殊需求等","ja":"请描述工艺要求、交期、特殊需求等","ko":"请描述工艺要求、交期、特殊需求等","es":"请描述工艺要求、交期、特殊需求等"},
+  "pc_submitting":{"zh":"提交中...","en":"Submitting...","de":"Wird gesendet...","ru":"Отправка...","fr":"Envoi en cours...","ja":"送信中...","ko":"제출 중...","es":"Enviando..."},
+  "pc_success_msg":{"zh":"已提交！我们将在24小时内联系您","en":"Submitted! We will contact you within 24h","de":"Gesendet! Wir werden Sie innerhalb von 24 Stunden kontaktieren","ru":"Отправлено! Мы свяжемся с вами в течение 24 часов","fr":"Envoyé ! Nous vous contacterons dans les 24 heures","ja":"送信完了！24時間以内にご連絡いたします","ko":"제출 완료! 24시간 이내에 연락드리겠습니다","es":"¡Enviado! Le contactaremos en 24 horas"},
+  "pc_failure_msg":{"zh":"提交失败，请重试","en":"Failed, please try again","de":"Fehlgeschlagen, bitte versuchen Sie es erneut","ru":"Не удалось, попробуйте еще раз","fr":"Échec, veuillez réessayer","ja":"失敗しました。もう一度お試しください","ko":"실패했습니다. 다시 시도해주세요","es":"Falló, inténtelo de nuevo"},
+  "pc_val_required":{"zh":"请填写姓名、电话和邮箱","en":"Please fill in Name, Phone, and Email.","de":"Bitte geben Sie Name, Telefon und E-Mail ein.","ru":"Пожалуйста, заполните имя, телефон и email.","fr":"Veuillez remplir le nom, le téléphone et l'e-mail.","ja":"お名前、電話番号、メールアドレスを入力してください","ko":"이름, 전화번호, 이메일을 입력해주세요","es":"Por favor, complete nombre, teléfono y correo electrónico"}
 };
 
 function switchLang(lang) {
@@ -2588,6 +2750,112 @@ function switchLang(lang) {
     } // end start3D
   })();
 
+  /* ═══════════ PURCHASE MODALS ═══════════ */
+  (function(){
+    // Open modal on card click
+    document.querySelectorAll('.purchase-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        var modalId = this.getAttribute('data-modal');
+        var modal = document.getElementById(modalId);
+        if (modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      });
+    });
+
+    // Close modal on overlay click
+    document.querySelectorAll('.purchase-modal').forEach(function(modal){
+      modal.addEventListener('click', function(e){
+        if (e.target === this) closeModal(this.id);
+      });
+    });
+
+    // Submit buttons - each modal
+    var currentLang = function(){ return sessionStorage.getItem('hondvo_lang') || 'en'; };
+    var t = function(k){ return (I18N[k]||{})[currentLang()]||''; };
+    document.querySelectorAll('.purchase-modal .modal-submit').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var modal = this.closest('.purchase-modal');
+        var inputs = modal.querySelectorAll('input, select, textarea');
+        var fields = {};
+        var radioGroups = {};
+
+        inputs.forEach(function(el){
+          if (el.type === 'radio') {
+            if (!radioGroups[el.name]) radioGroups[el.name] = '';
+            if (el.checked) radioGroups[el.name] = el.value;
+          } else if (el.tagName === 'SELECT') {
+            fields[el.parentElement.querySelector('label').textContent] = el.options[el.selectedIndex].text;
+          } else if (el.tagName === 'TEXTAREA') {
+            fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
+          } else if (el.type !== 'radio' && el.type !== 'submit' && el.type !== 'button') {
+            fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
+          }
+        });
+
+        // Merge radio groups
+        for (var key in radioGroups) { if (radioGroups[key]) fields[key] = radioGroups[key]; }
+
+        // Validate required fields - use input types not label text to be lang-agnostic
+        var nameInput = modal.querySelector('input[type="text"]');
+        var phoneInput = modal.querySelector('input[type="tel"]');
+        var emailInput = modal.querySelector('input[type="email"]');
+        var name = (nameInput && nameInput.value.trim()) || '';
+        var phone = (phoneInput && phoneInput.value.trim()) || '';
+        var email = (emailInput && emailInput.value.trim()) || '';
+        if (!name || !phone || !email) {
+          alert(t('pc_val_required') || 'Please fill in Name, Phone, and Email.');
+          return;
+        }
+
+        // Build message
+        var title = modal.querySelector('.modal-title').textContent;
+        var msgParts = [];
+        for (var k in fields) { if (fields[k]) msgParts.push(k + ': ' + fields[k]); }
+
+        var web3Body = JSON.stringify({
+          access_key: '2b63e2dc-1a6a-4610-8dfd-3e2a1ef6d064',
+          form_name: 'HONDVO ' + title,
+          form_email: email,
+          subject: '【' + title + '】新询价 - ' + name,
+          message: msgParts.join('\n')
+        });
+
+        this.textContent = t('pc_submitting') || 'Submitting...'; this.disabled = true;
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: {'Content-Type': 'application/json'}, body: web3Body
+        })
+        .then(function(){
+          btn.textContent = t('pc_success_msg') || 'Submitted! We will contact you within 24h';
+          btn.style.background = '#4CAF50';
+          setTimeout(function(){ closeModal(modal.id); resetModalBtn(btn); }, 2500);
+        })
+        .catch(function(){
+          btn.textContent = t('pc_failure_msg') || 'Failed, please try again';
+          btn.style.background = '#F44336';
+          setTimeout(function(){ resetModalBtn(btn); }, 3000);
+        });
+      });
+    });
+
+    function resetModalBtn(btn){
+      btn.textContent = (I18N['ct_submit']||{})['en']||'Submit'; btn.disabled = false;
+      btn.style.background = ''; btn.style.color = '';
+    }
+  })();
+
+  // Global close function
+  function closeModal(id){
+    var modal = document.getElementById(id);
+    if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+  }
+
+  // ESC to close
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.purchase-modal.active').forEach(function(m){ closeModal(m.id); });
+    }
+  });
+
 </script>
 <!-- 返回顶部 -->
 <button id="back-to-top" aria-label="返回顶部"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
@@ -2595,6 +2863,76 @@ function switchLang(lang) {
 <!-- 移动端底部CTA -->
 <div id="mobile-cta">
   <button id="mobile-cta-btn"><span data-lang-key="nav_btn_询价">Get a Quote</span></button>
+</div>
+
+<!-- ═══════════ 购买弹窗 ═══════════ -->
+<!-- 弹窗1: 模具售卖 -->
+<div class="purchase-modal" id="modal-mold">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-mold')">&times;</button>
+    <div class="modal-title" data-lang-key="pc_mold_title">Mold Sales</div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_name">Name</label><input type="text" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_company_label">Company</label><input type="text" placeholder=""></div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_tel_label">Phone</label><input type="tel" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_email2_label">Email</label><input type="email" placeholder=""></div>
+    </div>
+    <div class="fg"><label data-lang-key="pc_mold_type">Mold Type</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="pc_steel">Steel Grade</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="pc_cavity">Number of Cavities</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="ct_desc_label">Requirements</label><textarea rows="3" placeholder=""></textarea></div>
+    <button class="modal-submit" data-lang-key="ct_submit">Submit Inquiry</button>
+  </div>
+</div>
+
+<!-- 弹窗2: 产品成品售卖 -->
+<div class="purchase-modal" id="modal-product">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-product')">&times;</button>
+    <div class="modal-title" data-lang-key="pc_product_title">Finished Products</div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_name">Name</label><input type="text" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_company_label">Company</label><input type="text" placeholder=""></div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_tel_label">Phone</label><input type="tel" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_email2_label">Email</label><input type="email" placeholder=""></div>
+    </div>
+    <div class="fg"><label data-lang-key="pc_product_name">Product Name</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="pc_quantity">Annual Demand / Batch Quantity</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="pc_packaging">Packaging Requirements</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="ct_desc_label">Requirements</label><textarea rows="3" placeholder=""></textarea></div>
+    <button class="modal-submit" data-lang-key="ct_submit">Submit Inquiry</button>
+  </div>
+</div>
+
+<!-- 弹窗3: 代工 -->
+<div class="purchase-modal" id="modal-oem">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-oem')">&times;</button>
+    <div class="modal-title" data-lang-key="pc_oem_title">OEM Manufacturing</div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_name">Name</label><input type="text" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_company_label">Company</label><input type="text" placeholder=""></div>
+    </div>
+    <div class="form-row">
+      <div class="fg"><label data-lang-key="ct_tel_label">Phone</label><input type="tel" placeholder=""></div>
+      <div class="fg"><label data-lang-key="ct_email2_label">Email</label><input type="email" placeholder=""></div>
+    </div>
+    <div class="fg"><label data-lang-key="pc_oem_type">OEM Type</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="pc_drawing">Drawing / Sample Availability</label>
+      <div class="radio-group">
+        <label><input type="radio" name="oem-drawing" value="有图纸" checked> <span data-lang-key="pc_draw_opt1">有图纸</span></label>
+        <label><input type="radio" name="oem-drawing" value="有样品"> <span data-lang-key="pc_draw_opt2">有样品</span></label>
+        <label><input type="radio" name="oem-drawing" value="仅有概念"> <span data-lang-key="pc_draw_opt3">仅有概念</span></label>
+      </div>
+    </div>
+    <div class="fg"><label data-lang-key="pc_est_quantity">Estimated Batch Size</label><input type="text" placeholder=""></div>
+    <div class="fg"><label data-lang-key="ct_desc_label">Requirements</label><textarea rows="3" placeholder=""></textarea></div>
+    <button class="modal-submit" data-lang-key="ct_submit">Submit Inquiry</button>
+  </div>
 </div>
 
 </body>
