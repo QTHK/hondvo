@@ -2296,7 +2296,7 @@ const I18N = {
   "pc_submitting":{"zh":"提交中...","en":"Submitting...","de":"Wird gesendet...","ru":"Отправка...","fr":"Envoi en cours...","ja":"送信中...","ko":"제출 중...","es":"Enviando..."},
   "pc_success_msg":{"zh":"已提交！我们将在24小时内联系您","en":"Submitted! We will contact you within 24h","de":"Gesendet! Wir werden Sie innerhalb von 24 Stunden kontaktieren","ru":"Отправлено! Мы свяжемся с вами в течение 24 часов","fr":"Envoyé ! Nous vous contacterons dans les 24 heures","ja":"送信完了！24時間以内にご連絡いたします","ko":"제출 완료! 24시간 이내에 연락드리겠습니다","es":"¡Enviado! Le contactaremos en 24 horas"},
   "pc_failure_msg":{"zh":"提交失败，请重试","en":"Failed, please try again","de":"Fehlgeschlagen, bitte versuchen Sie es erneut","ru":"Не удалось, попробуйте еще раз","fr":"Échec, veuillez réessayer","ja":"失敗しました。もう一度お試しください","ko":"실패했습니다. 다시 시도해주세요","es":"Falló, inténtelo de nuevo"},
-  "pc_val_required":{"zh":"请填写姓名、电话和邮箱","en":"Please fill in Name, Phone, and Email.","de":"Bitte geben Sie Name, Telefon und E-Mail ein.","ru":"Пожалуйста, заполните имя, телефон и email.","fr":"Veuillez remplir le nom, le téléphone et l'e-mail.","ja":"お名前、電話番号、メールアドレスを入力してください","ko":"이름, 전화번호, 이메일을 입력해주세요","es":"Por favor, complete nombre, teléfono y correo electrónico"}
+  "pc_val_required":{"zh":"请填写所有必填字段","en":"Please fill in all required fields.","de":"Bitte füllen Sie alle Pflichtfelder aus.","ru":"Пожалуйста, заполните все обязательные поля.","fr":"Veuillez remplir tous les champs obligatoires.","ja":"すべての必須項目を入力してください","ko":"모든 필수 항목을 입력해주세요","es":"Por favor, complete todos los campos obligatorios."}
 };
 
 function switchLang(lang) {
@@ -2464,7 +2464,7 @@ function switchLang(lang) {
 
       var t = function(k){ return (I18N[k]||{})[currentLang()]||''; };
 
-      if (!name || !phone || !email || !desc){ alert(t('ct_val_required')); return; }
+      if (!name || !phone || !email){ alert(t('ct_val_required')); return; }
       if (!validatePhone(phone)){ alert(t('ct_val_phone')); return; }
 
       btnState('loading');
@@ -2768,77 +2768,90 @@ function switchLang(lang) {
       });
     });
 
-    // Submit buttons - each modal
+    // Submit buttons - event delegation (modals rendered after script)
     var currentLang = function(){ return sessionStorage.getItem('hondvo_lang') || 'en'; };
     var t = function(k){ return (I18N[k]||{})[currentLang()]||''; };
-    document.querySelectorAll('.purchase-modal .modal-submit').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var modal = this.closest('.purchase-modal');
-        var inputs = modal.querySelectorAll('input, select, textarea');
-        var fields = {};
-        var radioGroups = {};
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.purchase-modal .modal-submit');
+      if (!btn) return;
+      e.preventDefault();
 
-        inputs.forEach(function(el){
-          if (el.type === 'radio') {
-            if (!radioGroups[el.name]) radioGroups[el.name] = '';
-            if (el.checked) radioGroups[el.name] = el.value;
-          } else if (el.tagName === 'SELECT') {
-            fields[el.parentElement.querySelector('label').textContent] = el.options[el.selectedIndex].text;
-          } else if (el.tagName === 'TEXTAREA') {
-            fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
-          } else if (el.type !== 'radio' && el.type !== 'submit' && el.type !== 'button') {
-            fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
-          }
-        });
+      var modal = btn.closest('.purchase-modal');
+      var inputs = modal.querySelectorAll('input, select, textarea');
+      var fields = {};
+      var radioGroups = {};
 
-        // Merge radio groups
-        for (var key in radioGroups) { if (radioGroups[key]) fields[key] = radioGroups[key]; }
-
-        // Validate required fields - use input types not label text to be lang-agnostic
-        var nameInput = modal.querySelector('input[type="text"]');
-        var phoneInput = modal.querySelector('input[type="tel"]');
-        var emailInput = modal.querySelector('input[type="email"]');
-        var name = (nameInput && nameInput.value.trim()) || '';
-        var phone = (phoneInput && phoneInput.value.trim()) || '';
-        var email = (emailInput && emailInput.value.trim()) || '';
-        if (!name || !phone || !email) {
-          alert(t('pc_val_required') || 'Please fill in Name, Phone, and Email.');
-          return;
+      inputs.forEach(function(el){
+        if (el.type === 'radio') {
+          if (!radioGroups[el.name]) radioGroups[el.name] = '';
+          if (el.checked) radioGroups[el.name] = el.value;
+        } else if (el.tagName === 'SELECT') {
+          fields[el.parentElement.querySelector('label').textContent] = el.options[el.selectedIndex].text;
+        } else if (el.tagName === 'TEXTAREA') {
+          fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
+        } else if (el.type !== 'radio' && el.type !== 'submit' && el.type !== 'button') {
+          fields[el.parentElement.querySelector('label').textContent] = el.value.trim();
         }
+      });
 
-        // Build message
-        var title = modal.querySelector('.modal-title').textContent;
-        var msgParts = [];
-        for (var k in fields) { if (fields[k]) msgParts.push(k + ': ' + fields[k]); }
+      // Merge radio groups
+      for (var key in radioGroups) { if (radioGroups[key]) fields[key] = radioGroups[key]; }
 
-        var web3Body = JSON.stringify({
-          access_key: '2b63e2dc-1a6a-4610-8dfd-3e2a1ef6d064',
-          form_name: 'HONDVO ' + title,
-          form_email: email,
-          subject: '【' + title + '】新询价 - ' + name,
-          message: msgParts.join('\n')
-        });
+      // Validate all form fields required (textarea/需求描述 is optional)
+      var hasEmpty = false;
+      inputs.forEach(function(el){
+        if (el.type === 'radio' || el.type === 'submit' || el.type === 'button') return;
+        if (el.tagName === 'SELECT') return;
+        if (el.tagName === 'TEXTAREA') return;
+        if (el.value.trim() === '') hasEmpty = true;
+      });
+      // Check radio groups
+      for (var rk in radioGroups) {
+        if (!radioGroups[rk]) hasEmpty = true;
+      }
+      if (hasEmpty) {
+        alert(t('pc_val_required') || 'Please fill in all required fields.');
+        return;
+      }
 
-        this.textContent = t('pc_submitting') || 'Submitting...'; this.disabled = true;
+      var emailInput = modal.querySelector('input[type="email"]');
+      var email = (emailInput && emailInput.value.trim()) || '';
+      var nameInput = modal.querySelector('input[type="text"]');
+      var name = (nameInput && nameInput.value.trim()) || '';
 
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST', headers: {'Content-Type': 'application/json'}, body: web3Body
-        })
-        .then(function(){
-          btn.textContent = t('pc_success_msg') || 'Submitted! We will contact you within 24h';
-          btn.style.background = '#4CAF50';
-          setTimeout(function(){ closeModal(modal.id); resetModalBtn(btn); }, 2500);
-        })
-        .catch(function(){
-          btn.textContent = t('pc_failure_msg') || 'Failed, please try again';
-          btn.style.background = '#F44336';
-          setTimeout(function(){ resetModalBtn(btn); }, 3000);
-        });
+      // Build message
+      var title = modal.querySelector('.modal-title').textContent;
+      var msgParts = [];
+      for (var k in fields) { if (fields[k]) msgParts.push(k + ': ' + fields[k]); }
+
+      var web3Body = JSON.stringify({
+        access_key: '2b63e2dc-1a6a-4610-8dfd-3e2a1ef6d064',
+        form_name: 'HONDVO ' + title,
+        form_email: email,
+        subject: '【' + title + '】新询价 - ' + name,
+        message: msgParts.join('\n')
+      });
+
+      btn.textContent = t('pc_submitting') || 'Submitting...'; btn.disabled = true;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: {'Content-Type': 'application/json'}, body: web3Body
+      })
+      .then(function(){
+        btn.textContent = t('pc_success_msg') || 'Submitted! We will contact you within 24h';
+        btn.style.background = '#4CAF50';
+        setTimeout(function(){ closeModal(modal.id); resetModalBtn(btn); }, 2500);
+      })
+      .catch(function(){
+        btn.textContent = t('pc_failure_msg') || 'Failed, please try again';
+        btn.style.background = '#F44336';
+        setTimeout(function(){ resetModalBtn(btn); }, 3000);
       });
     });
 
     function resetModalBtn(btn){
-      btn.textContent = (I18N['ct_submit']||{})['en']||'Submit'; btn.disabled = false;
+      btn.textContent = (I18N['ct_submit']||{})[currentLang()]||(I18N['ct_submit']||{})['en']||'Submit';
+      btn.disabled = false;
       btn.style.background = ''; btn.style.color = '';
     }
   })();
@@ -2846,7 +2859,18 @@ function switchLang(lang) {
   // Global close function
   function closeModal(id){
     var modal = document.getElementById(id);
-    if (modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    // Clear all form fields
+    modal.querySelectorAll('input[type="text"], input[type="tel"], input[type="email"], textarea').forEach(function(el){ el.value = ''; });
+    // Reset radio groups to first option checked
+    modal.querySelectorAll('.radio-group').forEach(function(group){
+      var radios = group.querySelectorAll('input[type="radio"]');
+      if (radios.length > 0) {
+        radios.forEach(function(r, i){ r.checked = (i === 0); });
+      }
+    });
   }
 
   // ESC to close
