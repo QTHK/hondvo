@@ -244,6 +244,8 @@
     max-width: 1280px; margin: 0 auto; padding: 0 48px 80px;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
   }
+  .section-subheading { text-align: center; padding: 20px 40px 30px; }
+  .section-subheading h2 { font-size: 22px; font-weight: 600; letter-spacing: 2px; color: var(--gray-800); }
   @media (max-width: 860px) { .prod-grid { grid-template-columns: 1fr; } }
   @media (max-width: 1024px) {
     .nav .wrap { padding: 0 30px; }
@@ -332,7 +334,10 @@
     display: grid; grid-template-columns: 2.2fr 1fr 1.1fr 1fr 1fr 0.9fr 0.9fr; gap: 24px;
   }
   @media (max-width: 1100px) { .footer .wrap { grid-template-columns: repeat(4, 1fr); } }
-  @media (max-width: 768px) { .footer .wrap { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 768px) { .footer .wrap { grid-template-columns: 1fr 1fr; } 
+    .section-subheading { padding: 16px 20px 20px; }
+    .section-subheading h2 { font-size: 18px; }
+}
   .footer .footer-brand .logo-area { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
   .footer .footer-brand .logo-area img { height: 36px; }
   .footer .footer-brand .logo-area .brand-name { font-size: 15px; font-weight: 700; color: #4A6B8B; letter-spacing: 1px; }
@@ -917,7 +922,12 @@
     "https://www.hondvo.com/?lang=ja",
     "https://www.hondvo.com/?lang=ko",
     "https://www.hondvo.com/?lang=es"
-  ]
+  ],
+  "pc_submitting":{"zh":"提交中...","en":"Submitting...","de":"Wird gesendet...","ru":"Отправка...","fr":"Envoi en cours...","ja":"送信中...","ko":"제출 중...","es":"Enviando..."},
+  "pc_success_msg":{"zh":"提交成功，我们会尽快联系您！","en":"Submitted successfully! We will contact you soon.","de":"Erfolgreich gesendet! Wir werden Sie bald kontaktieren.","ru":"Отправлено успешно! Мы свяжемся с вами в ближайшее время.","fr":"Envoyé avec succès! Nous vous contacterons bientôt.","ja":"送信成功！近日中にご連絡いたします。","ko":"제출 성공! 곧 연락드리겠습니다.","es":"¡Enviado con éxito! Le contactaremos pronto."},
+  "pc_failure_msg":{"zh":"提交失败，请重试或直接联系我们。","en":"Submission failed. Please try again or contact us directly.","de":"Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.","ru":"Ошибка отправки. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.","fr":"Échec de l'envoi. Veuillez réessayer ou nous contacter directement.","ja":"送信に失敗しました。再試行いただくか、直接お問い合わせください。","ko":"제출 실패. 다시 시도하거나 직접 문의해 주세요.","es":"Error al enviar. Inténtelo de nuevo o contáctenos directamente."},
+  "pc_val_required":{"zh":"请填写必填项","en":"Please fill in required fields","de":"Bitte füllen Sie die Pflichtfelder aus","ru":"Пожалуйста, заполните обязательные поля","fr":"Veuillez remplir les champs obligatoires","ja":"必須項目をご記入ください","ko":"필수 항목을 입력해 주세요","es":"Por favor, complete los campos obligatorios"}
+
 }
 </script>
 
@@ -1119,7 +1129,9 @@
 
 <!-- ═══════════ PAGE: 关于我们 ═══════════ -->
 <div class="page" id="page-about">
-  <div class="inner-content">
+  <div 
+        <div class="section-subheading"><h2 data-lang-key="ct_type_4">Other Inquiries</h2></div>
+class="inner-content">
 <div class="sec-header reveal" id="about-who" style="padding:10px 0;"><h2 data-lang-key="about_who_title" style="font-weight:bold;">HONDVO</h2><div class="line"></div></div>
 <div class="about-2col">
       <div class="about-text reveal">
