@@ -5,7 +5,8 @@
 > 弘欧科技 & 弘欧精密模具 — 企业官网
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://qthk.github.io/hondvo)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+> 许可证：仓库未随附 LICENSE 文件（如需以开源协议发布请自行补充）。
 
 ---
 
@@ -90,8 +91,8 @@ python -m http.server 8080
 
 ## 联系方式
 
-- **电话** +86 13545580032
-- **邮箱** 2789536032@qq.com
+- **电话** +86 769 8188 9275（公司座机）
+- **邮箱** info@hondvotechnology.com（询盘表单通过 Web3Forms 转发至 2789536032@qq.com）
 
 
 
