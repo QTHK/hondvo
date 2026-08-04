@@ -209,4 +209,12 @@ HONDVO（弘欧科技 + 弘欧精密模具）企业官网：**单文件、零框
   - **注意**：法条为 AI 生成的参考级文本，未经法务/律师审核，正式上线前建议由专业人士校对（尤其医疗合规措辞）。
 - **验证**：`new Function` 校验两个内联 JS 块无语法错误；JSON-LD 通过 `JSON.parse`；`data-legal-key` 共 42 个、8 语言齐全无缺；`data-todo` 残留 0。
 
+### 第五批交付（2026-08-04，修复法律页空白 bug）
+
+- **Bug**：隐私政策 / 服务条款页面打开后整页空白、切换语言也无内容。
+- **根因**：第四批注入法律页时，其前一个 `page-contact` 区块本身的闭合 `</div>` 缺失，导致 `page-privacy` / `page-terms` 被**错误地嵌套进 `page-contact` 内部**。由于 `.page { display:none }` 且父级 `page-contact` 非 `:target`（不可见），子级即便被 `:target` 命中 `display:block` 也会被祖先的 `display:none` 一并隐藏 → 整页不可见。同时遗留一个悬空的 `<div class="site-footer-mount">` 与多余的 `</div>`。
+- **修复**：在 `page-contact` 内容后补上其闭合标签，使 `page-privacy` / `page-terms` 成为 `<body>` 的**同级兄弟**（body 下 `.page` 由 7 个变为 9 个）；删除悬空 mount 与多余 `</div>`。
+- **验证（jsdom 真实加载）**：`page-privacy` / `page-terms` 父级均为 `<body>`；`body > .page` = 9；`#page-privacy` 导航时 `:target` 正确命中（仅该页 `display:block`）；footer 8/8 注入（switchLang 正常执行）；`data-legal-key` 42 项全部填充，中英文切换正常；无运行时报错。
+- **接续提醒**：在本 SPA 中**新增/插入页面 section 时，务必确认前一页面已正确闭合**，否则新页面会被吞进上一个 `.page` 内而整页隐形（且首个静态可见内容是页内的 `data-lang-key`/`data-legal-key` 文本，缺失 JS 时才会暴露为空白，极易被忽略）。
+
 *（本交接文档由人工核对代码后整理，可直接作为接续开发依据。）*
