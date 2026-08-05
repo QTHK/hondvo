@@ -1,0 +1,26 @@
+# ============================================================
+# Git 属性：保护二进制资源，避免被换行符(CRLF)规范化损坏
+# 背景：本仓库 core.autocrlf=true，若 Git 把图片误判为文本会做
+#       换行符转换从而损坏文件。显式声明 binary 可彻底规避。
+# ============================================================
+
+# 图片等二进制资源：禁止 Git 做文本/换行符处理
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.webp  binary
+*.ico   binary
+*.bmp   binary
+*.tiff  binary
+
+# 字体（二进制）
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+
+# 压缩包/文档等二进制
+*.zip   binary
+*.gz    binary
+*.pdf   binary
