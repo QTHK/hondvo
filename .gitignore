@@ -3,3 +3,10 @@ Thumbs.db
 *.log
 node_modules/
 temp/
+
+# Private / local-only directories (never commit)
+.workbuddy/
+
+# Temporary generated scratch files
+.tmp-*
+*.tmp
