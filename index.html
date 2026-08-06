@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="hondvo-api" content="https://admin.hondvo.com/api">
 <meta name="description" content="HONDVO Technology (Dongguan) Co., Ltd. specializes in precision medical device components and precision mold manufacturing. Triple-certified with ISO 13485 / IATF 16949 / ISO 9001, we deliver medical-grade injection molding, liquid silicone rubber (LSR), two-shot molding, and turnkey precision tooling.">
 <meta name="keywords" content="HONDVO, medical device injection molding, precision mold, ISO 13485, IATF 16949, liquid silicone LSR, two-shot molding, medical plastic components, Dongguan mold manufacturer">
 <meta property="og:title" content="HONDVO Technology - Precision Medical Device Components &amp; Precision Molds">
@@ -2886,6 +2887,9 @@ function switchLang(lang) {
 
       btnState('loading');
 
+      // 先落库（无论 Web3Forms 邮件是否成功，询盘都要进后台 CRM）
+      if (window.__hondvoTrack) window.__hondvoTrack.recordMessage({ name: name, email: email, company: company, phone: phone, type: type, message: desc, lang: currentLang(), page: (location.hash||'').replace(/^#/,'')||'page-contact' });
+
       var web3Body = JSON.stringify({
         access_key: '2b63e2dc-1a6a-4610-8dfd-3e2a1ef6d064',
         form_name: 'HONDVO Contact Form',
@@ -2898,6 +2902,7 @@ function switchLang(lang) {
         .then(function(){
           btnState('success');
           window.showToast(t('ct_success'), 'success');
+          if (window.__hondvoTrack) window.__hondvoTrack.recordMessage({ name: name, email: email, company: company, phone: phone, type: type, message: desc, lang: currentLang(), page: (location.hash||'').replace(/^#/,'')||'page-contact' });
           f.name.value = ''; f.company.value = ''; f.phone.value = '';
           f.email.value = ''; f.type.selectedIndex = 0; f.desc.value = '';
         })
@@ -3001,6 +3006,9 @@ function switchLang(lang) {
       });
 
       btn.textContent = t('pc_submitting') || 'Submitting...'; btn.disabled = true;
+
+      // 先落库（无论 Web3Forms 邮件是否成功，询盘都要进后台 CRM）
+      if (window.__hondvoTrack) window.__hondvoTrack.recordMessage({ name: name, email: email, company: '', phone: '', type: title, message: msgParts.join('\n'), lang: currentLang(), page: (location.hash||'').replace(/^#/,'')||'page-products' });
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST', headers: {'Content-Type': 'application/json'}, body: web3Body
@@ -3380,5 +3388,124 @@ function switchLang(lang) {
   </div>
 </div>
 
+<!-- ════════ HONDVO 真实数据采集 + Cookie 同意（数据由后台 admin-system 接收） ════════ -->
+<script>
+(function () {
+  var API = 'https://admin.hondvo.com/api';
+  var metaApi = document.querySelector('meta[name="hondvo-api"]');
+  if (metaApi && metaApi.getAttribute('content')) API = metaApi.getAttribute('content');
+
+  var CONSENT_KEY = 'hondvo_cookie_consent';
+  var VID_KEY = 'hondvo_vid';
+
+  function getConsent() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } }
+  function setConsent(v) { try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {} }
+  function getVid() {
+    try {
+      var v = localStorage.getItem(VID_KEY);
+      if (!v) { v = 'v_' + Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem(VID_KEY, v); }
+      return v;
+    } catch (e) { return 'anon_' + Date.now(); }
+  }
+  function curLang() {
+    return document.documentElement.getAttribute('lang')
+      || (function () { try { return sessionStorage.getItem('hondvo_lang'); } catch (e) { return null; } })()
+      || 'en';
+  }
+  function curPage() { var h = location.hash || ''; return h.replace(/^#/, '') || 'page-home'; }
+  function send(path, payload) {
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', API + '/collect/' + path, true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify(payload));
+    } catch (e) {}
+  }
+
+  // ---- 样式 ----
+  if (!document.getElementById('hondvo-consent-style')) {
+    var st = document.createElement('style'); st.id = 'hondvo-consent-style';
+    st.textContent = '#hondvo-consent{position:fixed;left:0;right:0;bottom:0;z-index:100000;background:rgba(20,28,40,.96);color:#fff;font-family:inherit;}'
+      + '#hondvo-consent .hc-box{max-width:1120px;margin:0 auto;padding:16px 22px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;}'
+      + '#hondvo-consent .hc-text{font-size:13px;line-height:1.65;opacity:.94;flex:1;min-width:260px;}'
+      + '#hondvo-consent .hc-actions{display:flex;gap:10px;flex-shrink:0;}'
+      + '#hondvo-consent .hc-btn{border:none;cursor:pointer;padding:9px 18px;border-radius:6px;font-size:13px;}'
+      + '#hondvo-consent .hc-accept{background:#E16B24;color:#fff;}'
+      + '#hondvo-consent .hc-reject{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);}'
+      + '#hondvo-manage{position:fixed;right:14px;bottom:14px;z-index:100000;border:none;cursor:pointer;background:#4A6B8B;color:#fff;font-size:12px;padding:7px 13px;border-radius:20px;box-shadow:0 4px 14px rgba(0,0,0,.25);}';
+    document.head.appendChild(st);
+  }
+
+  function showBanner() {
+    if (document.getElementById('hondvo-consent')) { document.getElementById('hondvo-consent').style.display = 'block'; return; }
+    var el = document.createElement('div'); el.id = 'hondvo-consent';
+    el.innerHTML = '<div class="hc-box"><div class="hc-text"><strong>Cookie 与数据收集同意</strong><br>'
+      + '我们使用 Cookie 与匿名统计技术，了解您浏览的页面、停留时长与搜索偏好，以改进网站与服务质量。'
+      + '您可点击「仅必要」拒绝行为追踪，拒绝后不会收集任何浏览行为数据（您主动提交的询盘除外）。</div>'
+      + '<div class="hc-actions"><button class="hc-btn hc-accept" id="hc-accept">接受并继续</button>'
+      + '<button class="hc-btn hc-reject" id="hc-reject">仅必要</button></div></div>';
+    document.body.appendChild(el);
+  }
+  function hideBanner() { var b = document.getElementById('hondvo-consent'); if (b) b.style.display = 'none'; }
+  function buildManage() {
+    if (document.getElementById('hondvo-manage')) return;
+    var m = document.createElement('button'); m.id = 'hondvo-manage'; m.textContent = '🍪 Cookie 设置';
+    m.onclick = function () { setConsent(null); hideBanner(); showBanner(); bindBanner(); };
+    document.body.appendChild(m);
+  }
+  function bindBanner() {
+    var accept = document.getElementById('hc-accept');
+    var reject = document.getElementById('hc-reject');
+    if (accept) accept.onclick = function () { setConsent('accepted'); hideBanner(); initTracker(); };
+    if (reject) reject.onclick = function () { setConsent('rejected'); hideBanner(); };
+  }
+
+  // ---- 行为追踪（仅同意后才启用页面浏览 / 搜索采集） ----
+  function initTracker() {
+    var vid = getVid();
+    var pageEnter = Date.now();
+    var lastPage = curPage();
+    function pv(page, dur) { send('pageview', { visitorId: vid, page: page, lang: curLang(), duration: Math.round(dur / 1000), referrer: document.referrer }); }
+    pv(lastPage, 0);
+    window.addEventListener('hashchange', function () {
+      var now = Date.now(); pv(lastPage, now - pageEnter); lastPage = curPage(); pageEnter = now;
+    });
+    window.addEventListener('beforeunload', function () { pv(lastPage, Date.now() - pageEnter); });
+    var input = document.getElementById('search-input');
+    if (input) {
+      var h;
+      input.addEventListener('input', function () {
+        clearTimeout(h);
+        h = setTimeout(function () {
+          var term = input.value.trim(); if (term.length < 1) return;
+          var results = document.querySelectorAll('#search-results .search-result-item').length;
+          send('search', { visitorId: vid, term: term, lang: curLang(), resultsCount: results });
+        }, 700);
+      });
+    }
+  }
+
+  // 留言采集：表单提交即明示同意，独立于行为追踪 Cookie，始终可用
+  window.__hondvoTrack = {
+    recordMessage: function (data) {
+      data = data || {};
+      data.visitorId = getVid();
+      data.lang = data.lang || curLang();
+      data.page = data.page || curPage();
+      send('message', data);
+    }
+  };
+
+  function boot() {
+    buildManage();
+    var c = getConsent();
+    if (c === 'accepted') { initTracker(); return; }
+    if (c === 'rejected') { return; }
+    showBanner(); bindBanner();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
 </body>
 </html>
