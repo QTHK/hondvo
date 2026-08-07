@@ -3527,16 +3527,18 @@ function switchLang(lang) {
     } catch (e) {}
   }
 
-  // ---- 样式 ----
+  // ---- 样式（居中模态弹窗 + 浮标） ----
   if (!document.getElementById('hondvo-consent-style')) {
     var st = document.createElement('style'); st.id = 'hondvo-consent-style';
-    st.textContent = '#hondvo-consent{position:fixed;left:0;right:0;bottom:0;z-index:100000;background:var(--neutral-900);color:var(--white);font-family:inherit;}'
-      + '#hondvo-consent .hc-box{max-width:1120px;margin:0 auto;padding:16px 22px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;}'
-      + '#hondvo-consent .hc-text{font-size:13px;line-height:1.65;opacity:.94;flex:1;min-width:260px;}'
-      + '#hondvo-consent .hc-actions{display:flex;gap:10px;flex-shrink:0;}'
-      + '#hondvo-consent .hc-btn{border:none;cursor:pointer;padding:9px 18px;border-radius:6px;font-size:13px;}'
+    st.textContent = '#hondvo-consent-mask{position:fixed;inset:0;z-index:100000;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;padding:20px;font-family:inherit;}'
+      + '#hondvo-consent{position:relative;max-width:460px;width:100%;background:var(--white);color:var(--neutral-900);border-radius:14px;box-shadow:0 24px 60px rgba(15,23,42,.35);overflow:hidden;}'
+      + '#hondvo-consent .hc-card{padding:26px 26px 22px;}'
+      + '#hondvo-consent .hc-title{font-size:17px;font-weight:700;margin:0 0 10px;color:var(--neutral-900);}'
+      + '#hondvo-consent .hc-text{font-size:13.5px;line-height:1.7;opacity:.86;margin:0 0 20px;}'
+      + '#hondvo-consent .hc-actions{display:flex;gap:12px;flex-wrap:wrap;}'
+      + '#hondvo-consent .hc-btn{border:none;cursor:pointer;padding:11px 20px;border-radius:8px;font-size:13.5px;font-weight:600;flex:1;min-width:130px;}'
       + '#hondvo-consent .hc-accept{background:var(--brand);color:var(--white);}'
-      + '#hondvo-consent .hc-reject{background:transparent;color:var(--white);border:1px solid var(--white-55);}'
+      + '#hondvo-consent .hc-reject{background:var(--white);color:var(--neutral-900);border:1px solid rgba(15,23,42,.15);}'
       + '#hondvo-manage{position:fixed;right:14px;bottom:14px;z-index:100000;border:none;cursor:pointer;background:var(--accent);color:var(--white);font-size:12px;padding:7px 13px;border-radius:20px;box-shadow:0 4px 14px var(--black-25);}';
     document.head.appendChild(st);
   }
@@ -3550,21 +3552,23 @@ function switchLang(lang) {
     });
   }
   function showBanner() {
-    if (document.getElementById('hondvo-consent')) { document.getElementById('hondvo-consent').style.display = 'block'; applyBannerLang(); return; }
-    var el = document.createElement('div'); el.id = 'hondvo-consent';
-    el.innerHTML = '<div class="hc-box"><div class="hc-text"><strong data-lang-key="cookie_title">Cookie 与数据收集同意</strong><br>'
-      + '<span data-lang-key="cookie_body">我们使用 Cookie 与匿名统计技术，了解您浏览的页面、停留时长与搜索偏好，以改进网站与服务质量。您可点击「仅必要」拒绝行为追踪，拒绝后不会收集任何浏览行为数据（您主动提交的询盘除外）。</span></div>'
+    if (document.getElementById('hondvo-consent-mask')) { document.getElementById('hondvo-consent-mask').style.display = 'flex'; applyBannerLang(); return; }
+    var mask = document.createElement('div'); mask.id = 'hondvo-consent-mask';
+    mask.innerHTML = '<div id="hondvo-consent"><div class="hc-card">'
+      + '<p class="hc-title" data-lang-key="cookie_title">Cookie 与数据收集同意</p>'
+      + '<p class="hc-text" data-lang-key="cookie_body">我们使用 Cookie 与匿名统计技术，了解您浏览的页面、停留时长与搜索偏好，以改进网站与服务质量。您可点击「仅必要」拒绝行为追踪，拒绝后不会收集任何浏览行为数据（您主动提交的询盘除外）。</p>'
       + '<div class="hc-actions"><button class="hc-btn hc-accept" id="hc-accept" data-lang-key="cookie_accept">接受并继续</button>'
-      + '<button class="hc-btn hc-reject" id="hc-reject" data-lang-key="cookie_reject">仅必要</button></div></div>';
-    document.body.appendChild(el);
+      + '<button class="hc-btn hc-reject" id="hc-reject" data-lang-key="cookie_reject">仅必要</button></div>'
+      + '</div></div>';
+    document.body.appendChild(mask);
     applyBannerLang();
   }
-  function hideBanner() { var b = document.getElementById('hondvo-consent'); if (b) b.style.display = 'none'; }
+  function hideBanner() { var m = document.getElementById('hondvo-consent-mask'); if (m) m.style.display = 'none'; }
   function buildManage() {
     if (document.getElementById('hondvo-manage')) return;
     var m = document.createElement('button'); m.id = 'hondvo-manage';
     m.innerHTML = '🍪 <span data-lang-key="cookie_manage">Cookie 设置</span>';
-    m.onclick = function () { setConsent(null); hideBanner(); showBanner(); bindBanner(); };
+    m.onclick = function () { setConsent(null); showBanner(); bindBanner(); };
     document.body.appendChild(m);
     applyBannerLang();
   }
@@ -3577,6 +3581,8 @@ function switchLang(lang) {
 
   // ---- 行为追踪（仅同意后才启用页面浏览 / 搜索采集） ----
   function initTracker() {
+    if (window.__hondvoTrackerReady) return;
+    window.__hondvoTrackerReady = true;
     var vid = getVid();
     var pageEnter = Date.now();
     var lastPage = curPage();
@@ -3612,14 +3618,21 @@ function switchLang(lang) {
   };
 
   function boot() {
-    buildManage();
-    var c = getConsent();
-    if (c === 'accepted') { initTracker(); return; }
-    if (c === 'rejected') { return; }
-    showBanner(); bindBanner();
+    try {
+      buildManage();
+      var c = getConsent();
+      if (c === 'accepted') { initTracker(); return; }
+      if (c === 'rejected') { return; }
+      showBanner(); bindBanner();
+    } catch (e) {
+      try { showBanner(); bindBanner(); } catch (e2) {}
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
+  window.addEventListener('load', function () {
+    if (!document.getElementById('hondvo-consent-mask') && !document.getElementById('hondvo-manage')) boot();
+  });
 })();
 </script>
 </body>
