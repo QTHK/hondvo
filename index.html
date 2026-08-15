@@ -1132,13 +1132,10 @@
     border-color: var(--brand);
   }
   .logo-wall-icon {
-    width: 120px; height: 56px;
+    width: 52px; height: 52px;
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 22px; font-weight: 700; color: var(--neutral-400);
-  }
-  .logo-wall-icon img {
-    max-width: 110px; max-height: 46px; object-fit: contain;
-    display: block;
+    font-size: 22px; font-weight: 700; color: var(--white);
   }
   .logo-wall-name { font-size: 12px; color: var(--neutral-500); text-align: center; font-weight: 500; letter-spacing: 0.3px; }
 
@@ -1478,7 +1475,7 @@
 <nav class="nav" id="nav" aria-label="主导航">
   <div class="wrap">
     <a href="#page-home" class="logo">
-      <img class="lazy" src="images/logo.webp" data-src="images/logo.webp" alt="弘欧" loading="lazy" data-content-key="brand_logo" data-content-attr="src"><span class="logo-text">HONDVO</span>
+      <img class="lazy" src="images/logo.webp" data-src="images/logo.webp" alt="弘欧" loading="lazy"><span class="logo-text">HONDVO</span>
     </a>
     <button class="hamburger" id="hamburger" aria-label="菜单" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
     <ul class="links" id="nav-menu">
@@ -1521,12 +1518,14 @@
 <!-- ═══════════ PAGE: 首页 ═══════════ -->
 <div class="page" id="page-home">
   <div class="hero">
-    <div class="hero-slides" data-content-zone="hero">
+    <div class="hero-slides">
       <div class="hero-slide active" data-bg="images/hero_slide_1.webp" style=""></div>
+      <div class="hero-slide" data-bg="images/hero_slide_2.webp" style=""></div>
     </div>
     <div class="hero-overlay"></div>
-    <div class="hero-indicators" data-content-zone="hero-dots">
+    <div class="hero-indicators">
       <div class="hero-dot active" data-slide="0"></div>
+      <div class="hero-dot" data-slide="1"></div>
     </div>
     <div class="hero-content reveal">
       <div class="hero-tag">Precision Manufacturing · Medical Grade</div>
@@ -1543,27 +1542,54 @@
     </button>
   </div>
 
-  <div class="stats-bar" data-content-zone="stats">
-    <div class="stat-item reveal"><div class="num">109</div><div class="label">台加工设备</div></div>
+  <div class="stats-bar">
+    <div class="stat-item reveal"><div class="num">109</div><div data-lang-key="stat_machines" class="label">Machining Equipment</div></div>
+    <div class="stat-item reveal"><div class="num">21</div><div data-lang-key="stat_injection" class="label">Injection Machines</div></div>
+    <div class="stat-item reveal"><div class="num">125</div><div data-lang-key="stat_team" class="label">Professional Team</div></div>
+    <div class="stat-item reveal"><div class="num">3</div><div data-lang-key="stat_certs" class="label">Intl. Certifications</div></div>
+    <div class="stat-item reveal"><div class="num">2</div><div data-lang-key="stat_cleanrooms" class="label">Cleanrooms</div></div>
   </div>
 
   <!-- ═══════════ CLIENT LOGO WALL ═══════════ -->
   <div class="logo-wall-section reveal">
     <div class="sec-header reveal" style="padding-top:20px;"><h2 data-lang-key="logo_wall_title">Trusted Partners</h2><div class="line"></div><p data-lang-key="logo_wall_sub">Global medical device brands that trust our precision manufacturing</p></div>
-    <div class="logo-wall-grid" data-content-zone="partners">
-      <div class="logo-wall-item"><div class="logo-wall-icon"><span>M</span></div><span class="logo-wall-name">Medtronic</span></div>
+    <div class="logo-wall-grid">
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#1e40af;">M</div><span class="logo-wall-name">Medtronic</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#0369a1;">B</div><span class="logo-wall-name">Baxter</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#b91c1c;">B|B</div><span class="logo-wall-name">B. Braun</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#0d9488;">F</div><span class="logo-wall-name">Fresenius</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#7c3aed;">J&J</div><span class="logo-wall-name">Johnson &amp; Johnson</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#059669;">S</div><span class="logo-wall-name">Stryker</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#d97706;">A</div><span class="logo-wall-name">Abbott</span></div>
+      <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#dc2626;">T</div><span class="logo-wall-name">Terumo</span></div>
     </div>
   </div>
 
   <div class="sec-header reveal"><h2 data-lang-key="home_core_title">Core Business</h2><div class="line"></div><p data-lang-key="home_core_sub">Full-chain precision manufacturing capability from mold design to injection mass production</p></div>
 
-  <div class="prod-grid" data-content-zone="core">
+  <div class="prod-grid">
     <div class="prod-card reveal" onclick="location.href='#page-products'">
       <div class="card-img"><img class="lazy" src="images/core_medical_1.webp" data-src="images/core_medical_1.webp" alt="肠内营养输注系统" loading="lazy"></div>
       <div class="card-body">
-        <h3>肠内营养输注系统</h3>
-        <p>硅胶营养瓶体、注塑瓶盖、分流接头、管路接头——符合II类医疗器械法规要求</p>
-        <span class="link">了解详情</span>
+        <h3 data-lang-key="prod1_title">Enteral Nutrition Infusion System</h3>
+        <p data-lang-key="home_prod1_desc">Silicone nutrition bottle bodies, injection-molded caps, diverter connectors, tubing fittings — meeting Class II medical device regulations</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
+      </div>
+    </div>
+    <div class="prod-card reveal" onclick="location.href='#page-products'">
+      <div class="card-img"><img class="lazy" src="images/core_medical_2.webp" data-src="images/core_medical_2.webp" alt="注射给药系统" loading="lazy"></div>
+      <div class="card-body">
+        <h3 data-lang-key="prod2_title">Injection Drug Delivery System</h3>
+        <p data-lang-key="home_prod2_desc">High-precision syringe barrels and plunger assemblies with strict dimensional tolerance and surface quality control</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
+      </div>
+    </div>
+    <div class="prod-card reveal" onclick="location.href='#page-mold'">
+      <div class="card-img"><img class="lazy" src="images/core_mold_3.webp" data-src="images/core_mold_3.webp" alt="精密注塑模具" loading="lazy"></div>
+      <div class="card-body">
+        <h3 data-lang-key="prod3_title">Precision Injection Molds</h3>
+        <p data-lang-key="home_prod3_desc">23 CNC · 8 EDM · 7 Wire-cut · Hauser / RODERS / YASDA top-tier equipment matrix</p>
+        <span data-lang-key="home_more" class="link">Learn More</span>
       </div>
     </div>
   </div>
@@ -2106,33 +2132,23 @@ document.addEventListener('keydown', function(e){
   heroH1.innerHTML = result;
 })();
 
-/* Hero Carousel（支持后台数据注入后重初始化） */
+/* Hero Carousel */
 (function(){
-  var heroTimer = null;
-  function init(){
-    var slides = document.querySelectorAll('.hero-slide');
-    var dots = document.querySelectorAll('.hero-dot');
-    if (heroTimer) { clearInterval(heroTimer); heroTimer = null; }
-    var cur = 0, total = slides.length;
-    if (total === 0) return;
-    // 重置到第一张
-    slides.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
-    dots.forEach(function(d, i){ d.classList.toggle('active', i === 0); });
-    if (total < 2) return;
-    function go(idx) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-      cur = (idx + total) % total;
-      slides[cur].classList.add('active');
-      dots[cur].classList.add('active');
-    }
-    dots.forEach(function(d) {
-      d.addEventListener('click', function(){ go(parseInt(d.dataset.slide)); });
-    });
-    heroTimer = setInterval(function(){ go(cur + 1); }, 8000);
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var cur = 0, total = slides.length;
+  if (total < 2) return;
+  function go(idx) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (idx + total) % total;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
   }
-  init();
-  window.reinitHeroSlider = init;
+  dots.forEach(function(d) {
+    d.addEventListener('click', function(){ go(parseInt(d.dataset.slide)); });
+  });
+  setInterval(function(){ go(cur + 1); }, 8000);
 })();
 
 /* ═══════════ HAMBURGER MENU ═══════════ */
@@ -3622,16 +3638,10 @@ function switchLang(lang) {
   function curPage() { var h = location.hash || ''; return h.replace(/^#/, '') || 'page-home'; }
   function send(path, payload) {
     try {
-      // 优先发送到本地后端服务，失败时静默回退
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/api/track/' + path, true);
+      xhr.open('POST', API + '/track/' + path, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.send(JSON.stringify(payload));
-      // 同时也发送到远程 API（兼容旧采集器）
-      var xhr2 = new XMLHttpRequest();
-      xhr2.open('POST', API + '/collect/' + path, true);
-      xhr2.setRequestHeader('Content-Type', 'application/json');
-      xhr2.send(JSON.stringify(payload));
     } catch (e) {}
   }
 
@@ -3758,249 +3768,37 @@ function switchLang(lang) {
     } catch (e) {}
     return document.documentElement.lang || 'en';
   }
-
-  // ── 将后端 i18n 数组 [{key, zh, en, ...}] 合并到前端 I18N 字典 ──
   function mergeI18n(i18nArr) {
     if (!Array.isArray(i18nArr) || typeof I18N === "undefined") return;
+    var langs = ['zh', 'en', 'de', 'ru', 'fr', 'ja', 'ko', 'es'];
     for (var i = 0; i < i18nArr.length; i++) {
       var entry = i18nArr[i];
       if (!entry || !entry.key) continue;
       var key = entry.key;
       if (!I18N[key]) I18N[key] = {};
-      // 后端 key 是英文标识（如 nav_home），前端 key 是中文串（如 nav_首页）
-      // 都写入，switchLang 能识别任意 key
-      var langs = ['zh','en','de','ru','fr','ja','ko','es'];
       for (var li = 0; li < langs.length; li++) {
         var l = langs[li];
         if (entry[l]) I18N[key][l] = entry[l];
       }
     }
   }
-
-  // ── 将后端结构化内容合并到页面 ──
-  function mergeContent(content) {
-    if (!content || typeof content !== 'object') return;
-    // 遍历所有带 data-content-key 的元素
-    document.querySelectorAll('[data-content-key]').forEach(function(el) {
-      var key = el.getAttribute('data-content-key');
-      if (!key) return;
-      // 支持层级路径: "hero_title" → content.homepage.hero.title1
-      var val = resolveContentPath(content, key);
-      if (val === undefined || val === null) return;
-      if (typeof val === 'string') {
-        // img 等元素通过 data-content-attr 指定写入的属性（默认 textContent）
-        var attr = el.getAttribute('data-content-attr');
-        if (attr) el.setAttribute(attr, val);
-        else el.textContent = val;
-      }
-    });
-  }
-
-  // ── HTML 转义 ──
-  function escText(s) {
-    return String(s == null ? '' : s)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-
-  // ── 动态渲染区：按后端数据数组克隆模板渲染（hero 轮播 / 统计 / 合作伙伴 / 核心业务） ──
-  function renderZones(content) {
-    var h = (content && content.homepage) || {};
-    var changed = false;
-
-    // ① Hero 轮播：图片 + 指示圆点
-    var heroImgs = (h.hero && Array.isArray(h.hero.images)) ? h.hero.images : null;
-    if (heroImgs && heroImgs.length) {
-      var sZone = document.querySelector('[data-content-zone="hero"]');
-      if (sZone) {
-        var stpl = sZone.querySelector('.hero-slide');
-        if (stpl) {
-          sZone.innerHTML = '';
-          heroImgs.forEach(function(src, i) {
-            var el = stpl.cloneNode(true);
-            el.classList.toggle('active', i === 0);
-            el.removeAttribute('data-bg');
-            el.style.backgroundImage = 'url(' + src + ')';
-            sZone.appendChild(el);
-          });
-          changed = true;
-        }
-      }
-      var dZone = document.querySelector('[data-content-zone="hero-dots"]');
-      if (dZone) {
-        var dtpl = dZone.querySelector('.hero-dot');
-        if (dtpl) {
-          dZone.innerHTML = '';
-          heroImgs.forEach(function(_, i) {
-            var el = dtpl.cloneNode(true);
-            el.classList.toggle('active', i === 0);
-            el.setAttribute('data-slide', String(i));
-            dZone.appendChild(el);
-          });
-        }
-      }
-      if (window.reinitHeroSlider) window.reinitHeroSlider();
-    }
-
-    // ② 数据统计
-    if (Array.isArray(h.stats) && h.stats.length) {
-      var stZone = document.querySelector('[data-content-zone="stats"]');
-      if (stZone) {
-        var sTpl = stZone.querySelector('.stat-item');
-        if (sTpl) {
-          stZone.innerHTML = '';
-          h.stats.forEach(function(s) {
-            var el = sTpl.cloneNode(true);
-            var num = el.querySelector('.num'); if (num) num.textContent = s.value || '0';
-            var lab = el.querySelector('.label'); if (lab) lab.textContent = s.label || '';
-            stZone.appendChild(el);
-          });
-          changed = true;
-        }
-      }
-    }
-
-    // ③ 合作伙伴（品牌 logo 图片，无图时回退首字母）
-    if (Array.isArray(h.partners) && h.partners.length) {
-      var pZone = document.querySelector('[data-content-zone="partners"]');
-      if (pZone) {
-        var pTpl = pZone.querySelector('.logo-wall-item');
-        if (pTpl) {
-          pZone.innerHTML = '';
-          h.partners.forEach(function(p) {
-            var el = pTpl.cloneNode(true);
-            var nameEl = el.querySelector('.logo-wall-name');
-            if (nameEl) nameEl.textContent = p.name || '';
-            var iconEl = el.querySelector('.logo-wall-icon');
-            if (iconEl) {
-              if (p.image) {
-                iconEl.innerHTML = '<img src="' + escText(p.image) + '" alt="' + escText(p.name || '') + '">';
-              } else {
-                iconEl.innerHTML = '<span>' + escText((p.name || '?').charAt(0).toUpperCase()) + '</span>';
-              }
-            }
-            pZone.appendChild(el);
-          });
-          changed = true;
-        }
-      }
-    }
-
-    // ④ 核心业务（含"了解详情"按钮）
-    if (Array.isArray(h.coreBusiness) && h.coreBusiness.length) {
-      var cZone = document.querySelector('[data-content-zone="core"]');
-      if (cZone) {
-        var cTpl = cZone.querySelector('.prod-card');
-        if (cTpl) {
-          cZone.innerHTML = '';
-          h.coreBusiness.forEach(function(b) {
-            var el = cTpl.cloneNode(true);
-            var img = el.querySelector('.card-img img');
-            if (img) {
-              var src = b.image || img.getAttribute('data-src') || img.getAttribute('src') || '';
-              img.setAttribute('src', src);
-              img.setAttribute('data-src', src);
-              img.setAttribute('alt', b.title || '');
-            }
-            var h3 = el.querySelector('h3'); if (h3) h3.textContent = b.title || '';
-            var p = el.querySelector('p'); if (p) p.textContent = b.desc || '';
-            var link = el.querySelector('.link'); if (link) link.textContent = b.btnText || '了解详情';
-            el.setAttribute('onclick', "location.href='" + escText(b.link || '#page-products') + "'");
-            cZone.appendChild(el);
-          });
-          changed = true;
-        }
-      }
-    }
-
-    return changed;
-  }
-
-  // ── 解析 content-key 路径 ──
-  // content-key 格式: "hero_title" → 在 content.homepage.hero 中查找 title1
-  // 映射规则定义在 _contentKeyMap 中
-  var _contentKeyMap = {
-    // homepage
-    'brand_logo':     ['homepage','globals','logo'],
-    'hero_title':     ['homepage','hero','title1'],
-    'hero_sub':       ['homepage','hero','subTitle'],
-    'hero_desc':      ['homepage','hero','desc1'],
-    'hero_btn_left':  ['homepage','hero','leftBtnText'],
-    'hero_btn_right': ['homepage','hero','rightBtnText'],
-    'hero_scroll':    ['homepage','hero','bottomGuide'],
-    'brand_name':     ['homepage','globals','brandName'],
-    'nav_btn':        ['homepage','globals','navBtnText'],
-    'footer_copyright': ['homepage','footer','copyright'],
-    'footer_icp':     ['homepage','footer','icp'],
-    // about
-    'about_title':    ['about','who','title'],
-    'about_subtitle': ['about','who','subtitle'],
-    'about_desc':     ['about','who','description'],
-    'about_tech_title': ['about','who','techTitle'],
-    'about_tech_desc':  ['about','who','techDesc'],
-    'about_mold_title': ['about','who','moldTitle'],
-    'about_mold_desc':  ['about','who','moldDesc'],
-    // contact
-    'contact_phone':  ['contact','phone'],
-    'contact_email':  ['contact','email'],
-    'contact_addr':   ['contact','moldAddr'],
-    'contact_hours':  ['contact','workHours'],
-    // products
-    'products_title':   ['productsPage','bannerTitle'],
-    'products_sub':     ['productsPage','bannerSub'],
-    'products_core_title': ['productsPage','coreTitle'],
-    'products_core_sub':   ['productsPage','coreSub'],
-    // mold
-    'mold_title':     ['moldPage','bannerTitle'],
-    'mold_sub':       ['moldPage','bannerSub'],
-    'mold_verify':    ['moldPage','verifyText'],
-    // qual
-    'qual_title':     ['qual','bannerTitle'],
-    'qual_sub':       ['qual','bannerSub'],
-    'qual_env_title': ['qual','env','title'],
-    'qual_env_desc':  ['qual','env','description'],
-    // news
-    'news_title':     ['newsPage','bannerTitle'],
-    'news_sub':       ['newsPage','bannerSub']
-  };
-
-  function resolveContentPath(content, key) {
-    var path = _contentKeyMap[key];
-    if (!path) return undefined;
-    var obj = content;
-    for (var i = 0; i < path.length; i++) {
-      if (obj === undefined || obj === null) return undefined;
-      obj = obj[path[i]];
-    }
-    return obj;
-  }
-
   function reRender() {
     if (typeof switchLang === 'function') switchLang(curLang());
   }
-
   function tryFetch() {
     fetch(API)
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        if (!data.success) return;
-        // 合并 I18N
-        if (data.i18n) mergeI18n(data.i18n);
-        // 合并结构化内容
-        if (data.content) {
-          mergeContent(data.content);
-          renderZones(data.content); // 动态渲染区（轮播/统计/合作伙伴/核心业务）
-        }
+        if (data && data.success && data.i18n) mergeI18n(data.i18n);
         applied = true;
         reRender();
-        console.log('[HONDVO-Bridge] 后台数据已注入: version=' + data.version + ', ' + data.count + ' sections, ' + data.i18nCount + ' i18n');
+        console.log('[HONDVO-Bridge] 后台数据已注入: ' + (data && data.i18nCount || 0) + ' 词条, version=' + (data && data.version || ''));
       })
       .catch(function (e) {
         // 后端未启动时静默失败，官网仍用内置 I18N 字典
         console.log('[HONDVO-Bridge] 后端未连接，使用官网内置内容 (' + e.message + ')');
       });
   }
-
   function boot() {
     if (applied) return;
     tryFetch();
