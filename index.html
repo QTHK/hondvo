@@ -1518,12 +1518,12 @@
 <!-- ═══════════ PAGE: 首页 ═══════════ -->
 <div class="page" id="page-home">
   <div class="hero">
-    <div class="hero-slides">
+    <div class="hero-slides" data-content-zone="hero">
       <div class="hero-slide active" data-bg="images/hero_slide_1.webp" style=""></div>
       <div class="hero-slide" data-bg="images/hero_slide_2.webp" style=""></div>
     </div>
     <div class="hero-overlay"></div>
-    <div class="hero-indicators">
+    <div class="hero-indicators" data-content-zone="hero-dots">
       <div class="hero-dot active" data-slide="0"></div>
       <div class="hero-dot" data-slide="1"></div>
     </div>
@@ -1542,7 +1542,7 @@
     </button>
   </div>
 
-  <div class="stats-bar">
+  <div class="stats-bar" data-content-zone="stats">
     <div class="stat-item reveal"><div class="num">109</div><div data-lang-key="stat_machines" class="label">Machining Equipment</div></div>
     <div class="stat-item reveal"><div class="num">21</div><div data-lang-key="stat_injection" class="label">Injection Machines</div></div>
     <div class="stat-item reveal"><div class="num">125</div><div data-lang-key="stat_team" class="label">Professional Team</div></div>
@@ -1553,7 +1553,7 @@
   <!-- ═══════════ CLIENT LOGO WALL ═══════════ -->
   <div class="logo-wall-section reveal">
     <div class="sec-header reveal" style="padding-top:20px;"><h2 data-lang-key="logo_wall_title">Trusted Partners</h2><div class="line"></div><p data-lang-key="logo_wall_sub">Global medical device brands that trust our precision manufacturing</p></div>
-    <div class="logo-wall-grid">
+    <div class="logo-wall-grid" data-content-zone="partners">
       <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#1e40af;">M</div><span class="logo-wall-name">Medtronic</span></div>
       <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#0369a1;">B</div><span class="logo-wall-name">Baxter</span></div>
       <div class="logo-wall-item"><div class="logo-wall-icon" style="background:#b91c1c;">B|B</div><span class="logo-wall-name">B. Braun</span></div>
@@ -1567,7 +1567,7 @@
 
   <div class="sec-header reveal"><h2 data-lang-key="home_core_title">Core Business</h2><div class="line"></div><p data-lang-key="home_core_sub">Full-chain precision manufacturing capability from mold design to injection mass production</p></div>
 
-  <div class="prod-grid">
+  <div class="prod-grid" data-content-zone="coreBusiness">
     <div class="prod-card reveal" onclick="location.href='#page-products'">
       <div class="card-img"><img class="lazy" src="images/core_medical_1.webp" data-src="images/core_medical_1.webp" alt="肠内营养输注系统" loading="lazy"></div>
       <div class="card-body">
@@ -3782,6 +3782,116 @@ function switchLang(lang) {
       }
     }
   }
+  function renderZones(content) {
+    if (!content || typeof content !== 'object') return;
+    var h = content.homepage || {};
+
+    // ① Hero 轮播图
+    var heroImgs = (h.hero && Array.isArray(h.hero.images)) ? h.hero.images : null;
+    if (heroImgs && heroImgs.length) {
+      var sZone = document.querySelector('[data-content-zone="hero"]');
+      if (sZone) {
+        var stpl = sZone.querySelector('.hero-slide');
+        if (stpl) {
+          sZone.innerHTML = '';
+          heroImgs.forEach(function (src, i) {
+            var el = stpl.cloneNode(true);
+            el.classList.toggle('active', i === 0);
+            el.setAttribute('data-bg', src);
+            el.style.backgroundImage = 'url(' + src + ')';
+            sZone.appendChild(el);
+          });
+        }
+      }
+      var dZone = document.querySelector('[data-content-zone="hero-dots"]');
+      if (dZone) {
+        var dtpl = dZone.querySelector('.hero-dot');
+        if (dtpl) {
+          dZone.innerHTML = '';
+          heroImgs.forEach(function (_, i) {
+            var d = dtpl.cloneNode(true);
+            d.classList.toggle('active', i === 0);
+            d.setAttribute('data-slide', String(i));
+            dZone.appendChild(d);
+          });
+        }
+      }
+      if (window.reinitHeroSlider) window.reinitHeroSlider();
+    }
+
+    // ② 统计数字
+    if (Array.isArray(h.stats) && h.stats.length) {
+      var stZone = document.querySelector('[data-content-zone="stats"]');
+      if (stZone) {
+        var sTpl = stZone.querySelector('.stat-item');
+        if (sTpl) {
+          stZone.innerHTML = '';
+          h.stats.forEach(function (s) {
+            var el = sTpl.cloneNode(true);
+            var num = el.querySelector('.num');
+            if (num) num.textContent = s.value || '0';
+            var lab = el.querySelector('.label');
+            if (lab && s.labelKey) lab.setAttribute('data-lang-key', s.labelKey);
+            stZone.appendChild(el);
+          });
+        }
+      }
+    }
+
+    // ③ 合作伙伴（有 logo 图显示图，无图 fallback 字母）
+    if (Array.isArray(h.partners) && h.partners.length) {
+      var pZone = document.querySelector('[data-content-zone="partners"]');
+      if (pZone) {
+        var pTpl = pZone.querySelector('.logo-wall-item');
+        if (pTpl) {
+          pZone.innerHTML = '';
+          h.partners.forEach(function (p) {
+            var el = pTpl.cloneNode(true);
+            var icon = el.querySelector('.logo-wall-icon');
+            var nameEl = el.querySelector('.logo-wall-name');
+            if (nameEl) nameEl.textContent = p.name || '';
+            if (icon) {
+              if (p.image) {
+                icon.textContent = '';
+                icon.style.background = 'transparent';
+                var img = document.createElement('img');
+                img.src = p.image;
+                img.alt = p.name || '';
+                img.loading = 'lazy';
+                img.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;';
+                icon.appendChild(img);
+              } else {
+                icon.textContent = p.initial || '';
+                icon.style.background = p.color || '#1e40af';
+              }
+            }
+            pZone.appendChild(el);
+          });
+        }
+      }
+    }
+
+    // ④ 核心业务
+    if (Array.isArray(h.coreBusiness) && h.coreBusiness.length) {
+      var cZone = document.querySelector('[data-content-zone="coreBusiness"]');
+      if (cZone) {
+        var cTpl = cZone.querySelector('.prod-card');
+        if (cTpl) {
+          cZone.innerHTML = '';
+          h.coreBusiness.forEach(function (c) {
+            var el = cTpl.cloneNode(true);
+            var img = el.querySelector('.card-img img');
+            if (img && c.image) { img.src = c.image; img.setAttribute('data-src', c.image); }
+            var title = el.querySelector('h3');
+            if (title && c.titleKey) title.setAttribute('data-lang-key', c.titleKey);
+            var desc = el.querySelector('p');
+            if (desc && c.descKey) desc.setAttribute('data-lang-key', c.descKey);
+            cZone.appendChild(el);
+          });
+        }
+      }
+    }
+  }
   function reRender() {
     if (typeof switchLang === 'function') switchLang(curLang());
   }
@@ -3789,10 +3899,13 @@ function switchLang(lang) {
     fetch(API)
       .then(function (r) { return r.json(); })
       .then(function (data) {
-        if (data && data.success && data.i18n) mergeI18n(data.i18n);
+        if (data && data.success) {
+          if (data.i18n) mergeI18n(data.i18n);
+          if (data.content) renderZones(data.content);
+        }
         applied = true;
         reRender();
-        console.log('[HONDVO-Bridge] 后台数据已注入: ' + (data && data.i18nCount || 0) + ' 词条, version=' + (data && data.version || ''));
+        console.log('[HONDVO-Bridge] 后台数据已注入: ' + (data && data.i18nCount || 0) + ' 词条, ' + (data && data.count || 0) + ' sections, version=' + (data && data.version || ''));
       })
       .catch(function (e) {
         // 后端未启动时静默失败，官网仍用内置 I18N 字典
