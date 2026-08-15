@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 225" width="300" height="225" role="img" aria-label="精密注塑产品 占位图">
+  <rect width="300" height="225" fill="#F2F5F8"/>
+  <rect x="0.5" y="0.5" width="299" height="224" fill="none" stroke="#D5DCE3" stroke-width="1"/>
+  <g fill="none" stroke="#E16B24" stroke-width="2" opacity="0.55">
+    <rect x="120" y="58" width="60" height="60" rx="10"/>
+    <path d="M120 88h-16M180 88h16M150 58v-16M150 118v16"/>
+  </g>
+  <text x="150" y="148" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" fill="#E16B24">HONDVO</text>
+  <text x="150" y="170" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#7C8A97">精密注塑产品</text>
+  <text x="150" y="190" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" fill="#A9B3BD">产品图待上传</text>
+</svg>
